@@ -39,8 +39,9 @@ psql -U postgres -d isb-conecta
 # \dt                   lista tables da database
 # \d <tablename>        descreve uma tabela
 ```
-6. Crie as tabelas com as migrations: ``php artisan migrate --seed``
+6. Crie as tabelas com as migrations: ``php artisan migrate``
     - [mais comandos](tech-help.md)
+    - caso queira as seeds ``php artisan migrate --seed``
 
 7. Crie um usuário no banco
 
