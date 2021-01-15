@@ -1,0 +1,36 @@
+# com o vim, <c-j> ou o g:vrc_trigger no método http
+# https://github.com/diepm/vim-rest-console.git
+
+# global definitions
+// default host
+http://localhost:8000
+
+// argumentos curl default
+-s # silencioso
+#-i # header com syntax dinamica
+
+// para testar rotas que precise estar logado, crie .vrc-token
+// e insira "-H @.vrc-token" na requisição
+// exemplo do arquivo:
+// Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODg5MDU2NzksImV4cCI6MTU5NzM3Mjg3OSwic3ViIjoiYTk1ZDMzYTctZDdhZC00MWM4LWFlYjQtMGNhMTJkMjY2ZGMxIn0.8YdLVftEhzjx95b3Uqu2h4L6wg1o2wz3xbjE-GdJtbk
+--
+
+-H X-XSRF-TOKEN=eyJpdiI6ImxzS1BXWnVVbllLVDZZNWErSHlEaGc9PSIsInZhbHVlIjoiMTlYN1gyb1NqUWJ3MndxSGlvcFF3YkRBS2VDL2RWTk5iMVh0cFpkcHlBZDhjL1NPNnh6UVYxMG9PelhrUFltTEFHWUVrMFJ0Y0t6WEwvTnlmNWpXeGF4RnRaMTVTUGZ4eUxJR3EvZVhHOWpMUncrVkhOaWFDVkNCSGJ2TmhWNDIiLCJtYWMiOiI5Zjg3OTc1YWFkMzIwODdlMzgyYzdhNGRiYjEyOTlkN2U0OWI1ODRiZDM5MzE5OGM1ZDAyZWJhNWM0YzZiMmE3In0%3D
+
+--
+GET /sanctum/csrf-cookie
+--
+POST /api/login
+{
+  "email": "adm@inital.com",
+  "password": "123456"
+}
+--
+-H @.vrc-token
+GET /api/protected-route
+--
+POST /api/token
+{
+  "email": "adm@inital.com",
+  "password": "123456"
+}
