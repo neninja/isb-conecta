@@ -5,32 +5,14 @@ require("./bootstrap");
 import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
+import router from "./router";
 
-//Main pages
 import App from "./App.vue";
-import Home from "./views/Home.vue";
-import Hello from "./views/Hello.vue";
-
-const router = new VueRouter({
-    mode: "history",
-    routes: [
-        {
-            path: "/",
-            name: "home",
-            component: Home
-        },
-        {
-            path: "/hello",
-            name: "hello",
-            component: Hello
-        }
-    ]
-});
 
 const app = new Vue({
     el: "#app",
     components: { App },
-    router
+    router: new VueRouter(router)
 });
 
 /*
