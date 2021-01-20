@@ -4,6 +4,12 @@
 
 Cadastro de atividades da instituição
 
+## Quando o projeto ficará pronto?
+
+Os [marcos](https://github.com/nenitf/isb-conecta/milestones) do projeto estão atrelados a conclusões issues/tarefas, sendo eles:
+- [MVP](https://github.com/nenitf/isb-conecta/milestone/1): Pode ser publicado mesmo não finalizado (faltando funcionalidades que serão incrementadas)
+- [Release](https://github.com/nenitf/isb-conecta/milestone/2): Finalizado com todos requisitos iniciais levantados
+
 ## Setup
 
 1. Habilite as extensões necessárias do laravel e do seu banco
