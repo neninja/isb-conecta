@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return response('Logged out',202);
     });
 
-    Route::get('/protected-route', function (Request $request) {
+    Route::get('/authenticated', function (Request $request) {
         return [
             'user' => $request->user(),
             'message' => "success"
