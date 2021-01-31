@@ -45,15 +45,15 @@ psql -U postgres -d isb-conecta
 # \dt                   lista tables da database
 # \d <tablename>        descreve uma tabela
 ```
-6. Crie as tabelas com as migrations: ``php artisan migrate``
+6. Crie as tabelas com as migrations: ``php artisan migrate --seed``
     - [mais comandos](tech-help.md)
-    - caso queira as seeds ``php artisan migrate --seed``
 
 7. Crie um usuário no banco
 
 ```sh
 php artisan tinker
-(new App\Models\User())->create(['name' => 'adm', 'email' => 'adm@inital.com', 'password' => bcrypt('123456')]);
+(new App\Models\User())->create(['name' => 'adm', 'email' => 'adm@isb.com', 'password' => bcrypt('123456')])->setores()->attach(1);
+(new App\Models\User())->create(['name' => 'rec', 'email' => 'rec@isb.com', 'password' => bcrypt('123456')])->setores()->attach(2);
 ```
 
 ## Desenvolvimento local

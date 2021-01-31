@@ -1,9 +1,13 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
+
+use App\Models\{
+    User,
+    Setor,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +37,10 @@ Route::middleware('auth:sanctum')->group(function () {
             'message' => "success"
         ];
     });
+
+    Route::get('/setores', function (Request $request) {
+        return Setor::all();
+    })->middleware('can:pass-with-this-setor,"1"');
 });
 
 Route::get('/public-route', function(Request $request){

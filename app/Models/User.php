@@ -41,4 +41,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setores()
+    {
+        // return $this->belongsToMany(Setor::class)->using(UserSetor::class);
+        return $this->belongsToMany(
+            Setor::class,
+            'users_setores',
+            'user_id',
+            'setor_id'
+        );
+    }
 }
