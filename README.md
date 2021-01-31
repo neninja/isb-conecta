@@ -4,11 +4,13 @@
 
 Cadastro de atividades da instituição
 
-## Quando o projeto ficará pronto?
+## <a name="status"></a> Quando o projeto ficará pronto? [:clipboard:](#status)
 
-Os [marcos](https://github.com/nenitf/isb-conecta/milestones) do projeto estão atrelados a conclusões issues/tarefas, sendo eles:
-- [MVP](https://github.com/nenitf/isb-conecta/milestone/1): Pode ser publicado mesmo não finalizado (faltando funcionalidades que serão incrementadas)
-- [Release](https://github.com/nenitf/isb-conecta/milestone/2): Finalizado com todos requisitos iniciais levantados
+Os [marcos](https://github.com/nenitf/isb-conecta/milestones) do projeto estão atrelados a conclusões de [tarefas (issues)](https://github.com/nenitf/isb-conecta/issues). Cada marco é alcançado em sua respectiva ordem e define um estado do projeto, sendo:
+- [ ] [v0.0.0](https://github.com/nenitf/isb-conecta/milestone/1): Pode ser publicado mesmo não finalizado (faltando funcionalidades que serão incrementadas)
+- [ ] [v1.0.0](https://github.com/nenitf/isb-conecta/milestone/2): Finalizado com todos requisitos iniciais levantados
+
+Note que o tempo para atingir cada marco não possui relação com o seu percentual atual, pois depende da conclusão de novas tarefas. Sendo issues mais simples resolvidas em poucas horas ou mais complexas em semanas.
 
 ## Setup
 
