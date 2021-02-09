@@ -32,8 +32,25 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::get('/authenticated', function (Request $request) {
+
+        // $user = User::find(Auth::id());
+        $user = User::with('setores')->where('id', Auth::id())->first();
+
+        $setores = [];
+
+        foreach($user->setores as $setor){
+            $setores[] = [
+                'id' => $setor->id,
+                'nome' => $setor->nome,
+            ];
+        }
+
         return [
-            'user' => $request->user(),
+            // 'user' => $request->user(),
+            'user' => [
+                'name' => $user->name,
+                'setores' => $setores
+            ],
             'message' => "success"
         ];
     });
@@ -54,7 +71,11 @@ Route::post('login',array('as'=>'login',function(Request $request){
     ]);
 
     if (Auth::attempt($request->only('email', 'password'))) {
-        return response()->json(Auth::user(), 200);
+        // var_dump(User::find(Auth::id())->setores);die;
+        return response()->json(
+            User::find(Auth::id()), 200
+            // Auth::user(), 200
+        );
     }
 
     throw ValidationException::withMessages([

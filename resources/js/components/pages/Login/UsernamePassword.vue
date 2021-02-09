@@ -58,18 +58,19 @@ export default {
                 */
         },
         login(){
-            axios.post('/api/login', {
-                email: this.email,
-                password: this.password
-            }).then(response => {
-                this.$router.push({name: 'dashboard'});
-            }).catch(error => {
-                toastPermanente({
-                    html: error,
-                    classes: 'red',
-                    displayLength: Infinity
+            let email = this.email
+            let password = this.password
+            this.$store.dispatch('auth/login', { email, password })
+                .then(() => {
+                    this.$router.push({name: 'dashboard'})
                 })
-            });
+                .catch(error => {
+                    toastPermanente({
+                        html: error,
+                        classes: 'red',
+                        displayLength: Infinity
+                    })
+                })
         },
     }
 };
