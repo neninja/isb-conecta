@@ -6,7 +6,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><router-link :to="{name: 'dashboard'}">Página inicial</router-link></li>
                     <!--<li><router-link href="collapsible.html">Configurações</router-link></li>-->
-                    <li v-if="this.isLoggedIn()"><a href="#" @click="logout()">Encerrar sessão</a></li>
+                    <li v-if="isLoggedIn()"><a href="#" @click="logout()">Encerrar sessão</a></li>
                 </ul>
             </div>
         </nav>
@@ -57,3 +57,8 @@ export default {
     }
 }
 </script>
+<style scoped>
+nav {
+    background-color: #005D73;
+}
+</style>

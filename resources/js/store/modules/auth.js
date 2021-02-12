@@ -57,12 +57,19 @@ const mutations = {
     }
 };
 
+function isSetor(state, idSetor) {
+    return state.user?.setores?.findIndex(s => s.id === idSetor) > -1;
+}
+
 // getters
 // pegar valores computados
 const getters = {
     user: state => () => state.user,
     isLoggedIn: state => () => !!state.user,
-    setor: state => () => state.user.setores
+    setor: state => () => state.user.setores,
+    isAdm: state => () => isSetor(state, 1),
+    isSecretaria: state => () => isSetor(state, 2)
+    // isSec: state => () => state.user.setores.findIndex(s => s.id === 1) > -1
     // teste2(state) {
     // return function() {
     // state.user = "AAAA";

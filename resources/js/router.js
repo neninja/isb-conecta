@@ -13,6 +13,12 @@ import LoginUsernamePassword from "./components/pages/Login/UsernamePassword.vue
 // import LoginUsername from "./components/pages/Login/Username.vue";
 // import LoginPassword from "./components/pages/Login/Password.vue";
 
+import Relatorios from "./components/pages/Relatorios/index.vue";
+import RouterView from "./components/pages/Relatorios/RouterView.vue";
+import RelatorioAtendimentoRecepcao from "./components/pages/Relatorios/Recepcao/Atendimento/index.vue";
+
+import R from "./components/pages/Login/UsernamePassword.vue";
+
 const router = new VueRouter({
     mode: "history",
     routes: [
@@ -52,6 +58,28 @@ const router = new VueRouter({
             name: "dashboard",
             meta: { requiresAuth: true },
             component: Dashboard
+        },
+        {
+            path: "/relatorios",
+            meta: { requiresAuth: true },
+            component: Relatorios,
+            children: [
+                {
+                    path: "recepcao",
+                    component: RouterView,
+                    children: [
+                        {
+                            path: "solicitacao",
+                            name: "relatorioAtendimentoRecepcao",
+                            component: RelatorioAtendimentoRecepcao
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            path: "*",
+            component: Home
         }
     ]
 });

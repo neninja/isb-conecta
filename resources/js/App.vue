@@ -6,6 +6,11 @@
         </div>
     </div>
 </template>
+<style>
+.container {
+    margin-bottom: 3rem;
+}
+</style>
 <script>
 import NavBar from '@/components/Navbar.vue'
 

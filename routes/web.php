@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/{vue_capture?}', function () {
+// Route::get('/{vue_capture?}', function () {
+    // return view('index');
+// })->where('any','.*');
+
+Route::get('{all}', function () {
     return view('index');
-})->where('any','.*');
+})->where('all','.*');

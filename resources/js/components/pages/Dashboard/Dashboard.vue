@@ -1,26 +1,22 @@
 <template>
   <div>
-      dashboard
-      <ListaSetores v-if="isAdm"/>
+      <GrupoRecepcao v-if="isSecretaria()"></GrupoRecepcao/>
   </div>
 </template>
 <script>
-import ListaSetores from '@/components/pages/Dashboard/Setores.vue'
+import GrupoRecepcao from '@/components/pages/Dashboard/Grupos/Recepcao.vue'
 import { mapGetters } from 'vuex'
 
 export default {
     components: {
-        ListaSetores
+        GrupoRecepcao
     },
     computed: {
         ...mapGetters('auth', [
             'isLoggedIn',
-            'setor'
+            'isAdm',
+            'isSecretaria',
         ]),
-        isAdm(){
-            let i = this.setor().findIndex(s => s.id === 1)
-            return i >= 0
-        }
     },
 }
 </script>
