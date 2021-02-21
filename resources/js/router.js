@@ -69,7 +69,7 @@ const router = new VueRouter({
                     component: RouterView,
                     children: [
                         {
-                            path: "solicitacao",
+                            path: "atendimento",
                             name: "relatorioAtendimentoRecepcao",
                             component: RelatorioAtendimentoRecepcao
                         }
