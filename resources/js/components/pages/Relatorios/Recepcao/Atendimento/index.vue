@@ -36,6 +36,7 @@ import InputText from '@/components/InputText.vue'
 import InputRadio from '@/components/InputRadio.vue'
 import InputDate from '@/components/InputDate.vue'
 import Button from '@/components/Button.vue'
+import {validateFromSchema} from '@/validations'
 
 export default {
     components: {
@@ -58,12 +59,37 @@ export default {
         }
     },
     methods: {
-        enviaFormulario(){
+        validate(){
+            let s = {
+                onde: ['empty'],
+                data: ['empty'],
+                usuario: ['empty'],
+                contato: ['empty'],
+                relato: ['empty']
+            }
+
+            let atendimento = {
+                onde: this.onde,
+                data: this.data,
+                usuario: this.usuario,
+                contato: this.contato,
+                relato: this.relato
+            }
+
             this.resetaValidacao()
+            // https://forum.vuejs.org/t/how-to-clone-property-value-as-simple-object/40032/2
+            // manter imutabilidade
+            let erros = JSON.parse(JSON.stringify(this.erros))
 
-            this.erros.onde = "erro aqui"
+            let validations = validateFromSchema(
+                s, atendimento, erros, { failFast: true }
+            )
+            this.erros = validations.erros
 
-            if(this.formInvalido()){
+            return validations.houveErro
+        },
+        enviaFormulario(){
+            if(this.validate()){
                 return false
             }
 
@@ -75,30 +101,15 @@ export default {
                 relato: this.relato
             }
 
-            console.log(atendimento)
-        },
-        formInvalido(){
-            let invalido = false
-
-            if(!this.usuario){
-                this.erros.usuario = "Informe o usuário atendido"
-            }
-
-            if(!this.contato){
-                this.erros.contato = "Informe o contato"
-            }
-
-            if(!this.relato){
-                this.erros.relato = "Informe o relato"
-            }
-
-            return invalido
+            console.log("enviando", atendimento)
         },
         resetaValidacao(){
             this.erros = {
+                onde: null,
+                data: null,
                 usuario: null,
                 contato: null,
-                relato: null,
+                relato: null
             }
         }
     }

@@ -18,16 +18,17 @@
             :id="id"
             type="text">
         <label :for="id" :class="{active: !!value}">{{label}}</label>
-        <span
-            v-if="!!erro"
-            class="helper-text"
-            :data-error="erro">
-        </span>
+
+        <InputFeedback v-if="!!erro" :erro="erro"/>
     </div>
 </template>
 <script>
+import InputFeedback from '@/components/InputFeedback.vue'
 export default {
     props: ['value', 'label', 'area', 'erro'],
+    components: {
+        InputFeedback
+    },
     data () {
         return {
             id: null

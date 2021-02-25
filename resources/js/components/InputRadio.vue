@@ -12,17 +12,21 @@
         </label>
         </p>
 
-        <span
-            v-if="!!erro"
-            class="helper-text"
-            >
-            {{erro}}
-        </span>
+        <InputFeedback v-if="!!erro" :erro="erro"/>
     </div>
 </template>
+<style>
+.helper-text.erro {
+    color: #F44336;
+}
+</style>
 <script>
+import InputFeedback from '@/components/InputFeedback.vue'
 export default {
     props: ['value', 'label', 'area', 'opts', 'erro'],
+    components: {
+        InputFeedback
+    },
     data () {
         return {
             id: null
