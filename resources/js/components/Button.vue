@@ -9,12 +9,18 @@
         v-else
         type="button"
         @click="$emit('click')"
+        :class="color"
         class="waves-effect waves-light btn">
         <slot></slot>
     </button>
 </template>
+<style scoped>
+.white, .grey {
+    color: #000;
+}
+</style>
 <script>
 export default {
-    props: ['link'],
+    props: ['link', 'color'],
 }
 </script>

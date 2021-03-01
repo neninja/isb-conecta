@@ -1,7 +1,7 @@
 <template>
-    <div class="input-field">
+    <ul class="input-field">
         <p><label class="active">{{label}}</label></p>
-        <p v-for="(opt, i) in opts":key="i">
+        <li v-for="(opt, i) in opts":key="i">
         <label>
             <input
                 :name="id"
@@ -10,10 +10,10 @@
                 type="radio" />
             <span>{{opt.d}}</span>
         </label>
-        </p>
+        </li>
 
         <InputFeedback v-if="!!erro" :erro="erro"/>
-    </div>
+    </ul>
 </template>
 <style>
 .helper-text.erro {
