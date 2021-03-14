@@ -23,6 +23,8 @@ php -r "var_dump([
     extension_loaded('xml'),
     extension_loaded('openssl'),
     extension_loaded('pdo'),
+    extension_loaded('pgsql'),
+    extension_loaded('pdo_pgsql')
 ]);"
 
 # caso precise habilitar alguma, edite seu php.ini que se encontra em:
