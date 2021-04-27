@@ -37,6 +37,7 @@ import InputRadioButton from '@/components/InputRadioButton.vue'
 import InputDate from '@/components/InputDate.vue'
 import Button from '@/components/Button.vue'
 import {validateFromSchema} from '@/validations'
+import { toast, toastPermanente } from '@/toast.js'
 
 export default {
     components: {
@@ -103,9 +104,16 @@ export default {
 
             axios.post('/api/recepcao/atendimentos', atendimento)
                 .then(response => {
-                    //console.log(response);
+                    toast({
+                        html: 'Sucesso',
+                        classes: 'green'
+                    })
+                    this.$router.push({name: 'dashboard'})
                 }).catch(error => {
-                    //console.log(error)
+                    toastPermanente({
+                        html: error,
+                        classes: 'red'
+                    })
                 });
         },
         resetaValidacao(){
