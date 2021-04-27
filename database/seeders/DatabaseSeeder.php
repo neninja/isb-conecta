@@ -27,5 +27,10 @@ class DatabaseSeeder extends Seeder
             ['nome' => 'Apoio'],
             ['nome' => 'Jardinagem']
         ]);
+
+        DB::table('locaisAtendimento')->insert([
+            ['descricao' => 'Porta'],
+            ['descricao' => 'Telefone']
+        ]);
     }
 }

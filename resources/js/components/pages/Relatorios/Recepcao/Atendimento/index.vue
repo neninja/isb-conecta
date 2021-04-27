@@ -101,7 +101,12 @@ export default {
                 relato: this.relato
             }
 
-            console.log("enviando", atendimento)
+            axios.post('/api/recepcao/atendimentos', atendimento)
+                .then(response => {
+                    //console.log(response);
+                }).catch(error => {
+                    //console.log(error)
+                });
         },
         resetaValidacao(){
             this.erros = {
