@@ -3,7 +3,6 @@ require("./bootstrap");
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
-import "es6-promise/auto";
 
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";

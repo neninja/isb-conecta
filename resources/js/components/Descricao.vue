@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>{{setor}}</h2>
-        <h1>Central de Relatórios</h1>
+        <h1>{{titulo}}</h1>
         <p><slot></slot></p>
         <p class="obs">{{obs}}</p>
     </div>

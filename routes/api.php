@@ -4,7 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
-use App\Http\Controllers\AtendimentoRecepcaoController;
+use App\Http\Controllers\{
+    RecepcaoController,
+    AtendimentoRecepcaoController,
+};
 
 use App\Models\{
     User,
@@ -61,6 +64,7 @@ Route::middleware('auth:sanctum')->group(function () {
         return Setor::all();
     })->middleware('can:pass-with-this-setor,"1"');
 
+    Route::resource('/recepcao/relatorios', RecepcaoController::class);
     Route::resource('/recepcao/atendimentos', AtendimentoRecepcaoController::class);
 });
 

@@ -1,28 +1,37 @@
 <template>
-    <ul>
-        <li v-for="setor in setores" :key="setor.id">
-            {{ setor.nome }}
-        </li>
-    </ul>
+    <Lista :itens="setores"/>
 </template>
 <script>
-import { toast } from '@/toast.js'
+import Lista from '@/components/pages/Dashboard/ListaLinks/Lista.vue'
 export default {
+    components: {
+        Lista
+    },
     data() {
         return {
-            setores: []
+            setores: [
+                {
+                    descricao: 'Recepção',
+                    nomeRota: 'verRelatoriosRecepcao'
+                },
+//                {
+//                    descricao: 'Telefonema',
+//                    nomeRota: 'relatorioTelefonemaRecepcao'
+//                },
+//                {
+//                    descricao: 'Solicitação',
+//                    nomeRota: 'relatorioSolicitacaoRecepcao'
+//                },
+//                {
+//                    descricao: 'Observações',
+//                    nomeRota: 'relatorioObservacaoRecepcao'
+//                },
+//                {
+//                    descricao: 'Ocorrência',
+//                    nomeRota: 'relatorioOcorrencia'
+//                },
+            ]
         }
     },
-    created: function(){
-        axios.get('/api/setores')
-            .then(response => {
-                this.setores = response.data
-            }).catch(error => {
-                toast({
-                    html: "Não foi carregada a lista de setores",
-                    classes: 'red'
-                })
-            });
-    }
 }
 </script>

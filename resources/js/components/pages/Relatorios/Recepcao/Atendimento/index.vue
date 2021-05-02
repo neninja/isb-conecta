@@ -2,6 +2,7 @@
     <div>
       <Descricao
           setor="Setor de Recepção"
+          titulo="Central de Setores"
           obs="Todos os campos são obrigatórios">
       Adicione as informações referentes ao atendimento realizado dentro do Instituto São Benedito.
       </Descricao>
@@ -31,11 +32,11 @@
     </div>
 </template>
 <script>
-import Descricao from '@/components/Descricao.vue'
-import InputText from '@/components/InputText.vue'
-import InputRadioButton from '@/components/InputRadioButton.vue'
-import InputDate from '@/components/InputDate.vue'
-import Button from '@/components/Button.vue'
+import Descricao from '@components/Descricao.vue'
+import InputText from '@components/InputText.vue'
+import InputRadioButton from '@components/InputRadioButton.vue'
+import InputDate from '@components/InputDate.vue'
+import Button from '@components/Button.vue'
 import {validateFromSchema} from '@/validations'
 import { toast, toastPermanente } from '@/toast.js'
 

@@ -66,7 +66,7 @@ Após configurar [setup](#setup):
 
 ```sh
 php artisan serve
-npm run watch
+npm run hot
 
 # localhost:8000
 ```

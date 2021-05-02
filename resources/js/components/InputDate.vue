@@ -23,7 +23,7 @@ export default {
         this.id = `inputdate-${this._uid}`
     },
     mounted: function(){
-        var elem = document.getElementById(`${this.id}`);
+        let elem = document.getElementById(`${this.id}`);
 
         let opt = {
             format: 'dd/mm/yyyy',

@@ -12,24 +12,24 @@ export default {
             relatorios: [
                 {
                     descricao: 'Atendimento',
-                    nomeRota: 'relatorioAtendimentoRecepcao'
+                    nomeRota: 'cadastroAtendimentoRecepcao'
                 },
-                {
-                    descricao: 'Telefonema',
-                    nomeRota: 'relatorioTelefonemaRecepcao'
-                },
-                {
-                    descricao: 'Solicitação',
-                    nomeRota: 'relatorioSolicitacaoRecepcao'
-                },
-                {
-                    descricao: 'Observações',
-                    nomeRota: 'relatorioObservacaoRecepcao'
-                },
-                {
-                    descricao: 'Ocorrência',
-                    nomeRota: 'relatorioOcorrencia'
-                },
+//                {
+//                    descricao: 'Telefonema',
+//                    nomeRota: 'relatorioTelefonemaRecepcao'
+//                },
+//                {
+//                    descricao: 'Solicitação',
+//                    nomeRota: 'relatorioSolicitacaoRecepcao'
+//                },
+//                {
+//                    descricao: 'Observações',
+//                    nomeRota: 'relatorioObservacaoRecepcao'
+//                },
+//                {
+//                    descricao: 'Ocorrência',
+//                    nomeRota: 'relatorioOcorrencia'
+//                },
             ]
         }
     },

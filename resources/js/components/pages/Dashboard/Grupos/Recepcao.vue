@@ -2,6 +2,7 @@
   <div>
       <Descricao
           setor="Setor de Recepção"
+          titulo="Central de Setores"
           obs="Não é você ou não exerce essa função?">
       Você está cadastrado no setor de Recepção, aqui você encontra todas as funções de relatórios disponíveis.
       </Descricao>

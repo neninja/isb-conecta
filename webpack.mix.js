@@ -1,6 +1,8 @@
 const mix = require("laravel-mix");
 const path = require("path");
 
+mix.disableNotifications();
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -18,7 +20,27 @@ mix.js("resources/js/app.js", "public/js")
     .webpackConfig({
         resolve: {
             alias: {
-                "@": path.resolve(__dirname, "resources", "js")
+                "@": path.resolve(__dirname, "resources", "js"),
+                "@components": path.resolve(
+                    __dirname,
+                    "resources",
+                    "js",
+                    "components"
+                ),
+                "@pageComponents": path.resolve(
+                    __dirname,
+                    "resources",
+                    "js",
+                    "components",
+                    "pages"
+                ),
+                "@api-backend": path.resolve(
+                    __dirname,
+                    "resources",
+                    "js",
+                    "api",
+                    "backend"
+                )
             }
         }
     });

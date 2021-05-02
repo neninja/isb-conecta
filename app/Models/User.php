@@ -23,6 +23,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function atendimentos(){
+        return $this->hasMany('App\Infra\Repositories\Eloquent\Models\Atendimento', 'id_usuario');
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

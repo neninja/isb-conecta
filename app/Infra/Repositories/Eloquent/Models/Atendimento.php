@@ -14,5 +14,9 @@ class Atendimento extends Model
         'telefone',
         'relato'
     ];
+
+    public function usuario(){
+        return $this->belongsTo('App\Models\User', 'id_usuario');
+    }
     protected $table = "atendimentos";
 }

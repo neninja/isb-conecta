@@ -14,8 +14,9 @@ import LoginUsernamePassword from "./components/pages/Login/UsernamePassword.vue
 // import LoginPassword from "./components/pages/Login/Password.vue";
 
 import Relatorios from "./components/pages/Relatorios/index.vue";
-import RouterView from "./components/pages/Relatorios/RouterView.vue";
+import RouterView from "./components/RouterView.vue";
 import RelatorioAtendimentoRecepcao from "./components/pages/Relatorios/Recepcao/Atendimento/index.vue";
+import PesquisaRelatoriosRecepcao from "./components/pages/Pesquisa/Recepcao/index.vue";
 
 import R from "./components/pages/Login/UsernamePassword.vue";
 
@@ -60,20 +61,33 @@ const router = new VueRouter({
             component: Dashboard
         },
         {
-            path: "/relatorios",
+            path: "/cadastro",
             meta: { requiresAuth: true },
             component: Relatorios,
             children: [
                 {
                     path: "recepcao",
                     component: RouterView,
+                    meta: { requiresSetorRecepcao: true },
                     children: [
                         {
                             path: "atendimento",
-                            name: "relatorioAtendimentoRecepcao",
+                            name: "cadastroAtendimentoRecepcao",
                             component: RelatorioAtendimentoRecepcao
                         }
                     ]
+                }
+            ]
+        },
+        {
+            path: "/pesquisa",
+            meta: { requiresAuth: true, requiresSetorAdm: true },
+            component: RouterView,
+            children: [
+                {
+                    path: "recepcao",
+                    name: "pesquisaRelatoriosRecepcao",
+                    component: PesquisaRelatoriosRecepcao
                 }
             ]
         },
@@ -96,9 +110,27 @@ router.beforeEach((to, from, next) => {
                     path: "/login"
                 });
             });
-    } else {
-        next(); // make sure to always call next()!
     }
+
+    const validaTrueFalse = teste => {
+        if (teste) {
+            next();
+        } else {
+            next({
+                path: "/login"
+            });
+        }
+    };
+
+    if (to.matched.some(record => record.meta.requiresSetorAdm)) {
+        validaTrueFalse(store.getters["auth/isAdm"]());
+    }
+
+    if (to.matched.some(record => record.meta.requiresSetorRecepcao)) {
+        validaTrueFalse(store.getters["auth/isRecepcao"]());
+    }
+
+    next(); // make sure to always call next()!
 });
 
 export default router;

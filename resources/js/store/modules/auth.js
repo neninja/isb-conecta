@@ -68,7 +68,7 @@ const getters = {
     isLoggedIn: state => () => !!state.user,
     setor: state => () => state.user.setores,
     isAdm: state => () => isSetor(state, 1),
-    isSecretaria: state => () => isSetor(state, 2)
+    isRecepcao: state => () => isSetor(state, 2)
     // isSec: state => () => state.user.setores.findIndex(s => s.id === 1) > -1
     // teste2(state) {
     // return function() {
