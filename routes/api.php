@@ -60,12 +60,16 @@ Route::middleware('auth:sanctum')->group(function () {
         ];
     });
 
-    Route::get('/setores', function (Request $request) {
-        return Setor::all();
-    })->middleware('can:pass-with-this-setor,"1"');
+    Route::middleware('has:setor-adm')->group(function () {
+        Route::resource('/recepcao/relatorios', RecepcaoController::class);
+        Route::get('/setores', function (Request $request) {
+            return Setor::all();
+        });
+    });
 
-    Route::resource('/recepcao/relatorios', RecepcaoController::class);
-    Route::resource('/recepcao/atendimentos', AtendimentoRecepcaoController::class);
+    Route::middleware('has:setor-recepcao')->group(function () {
+        Route::resource('/recepcao/atendimentos', AtendimentoRecepcaoController::class);
+    });
 });
 
 Route::get('/public-route', function(Request $request){

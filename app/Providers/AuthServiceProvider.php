@@ -29,8 +29,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('pass-with-this-setor', function (User $user, $idSetor) {
-            return $this->acceptBySetor($user, intval($idSetor));
+        Gate::define('setor-adm', function (User $user) {
+            return $this->acceptBySetor($user, 1);
+        });
+
+        Gate::define('setor-recepcao', function (User $user) {
+            return $this->acceptBySetor($user, 2);
         });
     }
 
