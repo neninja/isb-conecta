@@ -11,7 +11,7 @@
         </div>
 
         <div class="box">
-            <router-view></router-view>
+            <Form/>
         </div>
     </div>
 </template>
@@ -31,3 +31,13 @@
     padding: 3rem 1.5rem;
 }
 </style>
+
+<script>
+import Form from './Form.vue'
+
+export default {
+    components: {
+        Form
+    }
+}
+</script>

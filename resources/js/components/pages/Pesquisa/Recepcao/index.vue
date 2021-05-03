@@ -34,7 +34,6 @@ export default {
         handleListar(filtros){
             filtraRelatoriosRecepcao(filtros.data, filtros.relatorios)
                 .then((resp) => {
-                    console.log(resp)
                     this.relatorios = resp
                     this.exibirFormulario = false
                 })

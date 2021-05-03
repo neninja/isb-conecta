@@ -7,6 +7,7 @@
                     <li><router-link :to="{name: 'dashboard'}">Página inicial</router-link></li>
                     <!--<li><router-link href="collapsible.html">Configurações</router-link></li>-->
                     <li v-if="isLoggedIn()"><a href="#" @click="logout()">Encerrar sessão</a></li>
+                    <li v-if="isAdm()"><router-link :to="{name: 'gerenciamentoUsuarios'}">Usuários</router-link></li>
                 </ul>
             </div>
         </nav>
@@ -30,7 +31,8 @@ export default {
     },
     computed: {
         ...mapGetters('auth', [
-            'isLoggedIn'
+            'isLoggedIn',
+            'isAdm'
         ])
     },
     methods: {
