@@ -1,4 +1,4 @@
-import { get } from "@/api/httpclient";
+import { get, post } from "@/api/httpclient";
 
 export function pesquisaUsuarios(nome, setor) {
     return get("/api/usuarios", {
@@ -7,4 +7,8 @@ export function pesquisaUsuarios(nome, setor) {
             setor
         }
     });
+}
+
+export function criaUsuario(usuario) {
+    return post("/api/usuarios", usuario);
 }

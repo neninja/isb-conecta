@@ -10,8 +10,16 @@ use App\Models\User;
 
 use App\Http\Resources\UsuarioResource;
 
+use Core\UseCases\CadastroUsuario\CadastroUsuario;
+
 class UsuariosController extends Controller
 {
+    public function __construct(
+        CadastroUsuario $cadastroUsuario
+    ) {
+        $this->cadastroUsuario = $cadastroUsuario;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -67,9 +75,19 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $s = $this->cadastroUsuario;
+
+        $dto = new \Core\UseCases\CadastroUsuario\CadastroUsuarioDTO();
+        $dto->nome = $req['nome'];
+        $dto->senha = $req['senha'];
+        $dto->email = $req['email'];
+        $dto->idSetor = $req['setor'];
+
+        $s->execute($dto);
+
+        return [];
     }
 
     /**

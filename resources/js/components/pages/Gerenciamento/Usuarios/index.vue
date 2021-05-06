@@ -8,21 +8,21 @@
 
         <transition name="fade">
         <div v-show="buscaAberta">
-            <FormBusca @pesquisa="pesquisa"/>
+            <FormBusca @pesquisa="handlePesquisa"/>
             <Listagem
                 :data="usuarios"
                 :columnsData="['nome', 'setor']"
                 :columnsDesc="['Nome', 'Setor']"
                 :buttons="['add', 'edit', 'delete']"
-                @add="add"
-                @edit="edit"
-                @del="del"
+                @add="handleAdd"
+                @edit="handleEdit"
+                @del="handleDel"
                 />
         </div>
         </transition>
         <transition name="fade">
-        <div v-show="!buscaAberta">
-            <FormCadastro/>
+        <div v-if="!buscaAberta">
+            <FormCadastro @cancel="buscaAberta=!buscaAberta" @submit="handleCreate"/>
         </div>
         </transition>
     </div>
@@ -33,7 +33,8 @@ import FormBusca from './FormBusca.vue'
 import FormCadastro from './FormCadastro.vue'
 import Listagem from './Listagem.vue'
 
-import { pesquisaUsuarios } from '@api-backend/usuarios'
+import { pesquisaUsuarios, criaUsuario } from '@api-backend/usuarios'
+import { toast, toastPermanente } from '@/toast.js'
 
 export default {
     components: {
@@ -46,22 +47,22 @@ export default {
         }
     },
     mounted: function(){
-        this.pesquisa({
+        this.handlePesquisa({
             nome: "",
             setor: ""
         })
     },
     methods: {
-        add(){
-            console.log("add")
+        handleAdd(){
+            this.buscaAberta = false
         },
-        edit(r){
+        handleEdit(r){
             console.log(r)
         },
-        del(r){
+        handleDel(r){
             console.log(r)
         },
-        pesquisa(filtros){
+        handlePesquisa(filtros){
             pesquisaUsuarios(filtros.nome, filtros.setor).then(u => {
                 this.usuarios = u.map(usuario => {
                     return {
@@ -71,6 +72,28 @@ export default {
                     }
                 })
             })
+        },
+        handleCreate(u){
+            criaUsuario(u)
+                .then(r => {
+                    this.buscaAberta = true
+
+                    this.handlePesquisa({
+                        nome: "",
+                        setor: ""
+                    })
+
+                    toast({
+                        html: 'Sucesso',
+                        classes: 'green'
+                    })
+                })
+                .catch(error => {
+                    toastPermanente({
+                        html: error,
+                        classes: 'red'
+                    })
+                });
         }
     }
 }
