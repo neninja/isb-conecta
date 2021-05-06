@@ -6,8 +6,8 @@
                 <ul class="right hide-on-med-and-down">
                     <li><router-link :to="{name: 'dashboard'}">Página inicial</router-link></li>
                     <!--<li><router-link href="collapsible.html">Configurações</router-link></li>-->
-                    <li v-if="isLoggedIn()"><a href="#" @click="logout()">Encerrar sessão</a></li>
                     <li v-if="isAdm()"><router-link :to="{name: 'gerenciamentoUsuarios'}">Usuários</router-link></li>
+                    <li v-if="isLoggedIn()"><a href="#" @click="logout()">Encerrar sessão</a></li>
                 </ul>
             </div>
         </nav>
@@ -15,6 +15,7 @@
         <ul class="sidenav sidenav-close" id="navbar-burguer">
             <li><router-link :to="{name: 'dashboard'}">Página inicial</router-link></li>
             <!--<li><router-link href="collapsible.html">Configurações</router-link></li>-->
+            <li v-if="isAdm()"><router-link :to="{name: 'gerenciamentoUsuarios'}">Usuários</router-link></li>
             <li v-if="isLoggedIn()"><a href="#" @click="logout()">Encerrar sessão</a></li>
         </ul>
     </div>

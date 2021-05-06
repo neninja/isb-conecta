@@ -7,6 +7,7 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\{
     RecepcaoController,
     AtendimentoRecepcaoController,
+    UsuariosController,
 };
 
 use App\Models\{
@@ -61,6 +62,7 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::middleware('has:setor-adm')->group(function () {
+        Route::resource('/usuarios', UsuariosController::class);
         Route::resource('/recepcao/relatorios', RecepcaoController::class);
         Route::get('/setores', function (Request $request) {
             return Setor::all();

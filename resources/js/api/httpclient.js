@@ -1,7 +1,7 @@
 export function get(url, body) {
     return new Promise(function(resolve, reject) {
         axios
-            .get("/api/recepcao/relatorios", body)
+            .get(url, body)
             .then(resp => {
                 resolve(resp.data);
             })

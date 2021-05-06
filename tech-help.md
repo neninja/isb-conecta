@@ -13,6 +13,7 @@ php artisan make:model Cliente -m # cria model e a migration de Cliente
 php artisan make:model Pedido -a # cria migration, seeder, factory e resource controller
 
 php artisan make:controller UsuarioController
+php artisan make:resource UsuarioResource
 
 php artisan make:request ClienteRequest
 ```

@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Http\Resources\{
+    UsuarioResource,
+    SetorResource,
+};
+
 use Core\UseCases\CadastroAtendimentoRecepcao\CadastroAtendimentoRecepcao;
 
 use Core\Contracts\Repositories\{
@@ -55,6 +60,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        UsuarioResource::withoutWrapping();
+        SetorResource::withoutWrapping();
     }
 }
