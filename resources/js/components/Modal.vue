@@ -2,7 +2,7 @@
     <div>
         <div class="modal" :class="className">
             <div class="modal-content">
-                <h4>Modal Header</h4>
+                <h4>{{header}}</h4>
                 <slot></slot>
             </div>
             <div class="modal-footer">

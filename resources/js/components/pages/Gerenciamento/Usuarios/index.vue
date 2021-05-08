@@ -8,16 +8,8 @@
 
         <transition name="fade">
         <div v-show="buscaAberta">
-
-            <Button @click="modalIsOpen = true">
-                Abrir modal
-            </Button>
-            <Modal
-                :isOpen="modalIsOpen"
-                @ok="modalOk"
-                @cancelar="modalCancelar"
-            >
-            Exemplo
+            <Modal :isOpen="modalIsOpen" :header="modalTitulo" @ok="modalOk" @cancelar="modalCancelar">
+            {{modalConteudo}}
             </Modal>
 
             <FormBusca @pesquisa="handlePesquisa"/>
@@ -71,6 +63,8 @@ export default {
             modalIsOpen: false,
             cbModalOk: _ => null,
             cbModalCancelar: _ => null,
+            modalTitulo: null,
+            modalConteudo: null,
             usuarioSelecionado: {
                 id: '',
                 nome: '',
@@ -118,13 +112,17 @@ export default {
                     })
                 })
         },
-        abrirModalCancelavel(cbOk, cbCancelar = _ => null) {
+        abrirModalCancelavel(titulo, conteudo, cbOk, cbCancelar = _ => null) {
+            this.modalTitulo = titulo
+            this.modalConteudo = conteudo
             this.modalIsOpen = true
             this.cbModalOk = cbOk
             this.cbModalCancelar = cbCancelar
         },
         handleDel(u){
             this.abrirModalCancelavel(
+                "Inativar usuário",
+                `A ação a seguir vai inativar o usuário ${u.nome}`,
                 _ => {
                     inativaUsuario(u.id)
                         .then(u => {
@@ -144,19 +142,23 @@ export default {
         },
         handleUndel(u){
             this.abrirModalCancelavel(
-                reativaUsuario(u.id)
-                .then(u => {
-                    this.handlePesquisa({
-                        nome: "",
-                        setor: ""
+                "Reativar usuário",
+                `A ação a seguir vai reativar o usuário ${u.nome}`,
+                _ => {
+                    reativaUsuario(u.id)
+                    .then(u => {
+                        this.handlePesquisa({
+                            nome: "",
+                            setor: ""
+                        })
                     })
-                })
-                .catch(error => {
-                    toastPermanente({
-                        html: error,
-                        classes: 'red'
-                    })
-                });
+                    .catch(error => {
+                        toastPermanente({
+                            html: error,
+                            classes: 'red'
+                        })
+                    });
+                }
             )
         },
         handlePesquisa(filtros){
