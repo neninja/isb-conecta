@@ -8,8 +8,10 @@ use App\Models\Setor;
 
 class Usuario extends Model
 {
+    protected $primaryKey = 'id';
     protected $fillable = [
         'id',
+        'active',
         'name',
         'email',
         'password',

@@ -56,8 +56,8 @@ psql -U postgres -d isb-conecta
 
 ```sh
 php artisan tinker
-(new App\Models\User())->create(['name' => 'adm', 'email' => 'adm@isb.com', 'password' => bcrypt('123456')])->setores()->attach(1);
-(new App\Models\User())->create(['name' => 'rec', 'email' => 'rec@isb.com', 'password' => bcrypt('123456')])->setores()->attach(2);
+(new App\Models\User())->create(['name' => 'adm', 'email' => 'adm@isb.com', 'password' => bcrypt('123456'), 'active' => true])->setores()->attach(1);
+(new App\Models\User())->create(['name' => 'rec', 'email' => 'rec@isb.com', 'password' => bcrypt('123456'), 'active' => true])->setores()->attach(2);
 ```
 
 ## Desenvolvimento local

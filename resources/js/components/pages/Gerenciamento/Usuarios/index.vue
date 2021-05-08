@@ -8,21 +8,44 @@
 
         <transition name="fade">
         <div v-show="buscaAberta">
+
+            <Button @click="modalIsOpen = true">
+                Abrir modal
+            </Button>
+            <Modal
+                :isOpen="modalIsOpen"
+                @ok="modalOk"
+                @cancelar="modalCancelar"
+            >
+            Exemplo
+            </Modal>
+
             <FormBusca @pesquisa="handlePesquisa"/>
             <Listagem
-                :data="usuarios"
+                :data="usuariosTabela"
                 :columnsData="['nome', 'setor']"
                 :columnsDesc="['Nome', 'Setor']"
-                :buttons="['add', 'edit', 'delete']"
+                :buttons="['add']"
+                :cbEdit="(row) => true"
+                :cbDelete="(row) => row.ativo"
+                :cbUndoDelete="(row) => !row.ativo"
                 @add="handleAdd"
                 @edit="handleEdit"
                 @del="handleDel"
+                @undel="handleUndel"
                 />
         </div>
         </transition>
         <transition name="fade">
         <div v-if="!buscaAberta">
-            <FormCadastro @cancel="buscaAberta=!buscaAberta" @submit="handleCreate"/>
+            <FormCadastro
+                :id=usuarioSelecionado.id
+                :initNome=usuarioSelecionado.nome
+                :initSetor=usuarioSelecionado.setor
+                :initEmail=usuarioSelecionado.email
+                @cancel="buscaAberta=!buscaAberta"
+                @submit="handleCreate"
+                />
         </div>
         </transition>
     </div>
@@ -32,18 +55,29 @@ import Descricao from '@components/Descricao.vue'
 import FormBusca from './FormBusca.vue'
 import FormCadastro from './FormCadastro.vue'
 import Listagem from './Listagem.vue'
+import Modal from '@components/Modal.vue'
+import Button from '@components/Button.vue'
 
-import { pesquisaUsuarios, criaUsuario } from '@api-backend/usuarios'
+import { pesquisaUsuarios, pesquisaUsuario, criaUsuario, inativaUsuario, reativaUsuario } from '@api-backend/usuarios'
 import { toast, toastPermanente } from '@/toast.js'
 
 export default {
     components: {
-        Descricao, FormBusca, FormCadastro, Listagem
+        Descricao, FormBusca, FormCadastro, Listagem, Modal, Button
     },
     data(){
         return {
             buscaAberta: true,
-            usuarios: []
+            modalIsOpen: false,
+            cbModalOk: _ => null,
+            cbModalCancelar: _ => null,
+            usuarioSelecionado: {
+                id: '',
+                nome: '',
+                setor: '',
+                email: ''
+            },
+            usuariosTabela: []
         }
     },
     mounted: function(){
@@ -53,22 +87,86 @@ export default {
         })
     },
     methods: {
+        modalOk(){
+            this.cbModalOk()
+            this.modalIsOpen = false
+        },
+        modalCancelar(){
+            this.cbModalCancelar()
+            this.modalIsOpen = false
+        },
         handleAdd(){
+            this.usuarioSelecionado = {
+                id: '',
+                nome: '',
+                email: '',
+                setor: ''
+            },
             this.buscaAberta = false
         },
-        handleEdit(r){
-            console.log(r)
+        handleEdit(u){
+            pesquisaUsuario(u.id)
+                .then(u => {
+                    this.usuarioSelecionado = u
+                    this.usuarioSelecionado.setor = u.setores[0].id
+                    this.buscaAberta = false
+                })
+                .catch(error => {
+                    toastPermanente({
+                        html: error,
+                        classes: 'red'
+                    })
+                })
         },
-        handleDel(r){
-            console.log(r)
+        abrirModalCancelavel(cbOk, cbCancelar = _ => null) {
+            this.modalIsOpen = true
+            this.cbModalOk = cbOk
+            this.cbModalCancelar = cbCancelar
+        },
+        handleDel(u){
+            this.abrirModalCancelavel(
+                _ => {
+                    inativaUsuario(u.id)
+                        .then(u => {
+                            this.handlePesquisa({
+                                nome: "",
+                                setor: ""
+                            })
+                        })
+                        .catch(error => {
+                            toastPermanente({
+                                html: error,
+                                classes: 'red'
+                            })
+                        });
+                }
+            )
+        },
+        handleUndel(u){
+            this.abrirModalCancelavel(
+                reativaUsuario(u.id)
+                .then(u => {
+                    this.handlePesquisa({
+                        nome: "",
+                        setor: ""
+                    })
+                })
+                .catch(error => {
+                    toastPermanente({
+                        html: error,
+                        classes: 'red'
+                    })
+                });
+            )
         },
         handlePesquisa(filtros){
             pesquisaUsuarios(filtros.nome, filtros.setor).then(u => {
-                this.usuarios = u.map(usuario => {
+                this.usuariosTabela = u.map(usuario => {
                     return {
                         id: usuario.id,
                         nome: usuario.nome,
-                        setor: usuario.setores[0].nome
+                        setor: usuario.setores[0].nome,
+                        ativo: usuario.ativo
                     }
                 })
             })

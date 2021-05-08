@@ -1,6 +1,7 @@
 <template>
     <div>
         <form>
+            <input type="hidden" v-model="id">
             <InputText v-model="nome" label="Nome" :erro="erros.nome"/>
             <InputText v-model="email" label="Email" :erro="erros.email"/>
             <InputPassword v-model="senha" label="Senha" :erro="erros.senha"/>
@@ -36,12 +37,15 @@ export default {
     components: {
         Descricao, InputText, InputSelect, Button, InputPassword
     },
+    props: [
+        'id', 'initNome', 'initSetor', 'initEmail'
+    ],
     data(){
         return {
-            nome: "",
-            senha: "",
-            setor: "",
-            email: "",
+            nome: this.initNome,
+            setor: this.initSetor,
+            email: this.initEmail,
+            senha: '',
             erros: {
                 nome: "",
                 senha: "",
@@ -53,6 +57,7 @@ export default {
     methods: {
         submit(){
             this.$emit('submit', {
+                id: this.id,
                 nome: this.nome,
                 senha: this.senha,
                 email: this.email,

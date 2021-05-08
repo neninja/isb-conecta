@@ -80,6 +80,7 @@ class UsuariosController extends Controller
         $s = $this->cadastroUsuario;
 
         $dto = new \Core\UseCases\CadastroUsuario\CadastroUsuarioDTO();
+        $dto->id = $req['id'];
         $dto->nome = $req['nome'];
         $dto->senha = $req['senha'];
         $dto->email = $req['email'];
@@ -98,7 +99,22 @@ class UsuariosController extends Controller
      */
     public function show($id)
     {
-        //
+        // $usuarios = User::with('setores')->where('id', $id)->first();
+
+        // $usuarios = User::find(1)->with(['setores' => function ($query) use ($id){
+            // $query->where('users.id', $id);
+        // }]);
+
+        //$usuarios = User::whereHas('setores', function ($query) use ($id){
+        //    // $query->where('users.id', $id)->first();
+        //    $query->where('users.id', $id);
+        //})->get();
+
+        $usuarios = User::with('setores')->where('users.id', $id)->first();
+
+        return new UsuarioResource(
+            $usuarios
+        );
     }
 
     /**
@@ -124,6 +140,13 @@ class UsuariosController extends Controller
         //
     }
 
+    public function reactivate($id)
+    {
+        $user = User::find($id);
+        $user->active = true;
+        $user->save();
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -132,6 +155,8 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->active = false;
+        $user->save();
     }
 }

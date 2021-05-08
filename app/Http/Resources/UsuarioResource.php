@@ -18,6 +18,7 @@ class UsuarioResource extends JsonResource
             'id' => $this->id,
             'nome' => $this->name,
             'email' => $this->email,
+            'ativo' => $this->active,
             'setores' => SetorResource::collection($this->setores)
         ];
     }

@@ -24,15 +24,20 @@
                         {{row[column]}}
                     </td>
                     <td>
-                        <Button v-if="buttons.includes('edit')"
+                        <Button v-if="cbEdit(row)"
                                 @click="$emit('edit', row)"
                                 color="blue">
                             <i class="material-icons">edit</i>
                         </Button>
-                        <Button v-if="buttons.includes('delete')"
+                        <Button v-if="cbDelete(row)"
                                 @click="$emit('del', row)"
                                 color="red">
                             <i class="material-icons">delete</i>
+                        </Button>
+                        <Button v-if="cbUndoDelete(row)"
+                                @click="$emit('undel', row)"
+                                color="blue">
+                            <i class="material-icons">delete_sweep</i>
                         </Button>
                     </td>
                 </tr>
@@ -48,7 +53,7 @@ export default {
         Button
     },
     props: [
-        'data', 'columnsData', 'columnsDesc', 'buttons'
+        'data', 'columnsData', 'columnsDesc', 'buttons', 'cbEdit', 'cbDelete', 'cbUndoDelete'
     ],
     data(){
         return {

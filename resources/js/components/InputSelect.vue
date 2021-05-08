@@ -1,6 +1,6 @@
 <template>
     <div class="input-field">
-        <select @change="$emit('input', $event.target.value)">
+        <select :value="value" @change="$emit('input', $event.target.value)">
             <option value="" :disabled="!allowEmpty" selected></option>
             <option v-for="(opt, i) in options" :key="i" :value="opt.value">{{opt.desc}}</option>
         </select>
@@ -12,7 +12,7 @@
 <script>
 import InputFeedback from '@components/InputFeedback.vue'
 export default {
-    props: ['options', 'label', 'erro', 'allowEmpty'],
+    props: ['value', 'options', 'label', 'erro', 'allowEmpty'],
     components: {
         InputFeedback
     },

@@ -40,23 +40,34 @@ class UsuariosRepository implements \Core\Contracts\Repositories\IUsuariosReposi
     public function save(Usuario $e): Usuario
     {
         // $m = $this->e2m($e);
-        if(is_null($e->getId())){
-            $m = M::create(
+        if(!is_null($e->getId())){
+            $m = M::updateOrCreate(
+                ['id' => $e->getId()],
                 ['name' => $e->getNome(), 'email' => $e->email->getEmail(), 'password' => $e->getSenha()]
             );
 
             $m->setores()->attach($e->setor->getId());
 
-            // $s = new Setor();
-            // $s->id = $e->setor->getId();
-            // $m->setores()->save($s);
-
-            $rObject = new \ReflectionObject($e);
-            $rId = $rObject->getProperty('id');
-            $rId->setAccessible(true);
-            $rId->setValue($e, $m->id);
+            var_dump($m->setores);die;
 
             return $e;
         }
+
+        $m = M::create(
+            ['name' => $e->getNome(), 'email' => $e->email->getEmail(), 'password' => $e->getSenha(), 'active' => $e->getAtivo()]
+        );
+
+        $m->setores()->attach($e->setor->getId());
+
+        // $s = new Setor();
+        // $s->id = $e->setor->getId();
+        // $m->setores()->save($s);
+
+        $rObject = new \ReflectionObject($e);
+        $rId = $rObject->getProperty('id');
+        $rId->setAccessible(true);
+        $rId->setValue($e, $m->id);
+
+        return $e;
     }
 }

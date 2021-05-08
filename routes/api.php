@@ -62,6 +62,7 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::middleware('has:setor-adm')->group(function () {
+        Route::put('/usuarios/activate/{id}', [UsuariosController::class, 'reactivate']);
         Route::resource('/usuarios', UsuariosController::class);
         Route::resource('/recepcao/relatorios', RecepcaoController::class);
         Route::get('/setores', function (Request $request) {
