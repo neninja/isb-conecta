@@ -7,34 +7,50 @@ Vue.use(VueRouter);
 import Home from "./components/pages/Home/Home.vue";
 import Dashboard from "./components/pages/Dashboard/Dashboard.vue";
 
+// configurações de tela temporárias
+import FrontendConfigs from "./components/pages/FrontendConfigs/index.vue";
+
 import routesLogin from "./routes/login.js";
 import routesRelatorios from "./routes/relatorios.js";
 import routesGerenciamento from "./routes/gerenciamento.js";
 
+let routes = [
+    {
+        path: "/",
+        name: "home",
+        component: Home
+    },
+    {
+        path: "/dashboard",
+        name: "dashboard",
+        meta: { requiresAuth: true },
+        component: Dashboard
+    },
+
+    ...routesLogin,
+    ...routesRelatorios,
+    ...routesGerenciamento
+];
+
+Vue.prototype.$env_ghpages_test = false;
+
+if (process.env.MIX_GHPAGES_TEST) {
+    Vue.prototype.$env_ghpages_test = true;
+    routes.push({
+        path: "/frontendconfigs",
+        name: "frontendconfigs",
+        component: FrontendConfigs
+    });
+}
+
+routes.push({
+    path: "*",
+    component: Home
+});
+
 const router = new VueRouter({
     mode: "history",
-    routes: [
-        {
-            path: "/",
-            name: "home",
-            component: Home
-        },
-        {
-            path: "/dashboard",
-            name: "dashboard",
-            meta: { requiresAuth: true },
-            component: Dashboard
-        },
-
-        ...routesLogin,
-        ...routesRelatorios,
-        ...routesGerenciamento,
-
-        {
-            path: "*",
-            component: Home
-        }
-    ]
+    routes
 });
 
 router.beforeEach((to, from, next) => {

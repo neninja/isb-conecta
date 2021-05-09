@@ -1,5 +1,12 @@
 <template>
-    <ul class="input-field">
+    <label v-if="!opts">
+        <input type="checkbox"
+               :checked="checked"
+               @change="$emit('input', !checked)"
+        />
+        <span>{{label}}</span>
+    </label>
+    <ul v-else class="input-field">
         <p><label class="active">{{label}}</label></p>
         <li v-if="selectAll">
             <label>
@@ -36,7 +43,7 @@
 import InputFeedback from '@components/InputFeedback.vue'
 export default {
     props: [
-        'value', 'label', 'area', 'opts', 'erro', 'selectAll'
+        'value', 'label', 'area', 'opts', 'erro', 'selectAll', 'checked'
     ],
     components: {
         InputFeedback
@@ -45,7 +52,8 @@ export default {
         return {
             id: null,
             checkedOpts: [],
-            checkSelectAll: []
+            checkSelectAll: [],
+            checkedOpt: null
         }
     },
     mounted () {

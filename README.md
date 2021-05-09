@@ -71,6 +71,10 @@ npm run hot
 # localhost:8000
 ```
 
+## Deploy gh-pages com doubles
+
+1. Add no `.env` a propriedade `MIX_GHPAGES_TEST=1`
+
 ## Contribuindo
 
 Veja o [CONTRIBUTING.md](CONTRIBUTING.md)

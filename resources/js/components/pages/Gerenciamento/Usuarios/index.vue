@@ -162,16 +162,24 @@ export default {
             )
         },
         handlePesquisa(filtros){
-            pesquisaUsuarios(filtros.nome, filtros.setor).then(u => {
-                this.usuariosTabela = u.map(usuario => {
-                    return {
-                        id: usuario.id,
-                        nome: usuario.nome,
-                        setor: usuario.setores[0].nome,
-                        ativo: usuario.ativo
-                    }
+            pesquisaUsuarios(filtros.nome, filtros.setor)
+                .then(u => {
+                    this.usuariosTabela = u.map(usuario => {
+                        return {
+                            id: usuario.id,
+                            nome: usuario.nome,
+                            setor: usuario.setores[0].nome,
+                            ativo: usuario.ativo
+                        }
+                    })
                 })
-            })
+                .catch(error => {
+                    toastPermanente({
+                        html: error,
+                        classes: 'red'
+                    })
+                });
+
         },
         handleCreate(u){
             criaUsuario(u)
