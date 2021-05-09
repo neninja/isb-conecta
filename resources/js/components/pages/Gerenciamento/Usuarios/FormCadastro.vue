@@ -16,7 +16,7 @@
             />
        <div class="row">
             <Button @click="submit" color="green">
-                Criar
+                Enviar
             </Button>
 
             <Button @click="$emit('cancel')" color="red">

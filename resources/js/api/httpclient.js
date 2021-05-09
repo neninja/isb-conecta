@@ -37,10 +37,10 @@ export function del(url) {
     });
 }
 
-export function put(url) {
+export function put(url, body = null) {
     return new Promise(function(resolve, reject) {
         axios
-            .put(url)
+            .put(url, body)
             .then(resp => {
                 resolve(resp.data);
             })

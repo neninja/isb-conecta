@@ -36,7 +36,7 @@
                 :initSetor=usuarioSelecionado.setor
                 :initEmail=usuarioSelecionado.email
                 @cancel="buscaAberta=!buscaAberta"
-                @submit="handleCreate"
+                @submit="handleSave"
                 />
         </div>
         </transition>
@@ -50,7 +50,7 @@ import Listagem from './Listagem.vue'
 import Modal from '@components/Modal.vue'
 import Button from '@components/Button.vue'
 
-import { pesquisaUsuarios, pesquisaUsuario, criaUsuario, inativaUsuario, reativaUsuario } from '@api-backend/usuarios'
+import { pesquisaUsuarios, pesquisaUsuario, criaUsuario, editaUsuario, inativaUsuario, reativaUsuario } from '@api-backend/usuarios'
 import { toast, toastPermanente } from '@/toast.js'
 
 export default {
@@ -181,7 +181,31 @@ export default {
                 });
 
         },
-        handleCreate(u){
+        handleSave(u){
+            if(u.id){
+                editaUsuario(u.id, u)
+                    .then(r => {
+                        this.buscaAberta = true
+
+                        this.handlePesquisa({
+                            nome: "",
+                            setor: ""
+                        })
+
+                        toast({
+                            html: 'Sucesso',
+                            classes: 'green'
+                        })
+                    })
+                    .catch(error => {
+                        toastPermanente({
+                            html: error,
+                            classes: 'red'
+                        })
+                    });
+
+                return true
+            }
             criaUsuario(u)
                 .then(r => {
                     this.buscaAberta = true

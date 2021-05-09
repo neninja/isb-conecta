@@ -80,15 +80,12 @@ class UsuariosController extends Controller
         $s = $this->cadastroUsuario;
 
         $dto = new \Core\UseCases\CadastroUsuario\CadastroUsuarioDTO();
-        $dto->id = $req['id'];
         $dto->nome = $req['nome'];
         $dto->senha = $req['senha'];
         $dto->email = $req['email'];
         $dto->idSetor = $req['setor'];
 
         $s->execute($dto);
-
-        return [];
     }
 
     /**
@@ -135,9 +132,18 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $s = $this->cadastroUsuario;
+
+        $dto = new \Core\UseCases\CadastroUsuario\CadastroUsuarioDTO();
+        $dto->id = $id;
+        $dto->nome = $req['nome'];
+        $dto->senha = $req['senha'];
+        $dto->email = $req['email'];
+        $dto->idSetor = $req['setor'];
+
+        $s->execute($dto);
     }
 
     public function reactivate($id)

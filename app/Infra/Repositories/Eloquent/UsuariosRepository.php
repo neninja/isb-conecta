@@ -46,9 +46,11 @@ class UsuariosRepository implements \Core\Contracts\Repositories\IUsuariosReposi
                 ['name' => $e->getNome(), 'email' => $e->email->getEmail(), 'password' => $e->getSenha()]
             );
 
+            $m->setores()->detach();
             $m->setores()->attach($e->setor->getId());
 
             var_dump($m->setores);die;
+            throw new \Exception("AAAA");
 
             return $e;
         }

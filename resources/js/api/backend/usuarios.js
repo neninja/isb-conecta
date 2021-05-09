@@ -1,7 +1,7 @@
 import { get, post, del, put } from "@/api/httpclient";
 
 export function pesquisaUsuarios(nome, setor) {
-    if (promiseMockada) {
+    if (deveMockar()) {
         return promiseMockada(
             "aaa",
             [
@@ -47,6 +47,10 @@ export function pesquisaUsuario(id) {
 
 export function criaUsuario(usuario) {
     return post("/api/usuarios", usuario);
+}
+
+export function editaUsuario(id, usuario) {
+    return put(`/api/usuarios/${id}`, usuario);
 }
 
 export function inativaUsuario(idUsuario) {
