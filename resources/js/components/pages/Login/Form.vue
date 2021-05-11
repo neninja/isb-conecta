@@ -51,7 +51,7 @@ export default {
                 })
                 .catch(error => {
                     toastPermanente({
-                        html: error,
+                        html: error.message ?? "Erro de login",
                         classes: 'red',
                         displayLength: Infinity
                     })

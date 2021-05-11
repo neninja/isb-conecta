@@ -6,6 +6,7 @@
             <input
                 :name="id"
                 :value="opt.n"
+                :checked="opt.n === checkedValue"
                 @input="$emit('input', $event.target.value)"
                 type="radio" />
             <span>{{opt.d}}</span>
@@ -23,7 +24,7 @@
 <script>
 import InputFeedback from '@/components/InputFeedback.vue'
 export default {
-    props: ['value', 'label', 'area', 'opts', 'erro'],
+    props: ['value', 'label', 'area', 'opts', 'erro', 'checkedValue'],
     components: {
         InputFeedback
     },

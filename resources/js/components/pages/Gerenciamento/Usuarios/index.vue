@@ -107,7 +107,7 @@ export default {
                 })
                 .catch(error => {
                     toastPermanente({
-                        html: error,
+                        html: error.message,
                         classes: 'red'
                     })
                 })
@@ -133,7 +133,7 @@ export default {
                         })
                         .catch(error => {
                             toastPermanente({
-                                html: error,
+                                html: error.message,
                                 classes: 'red'
                             })
                         });
@@ -154,7 +154,7 @@ export default {
                     })
                     .catch(error => {
                         toastPermanente({
-                            html: error,
+                            html: error.message,
                             classes: 'red'
                         })
                     });
@@ -175,7 +175,7 @@ export default {
                 })
                 .catch(error => {
                     toastPermanente({
-                        html: error,
+                        html: error.message,
                         classes: 'red'
                     })
                 });
@@ -199,7 +199,7 @@ export default {
                     })
                     .catch(error => {
                         toastPermanente({
-                            html: error,
+                            html: error.message,
                             classes: 'red'
                         })
                     });
@@ -222,7 +222,7 @@ export default {
                 })
                 .catch(error => {
                     toastPermanente({
-                        html: error,
+                        html: error.message,
                         classes: 'red'
                     })
                 });

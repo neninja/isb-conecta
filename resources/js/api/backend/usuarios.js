@@ -1,39 +1,20 @@
 import { get, post, del, put } from "@/api/httpclient";
+import * as m from "./mocks/usuarios";
+
+export function login(email, password){
+    return m.loginMock() ?? post("/api/login", {email, password})
+}
+
+export function authenticated(){
+    return m.authenticatedMock() ?? get("/api/authenticated")
+}
+
+export function logout(email, password){
+    return m.logoutMock() ?? get("/api/logout")
+}
 
 export function pesquisaUsuarios(nome, setor) {
-    if (deveMockar()) {
-        return promiseMockada(
-            "aaa",
-            [
-                {
-                    id: 3,
-                    nome: "recMockado",
-                    email: "rec@isb.com",
-                    ativo: true,
-                    setores: [{ id: 2, nome: "Recepção" }]
-                },
-                {
-                    id: 5,
-                    nome: "felipeMockado",
-                    email: "adm@i.com",
-                    ativo: true,
-                    setores: [
-                        { id: 1, nome: "Administração" },
-                        { id: 2, nome: "Recepção" }
-                    ]
-                },
-                {
-                    id: 2,
-                    nome: "admMockado",
-                    email: "adm@isb.com",
-                    ativo: true,
-                    setores: [{ id: 1, nome: "Administração" }]
-                }
-            ],
-            "Erro grave"
-        );
-    }
-    return get("/api/usuarios", {
+    return m.pesquisaUsuariosMock() ?? get("/api/usuarios", {
         params: {
             nome,
             setor
@@ -42,45 +23,21 @@ export function pesquisaUsuarios(nome, setor) {
 }
 
 export function pesquisaUsuario(id) {
-    return get(`/api/usuarios/${id}`);
+    return m.pesquisaUsuarioMock() ?? get(`/api/usuarios/${id}`);
 }
 
 export function criaUsuario(usuario) {
-    return post("/api/usuarios", usuario);
+    return m.criaUsuarioMock() ?? post("/api/usuarios", usuario);
 }
 
 export function editaUsuario(id, usuario) {
-    return put(`/api/usuarios/${id}`, usuario);
+    return m.editaUsuarioMock() ?? put(`/api/usuarios/${id}`, usuario);
 }
 
 export function inativaUsuario(idUsuario) {
-    return del(`/api/usuarios/${idUsuario}`);
+    return m.inativaUsuarioMock() ?? del(`/api/usuarios/${idUsuario}`);
 }
 
 export function reativaUsuario(idUsuario) {
-    return put(`/api/usuarios/activate/${idUsuario}`);
-}
-
-function deveMockar() {
-    return !!process.env.MIX_GHPAGES_TEST;
-}
-
-function promiseMockada(keyConfig, resp, err) {
-    return new Promise(function(resolve, reject) {
-        if (false) {
-            resolve(resp);
-        } else {
-            reject(err);
-        }
-    });
-}
-
-function promiseMockada2(keyConfig, resp, err) {
-    return new Promise(function(resolve, reject) {
-        if (localStorate.getItem("keyConfig") === "true") {
-            resolve(resp);
-        } else {
-            reject(err);
-        }
-    });
+    return m.reativaUsuarioMock() ?? put(`/api/usuarios/activate/${idUsuario}`);
 }

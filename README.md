@@ -71,9 +71,15 @@ npm run hot
 # localhost:8000
 ```
 
-## Deploy gh-pages com doubles
+## Criação dos arquivos estáticos
 
-1. Add no `.env` a propriedade `MIX_GHPAGES_TEST=1`
+Para o aceite da UI é possível fazer build do frontend.
+
+<!--1. Add no `.env` a propriedade `MIX_GHPAGES_TEST=1` -->
+1. `composer prevprod`
+
+Será criado o diretório `prevprodFrontend` (não versionado), cujo possui o arquivo `index.html` que pode ser aberto pelo browser.
+
 
 ## Contribuindo
 

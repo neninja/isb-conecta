@@ -1,12 +1,13 @@
+import { login as loginApi, authenticated, logout as logoutApi } from '@api-backend/usuarios'
+
 // actions
 // ações que abstraem atualização de estado (multiplas variáveis)
 const actions = {
     initialise_state({ commit }) {
         return new Promise((resolve, reject) => {
-            axios
-                .get("/api/authenticated")
+            authenticated()
                 .then(response => {
-                    commit("auth_success", response.data.user);
+                    commit("auth_success", response.user);
                     resolve(response);
                 })
                 .catch(error => {
@@ -16,11 +17,7 @@ const actions = {
     },
     login({ commit }, user) {
         return new Promise((resolve, reject) => {
-            axios
-                .post("/api/login", {
-                    email: user.email,
-                    password: user.password
-                })
+            loginApi(user.email, user.password)
                 .then(response => {
                     resolve(response);
                 })
@@ -32,8 +29,7 @@ const actions = {
     },
     logout({ commit }) {
         return new Promise((resolve, reject) => {
-            axios
-                .get("/api/logout")
+            logoutApi()
                 .then(response => {
                     commit("logout");
                     resolve(response);
