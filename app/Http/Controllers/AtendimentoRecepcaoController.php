@@ -40,17 +40,17 @@ class AtendimentoRecepcaoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
         $s = $this->cadastroAtendimentoRecepcao;
 
         $dto = new \Core\UseCases\CadastroAtendimentoRecepcao\CadastroAtendimentoRecepcaoDTO();
         $dto->idUsuario = Auth::user()->id;
-        $dto->data = date_create();
-        $dto->idLocalAtendimento = 1;
-        $dto->nomePessoaAtendida = "AAA";
-        $dto->contato = "51987654321";
-        $dto->relato = "aaa";
+        $dto->data = $req['data'] ? \DateTime::createFromFormat('d/m/Y', $req['data']) : "";
+        $dto->idLocalAtendimento = intval($req['onde']) ?? "";
+        $dto->nomePessoaAtendida = $req['usuario'] ?? "";
+        $dto->contato = $req['contato'] ?? "";
+        $dto->relato = $req['relato'] ?? "";
         $s->execute($dto);
 
         return [];

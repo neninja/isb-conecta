@@ -12,8 +12,8 @@
           label="Onde foi realizado o atendimento"
           :erro="erros.onde"
           :opts="[
-                  {n: 'porta', d: 'Porta'},
-                  {n: 'telefone', d: 'Telefone'},
+                  {n: '1', d: 'Porta'},
+                  {n: '2', d: 'Telefone'},
                  ]"/>
       <InputText
           v-model="usuario"
@@ -112,7 +112,7 @@ export default {
                     this.$router.push({name: 'dashboard'})
                 }).catch(error => {
                     toastPermanente({
-                        html: error,
+                        html: error.message ?? "Erro",
                         classes: 'red'
                     })
                 });

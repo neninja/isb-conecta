@@ -13,7 +13,7 @@
                         <div class="field icon">
                             <i class="material-icons">event</i></span>
                         </div>
-                        <p class="field content date">{{new Date(data).toLocaleDateString('pt')}}</p>
+                        <p class="field content date">{{new Date(data + " 00:00:00").toLocaleDateString('pt')}}</p>
                     </div>
                     <div class="fields">
                         <div class="field icon">
