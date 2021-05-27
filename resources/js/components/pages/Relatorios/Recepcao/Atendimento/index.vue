@@ -112,7 +112,7 @@ export default {
                     this.$router.push({name: 'dashboard'})
                 }).catch(error => {
                     toastPermanente({
-                        html: error.message ?? "Erro",
+                        html: error.response.data.message ?? "Erro",
                         classes: 'red'
                     })
                 });
