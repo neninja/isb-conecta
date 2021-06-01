@@ -31,7 +31,7 @@ php -r "var_dump([
 # php --ini
 ```
 2. Instale as dependências do php: ``composer i``
-3. Instale as dependências do js: ``npm i``
+3. Instale as dependências do js: ``yarn``
 4. Crie `.env` com base no `.env.example`
 5. Crie o banco de dados
 ```sh
@@ -66,7 +66,7 @@ Após configurar [setup](#setup):
 
 ```sh
 php artisan serve
-npm run hot
+yarn start
 
 # localhost:8000
 ```

@@ -2,7 +2,7 @@ import { get, post, del, put } from "@/api/httpclient";
 import * as m from "./mocks/usuarios";
 
 export function login(email, password){
-    return m.loginMock() ?? post("/api/login", {email, password})
+    return post("/api/login", {email, password})
 }
 
 export function authenticated(){

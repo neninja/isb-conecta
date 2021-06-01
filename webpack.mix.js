@@ -14,9 +14,8 @@ mix.disableNotifications();
  |
  */
 
-mix.js("resources/js/app.js", "public/js")
-    .vue()
-    .postCss("resources/css/app.css", "public/css")
+mix.ts("resources/js/index.tsx", "public/js")
+    .react()
     .webpackConfig({
         resolve: {
             alias: {
@@ -27,14 +26,14 @@ mix.js("resources/js/app.js", "public/js")
                     "js",
                     "components"
                 ),
-                "@pageComponents": path.resolve(
+                "@page": path.resolve(
                     __dirname,
                     "resources",
                     "js",
                     "components",
                     "pages"
                 ),
-                "@api-backend": path.resolve(
+                "@api": path.resolve(
                     __dirname,
                     "resources",
                     "js",
