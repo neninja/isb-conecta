@@ -2,7 +2,6 @@ import React from 'react'
 import { Container, P, ButtonContainer } from './styles'
 import { Button } from '@components/Button'
 
-
 export function Home() {
     return (
         <Container>
