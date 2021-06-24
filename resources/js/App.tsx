@@ -1,13 +1,16 @@
 import React from 'react'
 import { Header } from '@components/Header'
+import { Footer } from '@components/Footer'
 import { GlobalStyle } from '@/styles/global'
+import { Home } from '@pages/Home'
 
 export function App(){
     return (
         <>
-            <Header />
             <GlobalStyle />
-            <h1>Bem vindo ao <strong>ISB Conecta</strong></h1>
+            <Header />
+            <Home />
+            <Footer />
         </>
     )
 }

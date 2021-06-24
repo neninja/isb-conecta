@@ -26,11 +26,10 @@ mix.ts("resources/js/index.tsx", "public/js")
                     "js",
                     "components"
                 ),
-                "@page": path.resolve(
+                "@pages": path.resolve(
                     __dirname,
                     "resources",
                     "js",
-                    "components",
                     "pages"
                 ),
                 "@api": path.resolve(

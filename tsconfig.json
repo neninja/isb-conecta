@@ -73,7 +73,7 @@
     "paths": {
         "@/*": ["resources/js/*"],
         "@components/*": ["resources/js/components/*"],
-        "@page/*": ["resources/js/components/pages/*"],
+        "@pages/*": ["resources/js/pages/*"],
         "@api/*": ["resources/js/api/backend*"]
     }
   }
