@@ -32,12 +32,24 @@ mix.ts("resources/js/index.tsx", "public/js")
                     "js",
                     "pages"
                 ),
+                "@apis": path.resolve(
+                    __dirname,
+                    "resources",
+                    "js",
+                    "apis"
+                ),
                 "@api": path.resolve(
                     __dirname,
                     "resources",
                     "js",
-                    "api",
+                    "apis",
                     "backend"
+                ),
+                "@hooks": path.resolve(
+                    __dirname,
+                    "resources",
+                    "js",
+                    "hooks"
                 )
             }
         }

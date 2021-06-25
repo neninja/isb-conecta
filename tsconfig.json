@@ -74,7 +74,9 @@
         "@/*": ["resources/js/*"],
         "@components/*": ["resources/js/components/*"],
         "@pages/*": ["resources/js/pages/*"],
-        "@api/*": ["resources/js/api/backend*"]
+        "@apis/*": ["resources/js/apis/*"],
+        "@api/*": ["resources/js/apis/backend/*"],
+        "@hooks/*": ["resources/js/hooks/*"]
     }
   }
 }

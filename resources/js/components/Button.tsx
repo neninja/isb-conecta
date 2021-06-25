@@ -20,7 +20,7 @@ const Container = styled.button`
     }
 `
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     isLink?: boolean;
 }

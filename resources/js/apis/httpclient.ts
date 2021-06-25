@@ -1,4 +1,6 @@
-export function get(url, body) {
+import axios from 'axios'
+
+export function get(url, body = null) {
     return new Promise(function(resolve, reject) {
         axios
             .get(url, body)
