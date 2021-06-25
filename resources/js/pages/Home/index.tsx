@@ -1,18 +1,29 @@
-import React from 'react'
-import { Container, P, ButtonContainer } from './styles'
+import React, { useState } from 'react'
+import { Container } from './styles'
 import { Button } from '@components/Button'
 
+import { BemVindo } from './BemVindo'
+import { Usuario } from './Usuario'
+import { Senha } from './Senha'
+
 export function Home() {
+    const [etapaAtual, setEtapaAtual] = useState(0)
+
+    const etapas = [
+        <BemVindo proximo={proximo} />,
+        <Usuario proximo={proximo} />,
+        <Senha proximo={proximo} />
+    ]
+
+    function proximo(){
+        if(etapaAtual < etapas.length - 1 ) {
+            setEtapaAtual(etapaAtual+1)
+        }
+    }
+
     return (
         <Container>
-            <h1>Bem-vindo ao <strong>ISB Conecta</strong></h1>
-            <P>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi augue neque, tincidunt non aliquet ac, fringilla quis velit. Aenean aliquet a mauris at malesuada. Pellentesque justo purus, pharetra vitae vestibulum eget, dignissim non eros.
-            </P>
-
-            <ButtonContainer>
-            <Button isLink>Prosseguir para login</Button>
-            </ButtonContainer>
+            {etapas[etapaAtual]}
         </Container>
     )
 }

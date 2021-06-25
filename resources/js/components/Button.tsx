@@ -11,7 +11,7 @@ const Container = styled.button`
 
     &:active {
         box-shadow: 0 0 0.1rem black;
-        transform: translateY(2px);
+        transform: translateY(1px);
         filter: brightness(85%);
     }
 
@@ -20,14 +20,14 @@ const Container = styled.button`
     }
 `
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
-    isLink: boolean;
+    isLink?: boolean;
 }
 
-export function Button({children}: ButtonProps) {
+export function Button({children, ...rest}: ButtonProps) {
     return (
-        <Container>
+        <Container {...rest}>
             {children}
         </Container>
     )
