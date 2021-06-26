@@ -4,11 +4,11 @@ import { Button } from '@components/Button'
 import { Input } from '@components/Form/Input'
 import { P, ButtonContainer } from './styles'
 
-interface UsuarioProps {
-    proximo: (u: string) => void
+interface UsernameProps {
+    proximo: (u: string) => void;
 }
 
-export function Usuario({ proximo}: UsuarioProps) {
+export function Username({ proximo }: UsernameProps) {
     const [ username, setUsername ] = useState("")
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>){

@@ -76,7 +76,8 @@
         "@pages/*": ["resources/js/pages/*"],
         "@apis/*": ["resources/js/apis/*"],
         "@api/*": ["resources/js/apis/backend/*"],
-        "@hooks/*": ["resources/js/hooks/*"]
+        "@hooks/*": ["resources/js/hooks/*"],
+        "@contexts/*": ["resources/js/contexts/*"]
     }
   }
 }

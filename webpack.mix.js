@@ -50,6 +50,12 @@ mix.ts("resources/js/index.tsx", "public/js")
                     "resources",
                     "js",
                     "hooks"
+                ),
+                "@contexts": path.resolve(
+                    __dirname,
+                    "resources",
+                    "js",
+                    "contexts"
                 )
             }
         }

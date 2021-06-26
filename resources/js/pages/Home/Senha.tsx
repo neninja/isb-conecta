@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { Button } from '@components/Button'
@@ -16,19 +16,21 @@ list-style: none;
 `
 
 interface SenhaProps {
-    proximo: () => void;
-    setSenha: (senha: string) => void
+    proximo: (s: string) => void
+    nome: string
 }
 
-export function Senha({ proximo, setSenha }: SenhaProps) {
+export function Senha({ proximo, nome }: SenhaProps) {
+    const [ senha, setSenha ] = useState("")
+
     function handleSubmit(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault()
-        proximo()
+        proximo(senha)
     }
 
     return (
         <>
-            <h1>Olá, Nícolas</h1>
+            <h1>Olá, {nome}</h1>
             <P>
                 Você está cadastrado na equipe de design do Instituto São Benedito.
             </P>

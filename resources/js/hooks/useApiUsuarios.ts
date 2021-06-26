@@ -1,5 +1,7 @@
 import {
     login,
+    logout,
+    pesquisaPorUsername,
     pesquisaUsuario,
     pesquisaUsuarios
 } from '@api/usuarios'
@@ -7,6 +9,8 @@ import {
 export default function useApiUsuarios() {
     return {
         login,
+        logout,
+        pesquisaPorUsername,
         pesquisaUsuario,
         pesquisaUsuarios
     }

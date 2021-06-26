@@ -79,13 +79,27 @@ Route::get('/public-route', function(Request $request){
     return true;
 });
 
-Route::post('login',array('as'=>'login',function(Request $request){
+
+Route::get('/username', function(Request $req){
+    $req->validate([
+        'username' => ['required'],
+    ]);
+
+    $u = User::firstWhere('username', $req['username']);
+
+    return [
+        'id' => $u['id'],
+        'name' => $u['name']
+    ];
+});
+
+Route::post('login',array('as'=>'login', function(Request $request){
     $request->validate([
-        'email' => ['required'],
+        'username' => ['required'],
         'password' => ['required']
     ]);
 
-    if (Auth::attempt($request->only('email', 'password'))) {
+    if (Auth::attempt($request->only('username', 'password'))) {
         // var_dump(User::find(Auth::id())->setores);die;
         return response()->json(
             User::find(Auth::id()), 200

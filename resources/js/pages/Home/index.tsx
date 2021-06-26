@@ -1,34 +1,48 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
+
+import { toast } from 'react-toastify';
 import { Container } from './styles'
 import { Button } from '@components/Button'
 
 import { BemVindo } from './BemVindo'
-import { Usuario } from './Usuario'
+import { Username } from './Username'
 import { Senha } from './Senha'
 
+import { useAuth } from '@contexts/auth'
 import useApi from '@hooks/useApiUsuarios'
 
 export function Home() {
-    const [etapaAtual, setEtapaAtual] = useState(0)
-    const [ email, setEmail ] = useState("")
-    const [ senha, setSenha ] = useState("")
-    const { login } = useApi()
+    const history = useHistory();
+    const { login } = useAuth()
+    const { pesquisaPorUsername } = useApi()
+
+    const [etapaAtual, setEtapaAtual] = useState(1)
+    const [ nome, setNome ] = useState("")
+    const [ username, setUsername ] = useState("")
 
     const etapas = [
         <BemVindo proximo={proximo} />,
-        <Usuario proximo={proximo} setEmail={setEmail} />,
-        <Senha proximo={handleLogin} setSenha={setSenha} />
+        <Username proximo={validaUsername} />,
+        <Senha proximo={handleLogin} nome={nome} />
     ]
 
     function proximo(){
         setEtapaAtual(etapaAtual+1)
     }
 
-    function handleLogin(){
-        console.log({
-            email, senha
-        })
-        login(email, senha)
+    function validaUsername(u){
+        pesquisaPorUsername(u).then(resp => {
+            setNome(resp.name)
+            setUsername(u)
+            proximo()
+        }).catch(_ => toast.error('Login não encontrado'))
+    }
+
+    function handleLogin(senha: string){
+        login(username, senha).then(resp => {
+            history.push('/dashboard')
+        }).catch(_ => toast.error('Credenciais incorretas'))
     }
 
     return (

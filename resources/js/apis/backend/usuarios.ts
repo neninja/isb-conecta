@@ -1,21 +1,40 @@
 import { get, post, del, put } from "@apis/httpclient";
 
-export function login(email, password){
-    console.log("debug")
-    // return post("/api/login", {email, password})
+interface loginResp {
+    name: string
+}
+
+export function login(username, password){
+    return post("/api/login", {
+        username,
+        password
+    }) as Promise<loginResp>;
 }
 
 export function authenticated(){
     return get("/api/authenticated")
 }
 
-export function logout(email, password){
+export function logout(){
     return get("/api/logout")
 }
 
-export function pesquisaUsuarios(nome, setor) {
+interface pesquisaPorUsernameResp {
+    id: number
+    name: string
+}
+export function pesquisaPorUsername(username): Promise<pesquisaPorUsernameResp> {
+    return get("/api/username", {
+        params: {
+            username
+        }
+    }) as Promise<pesquisaPorUsernameResp>;
+}
+
+export function pesquisaUsuarios({nome, setor, username}) {
     return get("/api/usuarios", {
         params: {
+            username,
             nome,
             setor
         }

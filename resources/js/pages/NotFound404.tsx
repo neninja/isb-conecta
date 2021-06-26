@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useHistory } from "react-router-dom";
+import { useAuth } from '@contexts/auth'
 import styled from 'styled-components'
 
 const Container = styled.main`
@@ -9,7 +11,18 @@ const Container = styled.main`
     }
 `
 
-export function NotFound404() {
+interface NotFoundProps {
+    erroDeAutenticacao?: boolean
+}
+
+export function NotFound404({ erroDeAutenticacao }: NotFoundProps) {
+    const history = useHistory();
+    const { signed } = useAuth()
+    useEffect(() => {
+        if(erroDeAutenticacao && signed){
+            history.goBack()
+        }
+    }, [signed])
     return (
         <Container>
             <h1>Página não encontrada</h1>
