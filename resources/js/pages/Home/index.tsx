@@ -47,7 +47,9 @@ export function Home() {
 
     return (
         <Container>
+            <div>
             {etapas[etapaAtual]}
+            </div>
         </Container>
     )
 }
