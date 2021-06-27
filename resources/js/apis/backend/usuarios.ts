@@ -1,6 +1,6 @@
 import { get, post, del, put } from "@apis/httpclient";
 
-interface loginResp {
+export interface loginResp {
     name: string
 }
 
@@ -19,15 +19,13 @@ export function logout(){
     return get("/api/logout")
 }
 
-interface pesquisaPorUsernameResp {
+export interface pesquisaPorUsernameResp {
     id: number
     name: string
 }
 export function pesquisaPorUsername(username): Promise<pesquisaPorUsernameResp> {
     return get("/api/username", {
-        params: {
-            username
-        }
+        params: { username }
     }) as Promise<pesquisaPorUsernameResp>;
 }
 

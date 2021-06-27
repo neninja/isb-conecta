@@ -42,7 +42,7 @@ export function Senha({ proximo, nome }: SenhaProps) {
             <form onSubmit={handleSubmit}>
                 <Input
                     label="Digite sua senha"
-                    type="text"
+                    type="password"
                     onChange={e => setSenha(e.target.value)}
                 />
                 <Checkbox label="Permanecer conectado" />
