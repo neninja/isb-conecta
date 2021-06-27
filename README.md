@@ -33,42 +33,15 @@ php -r "var_dump([
 2. Instale as dependências do php: ``composer i``
 3. Instale as dependências do js: ``yarn``
 4. Crie `.env` com base no `.env.example`
-5. Crie o banco de dados
-```sh
-# exemplo com postgresql
-createdb -U postgres isb-conecta
-
-# dicas do postgresql no terminal
-# Entrar
-psql -U postgres -d isb-conecta
-
-# \?                    exibe ajuda
-# \q                    sai
-# \l                    lista databases
-# \c <databasename>     conecta uma database
-# \dt                   lista tables da database
-# \d <tablename>        descreve uma tabela
-```
+5. Crie o banco de dados cujo optiou em `DB_DATABASE` no `.env`
 6. Crie as tabelas com as migrations: ``php artisan migrate --seed``
-    - [mais comandos](tech-help.md)
+7. Crie um usuário no banco com ``php artisan dev:isb:create:user {name} {username} {email} {senha} {idsetor}``
 
-7. Crie um usuário no banco
-
-```sh
-php artisan tinker
-(new App\Models\User())->create(['name' => 'Felipe', 'username' => 'felip', 'email' => 'adm@isb.com', 'password' => bcrypt('123456'), 'active' => true])->setores()->attach(1);
-(new App\Models\User())->create(['name' => 'João', 'username' => 'joao', 'email' => 'rec@isb.com', 'password' => bcrypt('123456'), 'active' => true])->setores()->attach(2);
-```
-
-## Desenvolvimento local
-
-Após configurar [setup](#setup):
+## Servidor para desenvolvimento local
 
 ```sh
-php artisan serve
+php artisan serve #localhost:8000
 yarn start
-
-# localhost:8000
 ```
 
 ## Criação dos arquivos estáticos

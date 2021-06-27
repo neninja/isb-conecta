@@ -1,4 +1,4 @@
-# Tech Help
+# CLI Help
 
 Ajuda sobre comandos
 
@@ -55,3 +55,22 @@ php artisan db:seed
     - ``composer dump-autoload`` <!-- ? -->
 
 
+## Postgresql
+
+```sh
+# cria banco de dados
+createdb -U postgres isb-conecta
+```
+
+```sh
+# dicas do postgresql no terminal
+# Entrar
+psql -U postgres -d isb-conecta
+
+# \?                    exibe ajuda
+# \q                    sai
+# \l                    lista databases
+# \c <databasename>     conecta uma database
+# \dt                   lista tables da database
+# \d <tablename>        descreve uma tabela
+```
