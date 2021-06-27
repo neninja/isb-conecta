@@ -17,7 +17,7 @@ export function Home() {
     const { login } = useAuth()
     const { pesquisaPorUsername } = useApi()
 
-    const [etapaAtual, setEtapaAtual] = useState(1)
+    const [etapaAtual, setEtapaAtual] = useState(0)
     const [ nome, setNome ] = useState("")
     const [ username, setUsername ] = useState("")
 
