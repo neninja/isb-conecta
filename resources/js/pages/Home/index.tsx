@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 
 import { toast } from 'react-toastify';
-import { Container } from './styles'
+import { Main } from '@components/Main'
 import { Button } from '@components/Button'
 
 import { BemVindo } from './BemVindo'
@@ -46,10 +46,8 @@ export function Home() {
     }
 
     return (
-        <Container>
-            <div>
+        <Main>
             {etapas[etapaAtual]}
-            </div>
-        </Container>
+        </Main>
     )
 }
