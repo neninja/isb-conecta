@@ -17,8 +17,9 @@ export const GlobalStyle = createGlobalStyle`
 
     --gray-light: #C4C4C4;
 
-    --text-title: #363f5f;
+    --text-title: var(--cyan-dark);
     --text-body: #969cb3;
+    --error-color: #E44132;
 
     --background: var(--cyan-light);
     --shape: #fff;
@@ -52,7 +53,9 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     padding-bottom: 1rem;
-    color: var(--cyan-dark);
+    color: var(--text-title);
+
+    /* background: var(${(p) => p.erro ? '--error-color' : '--cyan-dark'}); */
   }
 
   strong {

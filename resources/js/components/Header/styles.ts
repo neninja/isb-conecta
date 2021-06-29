@@ -1,5 +1,11 @@
 import styled from 'styled-components'
 
+/*
+interface ContainerProps {
+    erro: boolean
+}
+*/
+
 export const Container = styled.header`
     min-height: 200px;
 
@@ -9,6 +15,7 @@ export const Container = styled.header`
 
     padding: 6rem 0;
 
+    /*background: var(${(p) => p.erro ? '--error-color' : '--cyan-dark'});*/
     background: var(--cyan-dark);
 
     position: relative;
