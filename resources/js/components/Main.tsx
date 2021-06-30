@@ -5,7 +5,6 @@ const Container = styled.main`
     padding: 4rem;
     width: 100%;
     display: flex;
-    justify-content:center;
 
     & > div {
         max-width: 1100px;
