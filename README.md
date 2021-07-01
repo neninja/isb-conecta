@@ -10,6 +10,23 @@ Os [marcos](https://github.com/nenitf/isb-conecta/milestones) do projeto estão 
 - [ ] [v0.0.0](https://github.com/nenitf/isb-conecta/milestone/1): Pode ser publicado mesmo não finalizado (faltando funcionalidades que serão incrementadas)
 - [ ] [v1.0.0](https://github.com/nenitf/isb-conecta/milestone/2): Finalizado com todos requisitos iniciais levantados
 
+Antes da `v.0.0` serão publicadas protótipos de interface `p*.*` (`p1.0`, `p1.1`, `p1.2`, ..., `p2.3`, etc) que não dependem de uma api
+
+1. Crie uma pasta e dentro dela coloque:
+    1. O [executável](https://github.com/nenitf/localspa/releases) `localspa`
+    2. Os [assets](https://github.com/nenitf/isb-conecta/releases) do projeto em uma nova pasta chamada `static`
+2. O projeto ficará assim:
+    ```txt
+    - p1-0 (pasta criada)
+        - executável (localspa)
+        - static/ (assets)
+            - index.html
+            - ...
+    ```
+3. Execute o `localspa`
+4. Acesse no navegador `localhost:3030`
+5. Configurações em `localhost:3030/configuracoes`
+
 Note que o tempo para atingir cada marco não possui relação com o seu percentual atual, pois depende da conclusão de novas tarefas. Sendo issues mais simples resolvidas em poucas horas ou mais complexas em semanas.
 
 ## Setup

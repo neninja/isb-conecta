@@ -2,10 +2,10 @@
     "private": true,
     "scripts": {
         "start": "mix watch",
-        "build": "npm run production",
+        "build": "mix --production",
         "hot": "mix watch --hot",
         "hot2": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --firewall --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prevprod": "set MIX_GHPAGES_TEST=1 && yarn production"
+        "prevprod": "set MIX_GHPAGES_TEST=1 && yarn build"
     },
     "engines": {
         "npm": "please-use-yarn",
