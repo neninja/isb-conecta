@@ -26,6 +26,9 @@ export function ViewUsuarios() {
             localStorage.getItem('@isb:dev:usuarios')
         )
         console.log(u)
+        if(!u){
+            return
+        }
         if(!!u[0]){
             setUsername(u[0].username)
             setNome(u[0].name)
