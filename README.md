@@ -19,9 +19,9 @@ Antes da `v.0.0` serão publicadas protótipos de interface `p*.*` (`p1.0`, `p1.
 4. Mova o executável `servidor` para a pasta
 2. O projeto ficará assim:
     ```txt
-    - site (pasta do site extraída)
+    - site/ (pasta do site extraída)
         - servidor (executável)
-        - static/ (anterior prevprodFrontend)
+        - static/ (pasta prevprodFrontend renomeada)
             - index.html
             - js/
                 - index.js
