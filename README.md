@@ -20,7 +20,7 @@ Antes da `v.0.0` serão publicadas protótipos de interface `p*.*` (`p1.0`, `p1.
 2. O projeto ficará assim:
     ```txt
     - site (pasta do site extraída)
-        - executável (servidor)
+        - servidor (executável)
         - static/ (anterior prevprodFrontend)
             - index.html
             - js/
