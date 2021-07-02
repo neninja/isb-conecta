@@ -12,20 +12,23 @@ Os [marcos](https://github.com/nenitf/isb-conecta/milestones) do projeto estão 
 
 Antes da `v.0.0` serão publicadas protótipos de interface `p*.*` (`p1.0`, `p1.1`, `p1.2`, ..., `p2.3`, etc) que não dependem de uma api
 
-1. Crie uma pasta e dentro dela coloque:
-    1. O [executável](https://github.com/nenitf/localspa/releases) `localspa`
-    2. Os [assets](https://github.com/nenitf/isb-conecta/releases) do projeto em uma nova pasta chamada `static`
+
+1. [Baixe o site](https://github.com/nenitf/isb-conecta/releases) do projeto e o extraia em qualquer lugar do computador (memorize aonde pois voltará aqui depois)
+2. Renomeie a pasta `prevprodFrontend` para `static`
+3. [Baixe o executável](https://github.com/nenitf/localspa/releases) de acordo com o sistema operacional e o extraia em qualquer lugar do computador
+4. Move o executável `servidor` para a pasta
 2. O projeto ficará assim:
     ```txt
-    - p1-0 (pasta criada)
-        - executável (localspa)
-        - static/ (assets)
+    - p1-0 (pasta do site extraída)
+        - executável (servidor)
+        - static/ (anterior prevprodFrontend)
             - index.html
-            - ...
+            - js/
+                - index.js
     ```
-3. Execute o `localspa`
+3. Execute o `servidor`
 4. Acesse no navegador `localhost:3030`
-5. Configurações em `localhost:3030/configuracoes`
+5. Configurações em `localhost:3030/conf`
 
 Note que o tempo para atingir cada marco não possui relação com o seu percentual atual, pois depende da conclusão de novas tarefas. Sendo issues mais simples resolvidas em poucas horas ou mais complexas em semanas.
 

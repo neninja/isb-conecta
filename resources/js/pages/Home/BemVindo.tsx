@@ -18,7 +18,7 @@ export function BemVindo({ proximo }: BemVindoProps) {
             <ul>
                 <li>
                     <strong>
-                        <Link to="/configuracao">
+                        <Link to="/conf">
                             ✨ Configuração local ✨
                         </Link>
                     </strong>

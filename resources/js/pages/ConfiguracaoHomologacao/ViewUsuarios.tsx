@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+import { Main } from '@components/Main'
 import { Input } from '@components/Form/Input'
 import { Button } from '@components/Button'
 
@@ -38,7 +39,7 @@ export function ViewUsuarios() {
     }, [])
 
     return (
-        <>
+        <Main>
             <form onSubmit={handleSubmit}>
                 <Input
                     label="Username"
@@ -67,6 +68,6 @@ export function ViewUsuarios() {
 
                 <Button type="submit">Salvar</Button>
             </form>
-        </>
+        </Main>
     )
 }
