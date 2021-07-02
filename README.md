@@ -64,16 +64,6 @@ php artisan serve #localhost:8000
 yarn start
 ```
 
-## Criação dos arquivos estáticos
-
-Para o aceite da UI é possível fazer build do frontend.
-
-<!--1. Add no `.env` a propriedade `MIX_GHPAGES_TEST=1` -->
-1. `composer prevprod`
-
-Será criado o diretório `prevprodFrontend` (não versionado), cujo possui o arquivo `index.html` que pode ser aberto pelo browser.
-
-
 ## Contribuindo
 
 Veja o [CONTRIBUTING.md](CONTRIBUTING.md)
