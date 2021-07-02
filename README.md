@@ -13,9 +13,9 @@ Os [marcos](https://github.com/nenitf/isb-conecta/milestones) do projeto estão 
 Antes da `v.0.0` serão publicadas protótipos de interface `p*.*` (`p1.0`, `p1.1`, `p1.2`, ..., `p2.3`, etc) que não dependem de uma api
 
 
-1. [Baixe o site.zip](https://github.com/nenitf/isb-conecta/releases) do projeto e o extraia em qualquer lugar do computador (memorize aonde pois voltará aqui depois)
+1. [Baixe o último site.zip disponível](https://github.com/nenitf/isb-conecta/releases/latest) do projeto e o extraia em qualquer lugar do computador (memorize aonde pois voltará aqui depois)
 2. Renomeie a pasta `prevprodFrontend` para `static`
-3. [Baixe o executável](https://github.com/nenitf/localspa/releases) de acordo com o sistema operacional e o extraia em qualquer lugar do computador
+3. [Baixe o último executável disponível](https://github.com/nenitf/localspa/releases/latest) de acordo com o sistema operacional e o extraia em qualquer lugar do computador
 4. Mova o executável `servidor` para a pasta
 2. O projeto ficará assim:
     ```txt
