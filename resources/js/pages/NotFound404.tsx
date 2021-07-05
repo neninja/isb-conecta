@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from '@contexts/auth'
 import styled from 'styled-components'
 
@@ -26,6 +26,9 @@ export function NotFound404({ erroDeAutenticacao }: NotFoundProps) {
     return (
         <Container>
             <h1>Página não encontrada</h1>
+            <ul>
+                <li><Link to="/">Ir para a página inicial</Link></li>
+            </ul>
         </Container>
     )
 }
