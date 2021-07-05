@@ -11,15 +11,18 @@ export default function(server){
             return u
         }
         return new Response(400, {}, {error: ''});
-    }),
+    })
     server.post("/api/login", (s, r: Request) => {
         let body = JSON.parse(r.requestBody)
         let u = body.username
         let p = body.password
         let usuario = usuarios.find(l => l.username === u && l.senha === p)
         if(usuario){
-            return u
+            return usuario
         }
         return new Response(400, {}, {error: ''});
+    })
+    server.get("/api/logout", (s, r: Request) => {
+        return new Response(200);
     })
 }

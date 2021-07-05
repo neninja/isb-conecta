@@ -5,12 +5,13 @@ import React, { createContext, useState, useEffect, useContext } from 'react';
 import useApi from '@hooks/useApiUsuarios'
 
 interface Usuario {
+    username: string
     name: string
 }
 
 interface AuthContextData {
     signed: boolean;
-    user: object | null;
+    user: Usuario | null;
     login(username: string, senha: string): Promise<any>;
     logout(): Promise<any>;
 }
@@ -36,6 +37,7 @@ export function AuthProvider({ children }) {
     function login(username, senha) {
         return new Promise(function(resolve, reject) {
             api.login(username, senha).then((resp) => {
+                console.log(resp)
                 setUser(resp)
                 resolve(resp)
             }).catch(resp => {

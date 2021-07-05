@@ -56,6 +56,11 @@ mix.ts("resources/js/index.tsx", "public/js")
                     "resources",
                     "js",
                     "contexts"
+                ),
+                "@img": path.resolve(
+                    __dirname,
+                    "resources",
+                    "img"
                 )
             }
         }

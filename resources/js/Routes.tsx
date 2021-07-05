@@ -7,6 +7,7 @@ import { Home } from '@pages/Home'
 import { routes as routesConfig } from '@pages/ConfiguracaoHomologacao'
 import { ViewUsuarios } from '@pages/ConfiguracaoHomologacao/ViewUsuarios'
 
+import { Header } from '@components/Header'
 import { Dashboard } from '@pages/Dashboard'
 import { NotFound404 } from '@pages/NotFound404'
 
@@ -22,6 +23,7 @@ export function Routes() {
 
     return (
         <BrowserRouter>
+            <Header />
             <Switch>
                 <Route exact path="/" component={Home} />
 

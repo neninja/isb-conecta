@@ -1,6 +1,7 @@
 import { get, post, del, put } from "@apis/httpclient";
 
 export interface loginResp {
+    username: string
     name: string
 }
 
