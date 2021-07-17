@@ -5,11 +5,15 @@ import { useAuth } from '@contexts/auth'
 
 import {
     Container,
+    ContainerIdentificacaoGrande,
     MenuButton,
     NomePequeno,
+    NomeGrande,
     SetorPequeno,
+    SetorGrande,
     Links,
-    ButtonLabel
+    ButtonLabel,
+    ButtonIcon
 } from './styles'
 
 import burgeropened from '@img/menu-burger-aberto.svg'
@@ -18,6 +22,7 @@ import home from '@img/home.svg'
 import folder from '@img/folder.svg'
 import config from '@img/config.svg'
 import close from '@img/close.svg'
+import calendario from '@img/calendario.svg'
 
 interface HeaderLogadoProps {
     onLogout: () => void
@@ -36,11 +41,15 @@ export function HeaderLogado({ onLogout }: HeaderLogadoProps) {
         <Container logged={true}>
             <div className="menu">
                 <ul className="burger-aberto">
+                    {!menuIsOpen ? <span/> :
                     <li className="usuario-pequeno">
                         <NomePequeno>{user?.name}</NomePequeno>
                         <SetorPequeno>Setor de Administração</SetorPequeno>
-                    </li>
-                    <MenuButton opened={menuIsOpen} onClick={e => setMenuIsOpen(!menuIsOpen)}>
+                    </li>}
+                    <MenuButton
+                        opened={menuIsOpen}
+                        onClick={e => setMenuIsOpen(!menuIsOpen)}
+                    >
                         Menu
                         <span>
                             <div />
@@ -91,6 +100,18 @@ export function HeaderLogado({ onLogout }: HeaderLogadoProps) {
                         </Link>
                     </li>
                 </Links>
+                {menuIsOpen ? <span/> :
+                <ContainerIdentificacaoGrande>
+                    <li>
+                        <NomeGrande>{user?.name}</NomeGrande>
+                        <SetorGrande>Setor de Administração</SetorGrande>
+                    </li>
+                    <li>
+                        <ButtonIcon>
+                            <img src={calendario}/>
+                        </ButtonIcon>
+                    </li>
+                </ContainerIdentificacaoGrande>}
             </div>
         </Container>
     )

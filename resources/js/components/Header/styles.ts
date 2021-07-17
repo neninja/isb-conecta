@@ -4,6 +4,19 @@ interface ContainerProps {
     logged: boolean
 }
 
+export const ContainerIdentificacaoGrande = styled.ul`
+    padding-top: 1rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+        display: flex;
+        flex-direction: column;
+    }
+`
+
 export const Container = styled.header<ContainerProps>`
     display: flex;
     align-items: center;
@@ -130,7 +143,15 @@ export const NomePequeno = styled.span`
     font-weight: bold;
 `
 
+export const NomeGrande = styled.span`
+    font-weight: bold;
+    font-size: 1.5rem;
+`
+
 export const SetorPequeno = styled.span`
+`
+
+export const SetorGrande = styled.span`
 `
 
 export const ButtonLabel = styled.div`
@@ -152,6 +173,17 @@ export const ButtonLabel = styled.div`
         justify-content: start;
         padding-left: 1rem;
     }
+`
+
+export const ButtonIcon = styled.div`
+    background: var(--cyan-light);
+    border-radius: 10px;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 interface LinksProps {
