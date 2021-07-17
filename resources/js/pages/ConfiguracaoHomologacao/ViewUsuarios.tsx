@@ -17,7 +17,7 @@ export function ViewUsuarios() {
             username,
             name: nome,
             senha,
-            setor
+            setor: parseInt(setor)
         }])
         localStorage.setItem('@isb:dev:usuarios', u)
     }
@@ -61,7 +61,7 @@ export function ViewUsuarios() {
                 />
                 <Input
                     label="Setor"
-                    type="text"
+                    type="number"
                     value={setor}
                     onChange={e => setSetor(e.target.value)}
                 />
