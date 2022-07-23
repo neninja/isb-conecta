@@ -1,4 +1,4 @@
-Temporariamente em pausa para focar unicamente na [interface](http://github.com/nenitf/isb-conecta_ui).
+Temporariamente em pausa para focar unicamente no [app](http://github.com/nenitf/isb-conecta_app).
 <!--
 # ISB Conecta
 
