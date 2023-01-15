@@ -1,3 +1,0 @@
-[submodule "app/Core"]
-	path = app/Core
-	url = git@github.com:nenitf/isb-conecta-core.git
