@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useRef } from 'react';
 
-export default forwardRef(function TextInput(
+const Input = forwardRef(function TextInput(
     { type = 'text', name, id, value, className, autoComplete, required, isFocused, handleChange },
     ref
 ) {
@@ -31,3 +31,5 @@ export default forwardRef(function TextInput(
         </div>
     );
 });
+
+export {Input};
