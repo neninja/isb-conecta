@@ -62,7 +62,7 @@ setting-%:
 	./vendor/bin/sail artisan tinker --execute='\App\Models\Setting::updateOrCreate(["key" => "$*"], ["value" => 0])'
 
 vite:
-	./vendor/bin/sail npm run dev
+	./vendor/bin/sail npm run start
 
 vitest:
 	./vendor/bin/sail npm test
