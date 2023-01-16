@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "target": "esnext",
+    "jsx": "react-jsx",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "resources/js",
+    "paths": {
+      "@components/*": ["./components/*"]
+    }
+  }
+}
