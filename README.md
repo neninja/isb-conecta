@@ -25,7 +25,7 @@ cp .env.example .env
 3. Baixe as dependências do composer
 
 ```bash
-docker run -v $(pwd):/var/www/html -w /var/www/html laravelsail/php81-composer:latest sh -c "composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_LICENSE_KEY} && composer install --ignore-platform-reqs"
+docker run -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:latest sh -c "composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_LICENSE_KEY} && composer install --ignore-platform-reqs"
 ```
 
 4. Crie a chave de criptografia
