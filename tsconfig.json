@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "baseUrl": "resources/js",
     "paths": {
-      "@components/*": ["./components/*"]
+      "@components/*": ["./Components/*"]
     }
   }
 }

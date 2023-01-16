@@ -10,7 +10,7 @@
 <!-- - [Marcos](https://github.com/nenitf/elefanteca_api/milestones) -->
 <!-- - [Planejamento](https://github.com/nenitf/elefanteca_api/projects/2) -->
 
-## Execução com Docker
+## Ambiente de desenvolvimento com Docker
 
 ### Configuração inicial
 
@@ -62,10 +62,11 @@ docker run -v $(pwd):/var/www/html -w /var/www/html laravelsail/php81-composer:l
 
 ### Execução
 
-Com a **configuração inicial** já realizada, suba os containers se necessário e acesse a aplicação em `localhost`
+Com a **configuração inicial** já realizada, suba os containers se necessário e acesse a aplicação em `localhost` e em seguida suba o ambiente de front-end
 
 ```sh
 ./vendor/bin/sail up -d
+./vendor/bin/sail npm start
 ```
 
 ### Teste

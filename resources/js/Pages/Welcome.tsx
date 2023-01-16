@@ -1,3 +1,4 @@
+import route from 'ziggy-js';
 import { Link, Head } from '@inertiajs/inertia-react';
 
 export default function Welcome(props) {
