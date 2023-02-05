@@ -1,16 +1,18 @@
 import { Link } from "@inertiajs/inertia-react";
 import route from "ziggy-js";
 
-export default function Authenticated({ auth, children }) {
+interface Props {
+    children: React.ReactNode;
+}
+
+export default function Authenticated({ children }: Props) {
     return (
         <>
-            <Link href={route('logout')} method="post" as="button">
+            <Link href={route("logout")} method="post" as="button">
                 Log Out
             </Link>
 
-            <div className="min-h-screen bg-gray-100">
-                {children}
-            </div>
+            <div className="min-h-screen bg-gray-100">{children}</div>
         </>
     );
 }

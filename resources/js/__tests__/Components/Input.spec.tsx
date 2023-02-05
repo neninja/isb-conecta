@@ -1,8 +1,11 @@
+import { faker } from "@faker-js/faker";
+import { render } from "@testing-library/react";
+
 import { Input } from "@/Components/Input";
-import { render, screen } from "@testing-library/react";
 
 it("shows input label", () => {
-    render(<Input />);
+    const label = faker.lorem.word();
+    const { getByLabelText } = render(<Input label={label} />);
 
-    expect(screen.getByRole("textbox")).toBeDefined();
+    expect(getByLabelText(new RegExp(label, "i"))).toBeDefined();
 });

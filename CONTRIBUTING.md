@@ -72,8 +72,10 @@ git reset --hard upstream/main
 ## Dicas
 ### Laravel
 #### Sail
+
 ```sh
 sail up
+sail bash
 sail down
 sail down --rmi all -v
 ```
