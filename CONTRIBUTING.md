@@ -97,11 +97,19 @@ sail artisan make:command -h
 sail artisan make:job -h
 ```
 
+#### Lint
+
+```sh
+sail npm format
+sail composer format
+```
+
 #### Frontend
 
 ```sh
 sail npm start
 sail npm test
+sail npm format
 sail artisan ziggy:generate
 ```
 
