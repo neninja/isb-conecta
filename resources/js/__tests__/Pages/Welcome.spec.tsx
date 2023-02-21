@@ -12,7 +12,7 @@ vi.mock("@/Helpers/routes", () => ({
     route: () => "qualquer-link",
 }));
 
-it("shows input label", () => {
+it("shows title", () => {
     const { getByText } = render(<Welcome />);
 
     expect(getByText(/Bem-vindo ao ISB CONECTA/i)).toBeDefined();
