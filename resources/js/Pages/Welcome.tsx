@@ -1,59 +1,40 @@
-import { Head, Link } from "@inertiajs/inertia-react";
-import { useEffect } from "react";
+import { Head } from "@inertiajs/react";
 import route from "ziggy-js";
 
-interface Auth {
-    user: User;
-}
+import { Button } from "@/Components/Button";
+import { Footer } from "@/Components/Footer";
 
-interface User {
-    id: number;
-    name: string;
-    email: string;
-}
-
-interface Props {
-    auth: Auth;
-    canLogin: boolean;
-}
-
-export default function Welcome(props: Props) {
-    useEffect(() => {
-        console.log(props);
-    }, [props]);
-
+export default function Welcome() {
     return (
         <>
-            <Head title="Welcome" />
-            <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-                <div className="fixed top-0 right-0 px-6 py-4 sm:block">
-                    {props.auth.user ? (
-                        <div className="flex gap-x-5">
-                            <Link
-                                href={route("dashboard")}
-                                className="text-sm text-gray-700 dark:text-gray-500 underline"
-                            >
-                                Dashboard
-                            </Link>
-                            <Link
-                                href={route("logout")}
-                                className="text-sm text-gray-700 dark:text-gray-500 underline"
-                                method="post"
-                                as="button"
-                            >
-                                Log Out
-                            </Link>
+            <Head title="Bem vindo" />
+            <div className="min-h-screen flex flex-col">
+                <div
+                    className="bg-primary flex items-center justify-center relative min-h-[30vh]
+                    after:content-[''] after:rounded-t-full after:bg-neutral-high after:w-[100%] after:h-8 after:absolute after:bottom-0 after:left-0"
+                ></div>
+                <div className="bg-neutral-high flex-auto flex justify-center">
+                    <div className="max-w-[800px] mx-7">
+                        <h1 className="text-xl text-primary">
+                            Bem-vindo ao
+                            <br /> <strong>ISB CONECTA</strong>
+                        </h1>
+                        <p className="text-neutral-low my-5">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Morbi augue neque, tincidunt non aliquet ac,
+                            fringilla quis velit. Aenean aliquet a mauris at
+                            malesuada. Pellentesque justo purus, pharetra vitae
+                            vestibulum eget, dignissim non eros.
+                        </p>
+
+                        <div className="mb-5">
+                            <Button href={route("login")} fullWidth>
+                                Prosseguir para login
+                            </Button>
                         </div>
-                    ) : (
-                        <>
-                            <Link
-                                href={route("login")}
-                                className="text-sm text-gray-700 dark:text-gray-500 underline"
-                            >
-                                Log in
-                            </Link>
-                        </>
-                    )}
+
+                        <Footer />
+                    </div>
                 </div>
             </div>
         </>

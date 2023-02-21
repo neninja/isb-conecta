@@ -1,7 +1,7 @@
 import "@/config/yup";
 
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Head } from "@inertiajs/inertia-react";
+import { Head } from "@inertiajs/react";
 import { router } from "@inertiajs/react";
 import { useForm, useWatch } from "react-hook-form";
 import * as yup from "yup";

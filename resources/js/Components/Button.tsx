@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import { useState } from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,9 +12,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     onlyText?: boolean;
     fullWidth?: boolean;
     hasLoading?: boolean;
+    href?: string;
 }
 
 export function Button({
+    href,
     disabled,
     fullWidth,
     hasLoading,
@@ -64,16 +67,31 @@ export function Button({
         return styles[fill];
     }
 
-    return (
-        <button
-            className={`font-bold
-                flex items-center justify-center
+    function getClasses() {
+        return `block
+        font-bold
+            flex items-center justify-center
             ${getSize()}
             ${getColorStyles()}
             ${fullWidth ? "w-full" : ""}
-            ${hasLoading && "relative overflow-hidden"}
+            ${hasLoading ? "relative overflow-hidden" : ""}
             disabled:opacity-60
-            `}
+            `;
+    }
+
+    if (href) {
+        return (
+            <div>
+                <Link href={href} className={getClasses()} disabled={disabled}>
+                    {children}
+                </Link>
+            </div>
+        );
+    }
+
+    return (
+        <button
+            className={getClasses()}
             disabled={disabled}
             onClick={handleClick}
             {...props}

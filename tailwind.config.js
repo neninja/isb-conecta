@@ -11,9 +11,6 @@ module.exports = {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
             fontSize: {
                 "3xs": "10px",
                 "2xs": "12px",
@@ -86,19 +83,19 @@ module.exports = {
                 neutral: {
                     low: {
                         DEFAULT: "#000000",
-                        light: "#A3A3A3",
+                        light: "#C4C4C4",
                         medium: "#666666",
                         dark: "#292929",
                     },
                     high: {
-                        DEFAULT: "#FFFFFF",
+                        DEFAULT: "#F7F8FC",
                         light: "#F5F5F5",
                         medium: "#E0E0E0",
                         dark: "#CCCCCC",
                     },
                 },
                 primary: {
-                    DEFAULT: "#009B97",
+                    DEFAULT: "#005D73",
                     light: "#9BD0CE",
                     medium: "#0E7572",
                     dark: "#0A4A49",
