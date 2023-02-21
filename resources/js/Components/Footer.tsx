@@ -1,6 +1,9 @@
 export function Footer() {
     return (
-        <ul className="text-neutral-low-light font-bold flex justify-center gap-6">
+        <ul
+            className="text-neutral-low-light font-bold flex justify-center gap-6"
+            aria-label="Suporte"
+        >
             <li>
                 <a href="#">Ajuda</a>
             </li>

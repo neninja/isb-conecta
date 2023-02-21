@@ -1,8 +1,8 @@
 import { Head } from "@inertiajs/react";
-import route from "ziggy-js";
 
 import { Button } from "@/Components/Button";
 import { Footer } from "@/Components/Footer";
+import { route } from "@/Helpers/routes";
 
 export default function Welcome() {
     return (
@@ -16,8 +16,7 @@ export default function Welcome() {
                 <div className="bg-neutral-high flex-auto flex justify-center">
                     <div className="max-w-[800px] mx-7">
                         <h1 className="text-xl text-primary">
-                            Bem-vindo ao
-                            <br /> <strong>ISB CONECTA</strong>
+                            Bem-vindo ao ISB CONECTA
                         </h1>
                         <p className="text-neutral-low my-5">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
