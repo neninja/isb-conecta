@@ -17,11 +17,11 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     if (Auth::check()) {
-        redirect('dashboard');
+        return redirect('dashboard');
     }
 
-    return Inertia::render('Welcome');
-});
+    return Inertia::render('Welcome/index');
+})->name('login');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

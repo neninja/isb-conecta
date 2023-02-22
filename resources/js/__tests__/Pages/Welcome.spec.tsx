@@ -18,11 +18,11 @@ it("shows title", () => {
     expect(getByText(/Bem-vindo ao ISB CONECTA/i)).toBeDefined();
 });
 
-it("has login's link", () => {
+it("has login's button", () => {
     const { getByRole } = render(<Welcome />);
 
     expect(
-        getByRole("link", {
+        getByRole("button", {
             name: /Prosseguir para login/i,
         }),
     ).toBeDefined();
