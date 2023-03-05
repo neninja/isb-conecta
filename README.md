@@ -6,8 +6,9 @@
 
 ## <a name="status"></a> Situação do projeto [:clipboard:](#status)
 
-- [Tarefas](https://github.com/nenitf/isb-conecta/issues)
 - [Marcos](https://github.com/nenitf/isb-conecta/milestones)
+- [Tarefas](https://github.com/nenitf/isb-conecta/issues)
+- [Situação do projeto](https://github.com/users/nenitf/projects/4)
 
 ## Ambiente de desenvolvimento com Docker
 
@@ -38,6 +39,7 @@ docker run -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:l
 ```sh
 ./vendor/bin/sail artisan migrate:fresh --seed
 ```
+
 ### Execução
 
 Com a **configuração inicial** já realizada, suba os containers se necessário e acesse a aplicação em `localhost` e em seguida suba o ambiente de front-end
