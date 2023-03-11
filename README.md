@@ -10,7 +10,9 @@
 - [Marcos](https://github.com/nenitf/isb-conecta/milestones)
 - [Planejamento](https://github.com/users/nenitf/projects/4)
 
-## Ambiente de desenvolvimento com Docker
+## Ambiente local com Docker
+
+> Veja o [guia de contribuição](CONTRIBUTING.md) para mais detalhes do desenvolvimento
 
 ### Configuração inicial
 
