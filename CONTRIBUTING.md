@@ -74,7 +74,9 @@ git reset --hard upstream/main
 #### Sail
 
 ```sh
+sail build --no-cache
 sail up
+sail up --build
 sail bash
 sail down
 sail down --rmi all -v
@@ -97,18 +99,20 @@ sail artisan make:command -h
 sail artisan make:job -h
 ```
 
-#### Lint
+#### Back-end
 
 ```sh
-sail npm format
+sail test
+sail test --filter <FileName>
 sail composer format
 ```
 
-#### Frontend
+#### Front-end
 
 ```sh
 sail npm start
 sail npm test
+sail npm test <FileName>
 sail npm format
 sail artisan ziggy:generate
 ```

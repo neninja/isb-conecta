@@ -51,8 +51,11 @@ Com a **configuração inicial** já realizada, suba os containers se necessári
 ./vendor/bin/sail npm start
 ```
 
+> Após `sail up -d`, quando quiser, encerre os containers com `sail down`
+
 ### Teste
 
 ```sh
 ./vendor/bin/sail test
+./vendor/bin/sail npm test
 ```
