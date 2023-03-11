@@ -59,3 +59,10 @@ Com a **configuração inicial** já realizada, suba os containers se necessári
 ./vendor/bin/sail test
 ./vendor/bin/sail npm test
 ```
+
+### CI local
+
+```sh
+./vendor/bin/sail composer run ci
+./vendor/bin/sail npm run ci
+```

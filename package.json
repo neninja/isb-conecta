@@ -7,6 +7,7 @@
         "prettier:fix": "npm run prettier -- --write",
         "format": "npm run lint:fix && npm run prettier:fix",
         "test": "vitest",
+        "ci": "npm run lint && npm test",
         "start": "vite",
         "build": "vite build"
     },
