@@ -42,7 +42,7 @@ docker run -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:l
 
 ### Execução
 
-Com a **configuração inicial** já realizada, suba os containers se necessário e acesse a aplicação em `localhost` e em seguida suba o ambiente de front-end
+Com a **configuração inicial** já realizada, suba os containers se necessário, inicie o ambiente front-end e acesse a aplicação em `localhost`
 
 ```sh
 ./vendor/bin/sail up -d
