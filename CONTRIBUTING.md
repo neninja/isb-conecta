@@ -69,11 +69,65 @@ git fetch --all
 git reset --hard upstream/main
 ```
 
+## Desenvolvimento
+
+### Arquitetura Backend
+
+```mermaid
+flowchart LR
+    subgraph input
+    api
+    web
+    command
+    schedule
+    end
+    
+    
+    classDef finished color:#022e1f,fill:#00f500;
+    
+    api --> controller;
+    web --> controller;
+    schedule --> job --> service;
+    command --> job;
+    command --> service;
+    command --> entity;
+
+    listener --> event;
+    controller --> event;
+    service --> event;
+    
+    listener --> job;
+    listener --> service;
+    controller --> service;
+    controller --> entity;
+    service --> entity;
+    service --> provider;
+    service --> exception;
+
+    client --> provider;
+
+    service --> response;
+    controller --> response;
+    job --> response;
+    listener --> response;
+    
+    response:::finished;
+```
+
+#### Testabilidade
+
+- *Unit*: Classes sem dependências. Exemplo: `Exceptions`, `Enums`, `Notifications` e classes específicas de bibliotecas como `Exports`
+- *Integration*: Classes cujo possuem dependências. Exemplo: `Services`, `Clients`, `Providers`, `Jobs`, `Events`/`Hooks` e `Listeners`/`Subscribers`
+- *Feature*: Fluxos que iniciam a partir do usuário. Exemplo: chamada de API, acesso web, comandos e agendamentos
+
 ## Dicas
-### Laravel
-#### Sail
+
+- Utilize `localhost:8025` para ver os e-mail enviados
+
+### CLI
 
 ```sh
+# containers
 sail build --no-cache
 sail up
 sail up --build
@@ -82,9 +136,8 @@ sail down
 sail down --rmi all -v
 ```
 
-#### Scaffolding
-
 ```sh
+# scaffolding
 sail artisan list
 sail artisan make -h
 sail artisan make:migration -h
@@ -99,17 +152,15 @@ sail artisan make:command -h
 sail artisan make:job -h
 ```
 
-#### Back-end
-
 ```sh
+# backend
 sail test
 sail test --filter <FileName>
 sail composer format
 ```
 
-#### Front-end
-
 ```sh
+# frontend
 sail npm start
 sail npm test
 sail npm test <FileName>
@@ -184,3 +235,4 @@ vitest:
 fmt:
 	./vendor/bin/sail npm run format
 ```
+

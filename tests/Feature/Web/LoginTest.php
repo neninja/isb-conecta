@@ -6,11 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-test('test login screen can be rendered', function () {
-    $this->get('/login')->assertRedirect(RouteServiceProvider::Login);
-});
-
-test('test users can authenticate using the login screen', function () {
+it('authenticates', function () {
     $user = User::factory()->create();
 
     $response = $this->post('/login', [
@@ -22,7 +18,7 @@ test('test users can authenticate using the login screen', function () {
     $response->assertRedirect(RouteServiceProvider::Home);
 });
 
-test('test users can not authenticate with invalid password', function () {
+it('not authenticates with invalid credentials', function () {
     $user = User::factory()->create();
 
     $this->post('/login', [

@@ -12,7 +12,7 @@
 
 ## Ambiente local com Docker
 
-> Veja o [guia de contribuição](CONTRIBUTING.md) para mais detalhes do desenvolvimento
+> Leia o [guia de contribuição](CONTRIBUTING.md) para mais detalhes do desenvolvimento
 
 ### Configuração inicial
 
