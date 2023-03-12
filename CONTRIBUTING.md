@@ -120,6 +120,10 @@ flowchart LR
 - *Integration*: Classes cujo possuem dependências. Exemplo: `Services`, `Clients`, `Providers`, `Jobs`, `Events`/`Hooks` e `Listeners`/`Subscribers`
 - *Feature*: Fluxos que iniciam a partir do usuário. Exemplo: chamada de API, acesso web, comandos e agendamentos
 
+#### Scope
+
+É importante adicionar escopo as models por padrão, situações em que elas não são necessárias são consideradas exceções.
+
 ## Dicas
 
 - Utilize `localhost:8025` para ver os e-mail enviados

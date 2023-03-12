@@ -31,8 +31,8 @@ it("has department link list", () => {
     expect(itens).toHaveLength(2);
 
     [
-        [/recepção/i, "/adm/relatorios/recepcao"],
-        [/educadores/i, "/adm/relatorios/educadores"],
+        [/recepção/i, "relatorios/recepcao"],
+        [/educadores/i, "relatorios/educadores"],
     ].forEach(function (p) {
         const link = within(lista).getByRole("link", { name: p[0] });
         expect(link).toBeDefined();

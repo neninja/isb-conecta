@@ -1,4 +1,5 @@
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
+import route from "ziggy-js";
 
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
@@ -7,13 +8,16 @@ export default function Dashboard() {
         <AuthenticatedLayout>
             <Head title="Dashboard" />
 
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">Logged</div>
-                    </div>
-                </div>
-            </div>
+            <h1>Central de setores</h1>
+
+            <ul aria-label="setores">
+                <li>
+                    <Link href={route("relatorios-recepcao")}>Recepção</Link>
+                </li>
+                <li>
+                    <Link href="relatorios/educadores">Educadores</Link>
+                </li>
+            </ul>
         </AuthenticatedLayout>
     );
 }

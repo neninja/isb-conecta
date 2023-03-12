@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\GetDepartmentReport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,6 +16,10 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('/swagger', function () {
+    return view('swagger');
+});
+
 Route::get('/', function () {
     if (Auth::check()) {
         return redirect('dashboard');
@@ -26,5 +31,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/reports/{department}', GetDepartmentReport::class);
 
 require __DIR__.'/auth.php';
