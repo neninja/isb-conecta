@@ -50,19 +50,10 @@ sudo chmod 775 -R vendor
 ./vendor/bin/sail npm i
 ```
 
-7. Gere o frontend institucional, administrativo e webapp
+7. Gere o frontend
 ```sh
-./vendor/bin/sail npm run build:backoffice
-./vendor/bin/sail npm run build:webapp
+./vendor/bin/sail npm run
 ```
-
-8. Crie a documentação de referência que ficará disponível em `localhost/api/reference`
-```sh
-./vendor/bin/sail art vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider"
-./vendor/bin/sail art l5-swagger:generate
-```
-
-9. Crie o bucket **público** `local` se ainda não foi criado do [MinIO](https://min.io/) em `localhost:8900` usando o login `sail` e `password`
 
 ### Execução
 
@@ -73,16 +64,15 @@ sudo chmod 775 -R vendor
 
 > Interrompa com `./vendor/bin/sail down`
 
-2. Inicie o frontend do backoffice **ou** webapp
+2. Inicie o frontend
 ```sh
-./vendor/bin/sail npm run dev:backoffice
-./vendor/bin/sail npm run dev:webapp
+./vendor/bin/sail npm run dev
 ```
 
 > Interrompa com <kbd>ctrl</kbd><kbd>c</kbd>
 
 3. Acesse o sistema:
-    - `localhost/admin`: `admin@hidroponi.ca` `123`
+    - `localhost/admin`: `admin@isb.com` `123`
 
 Outros comandos úteis durante o desenvolvimento:
 
@@ -106,7 +96,7 @@ Outros comandos úteis durante o desenvolvimento:
 
 ```sh
 ./vendor/bin/sail psql
-create database hidroponica_testing;
+create database isbconecta_testing;
 ```
 
 #### Execução
@@ -120,6 +110,6 @@ create database hidroponica_testing;
 
 #### QA
 
-É mantido em paralelo os [testes automatizados](http://github.com/nenitf/hidroponiqa) de api e interface web. Para testar:
+É mantido em paralelo os [testes automatizados](http://github.com/neninja/isbconeqa) de api e interface web. Para testar:
 - no `.env` deve estar com `APP_ENV` configurado como `e2e`
 - com o projeto ja configurado, executar `sail art migrate:fresh --seed` e `sail art optimize:clear` para resetar o ambiente
