@@ -20,7 +20,12 @@ cp .env.example .env
 
 2. Baixe o Sail juntamente com as dependências do composer
 ```sh
-docker run -v $(pwd):/var/www/html -w /var/www/html laravelsail/php82-composer:latest sh -c "composer config --global && composer install --ignore-platform-reqs"
+docker run -v $(pwd):/var/www/html -w /var/www/html laravelsail/php83-composer:latest sh -c "composer config --global && composer install --ignore-platform-reqs"
+```
+
+```sh
+sudo chown 1000:1000 -R vendor
+sudo chmod 775 -R vendor
 ```
 
 3. Suba o ambiente
