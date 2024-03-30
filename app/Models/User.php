@@ -15,11 +15,11 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasUuids;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use HasTeams;
+    use HasUuids;
     use Notifiable;
     use TwoFactorAuthenticatable;
 

@@ -44,7 +44,7 @@ class UserFactory extends Factory
     {
         return $this->state([
             'current_team_id' => Team::MAIN_TEAM_ID,
-        ])->afterCreating(function (User $user) use ($role){
+        ])->afterCreating(function (User $user) use ($role) {
             $user->teams()->attach(Team::MAIN_TEAM_ID, ['role' => $role ?? Role::Admin]);
         });
     }
@@ -62,7 +62,7 @@ class UserFactory extends Factory
     /**
      * Indicate that the user should have a personal team.
      */
-    public function withPersonalTeam(callable $callback = null): static
+    public function withPersonalTeam(?callable $callback = null): static
     {
         if (! Features::hasTeamFeatures()) {
             return $this->state([]);

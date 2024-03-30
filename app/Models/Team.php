@@ -11,8 +11,8 @@ use Laravel\Jetstream\Team as JetstreamTeam;
 
 class Team extends JetstreamTeam
 {
-    use HasUuids;
     use HasFactory;
+    use HasUuids;
 
     public const MAIN_TEAM_ID = 'dcd0cf8f-9ea8-4e07-bf33-b2f1d189c7b3';
 

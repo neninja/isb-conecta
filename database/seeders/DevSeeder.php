@@ -5,9 +5,9 @@ namespace Database\Seeders;
 use App\Enums\Teams\Role;
 use App\Models\Team;
 use App\Models\User;
-use Laravel\Fortify\RecoveryCode;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
+use Laravel\Fortify\RecoveryCode;
 
 class DevSeeder extends Seeder
 {

@@ -13,13 +13,6 @@ use App\Enums\Teams\Role;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 
-use Laravel\Fortify\Actions\AttemptToAuthenticate;
-use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
-use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
-use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
-use Laravel\Fortify\Fortify;
-use Illuminate\Http\Request;
-
 class JetstreamServiceProvider extends ServiceProvider
 {
     /**
