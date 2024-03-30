@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Teams\Role;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -37,6 +38,15 @@ class UserFactory extends Factory
             'profile_photo_path' => null,
             'current_team_id' => null,
         ];
+    }
+
+    public function mainTeam(?Role $role = null)
+    {
+        return $this->state([
+            'current_team_id' => Team::MAIN_TEAM_ID,
+        ])->afterCreating(function (User $user) use ($role){
+            $user->teams()->attach(Team::MAIN_TEAM_ID, ['role' => $role ?? Role::Admin]);
+        });
     }
 
     /**

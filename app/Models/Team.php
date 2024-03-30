@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
@@ -10,7 +11,10 @@ use Laravel\Jetstream\Team as JetstreamTeam;
 
 class Team extends JetstreamTeam
 {
+    use HasUuids;
     use HasFactory;
+
+    public const MAIN_TEAM_ID = 'dcd0cf8f-9ea8-4e07-bf33-b2f1d189c7b3';
 
     /**
      * The attributes that are mass assignable.
