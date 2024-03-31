@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Enums\Teams\Role;
-use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
@@ -16,7 +15,7 @@ class DevSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->mainTeam(Role::Admin)->create([
+        User::factory()->admin(Role::Admin)->create([
             'name' => 'Admin User',
             'email' => 'admin@isb.com',
             'password' => '123',
@@ -25,7 +24,6 @@ class DevSeeder extends Seeder
                 return RecoveryCode::generate();
             })->all())),
             'two_factor_confirmed_at' => now(),
-            'current_team_id' => Team::MAIN_TEAM_ID,
         ]);
     }
 }

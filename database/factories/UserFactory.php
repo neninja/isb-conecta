@@ -40,12 +40,12 @@ class UserFactory extends Factory
         ];
     }
 
-    public function mainTeam(?Role $role = null)
+    public function admin(?Role $role = null)
     {
         return $this->state([
-            'current_team_id' => Team::MAIN_TEAM_ID,
+            'current_team_id' => Team::ID_ADMINISTRACAO,
         ])->afterCreating(function (User $user) use ($role) {
-            $user->teams()->attach(Team::MAIN_TEAM_ID, ['role' => $role ?? Role::Admin]);
+            $user->teams()->attach(Team::ID_ADMINISTRACAO, ['role' => $role ?? Role::Admin]);
         });
     }
 

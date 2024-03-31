@@ -14,4 +14,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/reports', function () {
+        return view('dashboard');
+    })->name('reports');
+
+    Route::get('/settings', function () {
+        return view('dashboard');
+    })->name('settings');
 });
