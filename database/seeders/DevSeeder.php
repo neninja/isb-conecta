@@ -17,6 +17,7 @@ class DevSeeder extends Seeder
     {
         User::factory()->admin(Role::Admin)->create([
             'name' => 'Admin User',
+            'username' => 'admin.isb',
             'email' => 'admin@isb.com',
             'password' => '123',
             'two_factor_secret' => encrypt('NESFD7UNNXAE3JIZ'),

@@ -21,7 +21,7 @@
             @csrf
 
             <div class="mt-5">
-                <x-input label="Digite seu email" type="email" name="email" required autofocus autocomplete="username" is-outlined />
+                <x-input label="Digite seu usuário" name="username" required autofocus autocomplete="username" is-outlined />
             </div>
             <div class="mt-5">
                 <x-input label="Digite sua senha" type="password" name="password" required autocomplete="current-password" is-outlined />
