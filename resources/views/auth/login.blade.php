@@ -1,20 +1,22 @@
 <x-login-layout>
     <x-slot name="header">
-        <h1 x-show="step == 'intro'">
+        <h1>
             Bem-vindo ao <strong class="font-extrabold">ISB <span class="uppercase">Conecta</span></strong>
         </h1>
-        <h1 x-show="step == 'credentials'">
-            Realize seu login
-        </h1>
     </x-slot>
-    <x-button full x-show="step == 'intro'" @click="step = 'credentials'">
-        Prosseguir para login
-    </x-button>
-
-    <div x-show="step == 'credentials'">
+    <div>
         <p>
             Para realizar seu login basta entrar com o nome de usuário e a senha pré-definida que foi repassada para você. Caso não a tenha entre em contato com seu supervisor.
         </p>
+
+        <x-validation-errors class="mb-4" />
+
+        @session('status')
+            <div class="mb-4 font-medium text-sm text-green-600">
+                {{ $value }}
+            </div>
+        @endsession
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
