@@ -17,7 +17,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-primary-light">
         <x-banner />
 
         <div>
@@ -35,7 +35,7 @@
                         <h2>{{ $subtitle }}</h2>
                     </header>
                 </div>
-                <div class="-mt-[2rem] rounded-[8rem] bg-white py-8"></div>
+                <div class="-mt-[2rem] rounded-[8rem] bg-primary-light py-8"></div>
                 <div class="px-11 flex-grow flex justify-center"">
                     <div class="w-[50rem] flex flex-col">
                         <main>{{$slot}}</main>
