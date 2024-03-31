@@ -43,8 +43,11 @@
             </x-dropdown>
         </div>
 
-        <div x-show="open" x-transition>
-            {{$slot}}
+        <div x-show="open">
+            <header class="text-neutral-high">
+                <h1 class="text-xl font-semibold">{{user()->name}}</h1>
+                <h2>{{user()->currentTeam->name}}</h2>
+            </header>
         </div>
 
         <!-- Hamburger -->

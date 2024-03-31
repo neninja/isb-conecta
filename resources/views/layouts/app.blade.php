@@ -24,15 +24,10 @@
             <!-- Page Content -->
             <div class="flex flex-col min-h-screen">
                 <div class="bg-primary pt-14 pb-16 px-11" x-data="{showHeader: true}" @showing-responsive-menu="showHeader = !$event.detail.isShown">
-                    <x-navigation-menu>
-                        <header class="text-neutral-high">
-                            <h1 class="text-xl font-semibold">{{ $title }}</h1>
-                            <h2>{{ $subtitle }}</h2>
-                        </header>
-                    </x-navigation-menu>
+                    <x-navigation-menu />
                     <header x-show="showHeader" class="tracking-tight text-neutral-high mb-5">
-                        <h1 class="text-3xl font-semibold">{{ $title }}</h1>
-                        <h2>{{ $subtitle }}</h2>
+                        <h1 class="text-3xl font-semibold">{{user()->name}}</h1>
+                        <h2>{{user()->currentTeam->name}}</h2>
                     </header>
                 </div>
                 <div class="-mt-[2rem] rounded-[8rem] bg-primary-light py-8"></div>
