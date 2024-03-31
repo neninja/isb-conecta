@@ -108,8 +108,10 @@ create database isbconecta_testing;
 ./vendor/bin/sail test --filter nomeDoTeste
 ```
 
+<!-- aguardar aprovação
 #### QA
 
 É mantido em paralelo os [testes automatizados](http://github.com/neninja/isbconeqa) de api e interface web. Para testar:
 - no `.env` deve estar com `APP_ENV` configurado como `e2e`
 - com o projeto ja configurado, executar `sail art migrate:fresh --seed` e `sail art optimize:clear` para resetar o ambiente
+-->
