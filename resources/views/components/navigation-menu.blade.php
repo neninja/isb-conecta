@@ -6,10 +6,10 @@
             <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 Página inicial
             </x-nav-link>
-            <x-nav-link href="{{ route('reports') }}" :active="request()->routeIs('reports')">
+            <x-nav-link href="{{ route('reports.index') }}" :active="request()->routeIs('reports.*')">
                 Relatórios
             </x-nav-link>
-            <x-nav-link href="{{ route('settings') }}" :active="request()->routeIs('settings')">
+            <x-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs('settings.*')">
                 Configurações
             </x-nav-link>
         </div>
@@ -70,13 +70,13 @@
                 </x-slot>
                 Página inicial
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('reports') }}" :active="request()->routeIs('reports')">
+            <x-responsive-nav-link href="{{ route('reports.index') }}" :active="request()->routeIs('reports.*')">
                 <x-slot:icon>
                     <x-heroicon-o-calendar-days class="text-primary group-hover:text-neutral-low-dark" />
                 </x-slot>
                 Relatórios
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('settings') }}" :active="request()->routeIs('settings')">
+            <x-responsive-nav-link href="{{ route('settings.index') }}" :active="request()->routeIs('settings.*')">
                 <x-slot:icon>
                     <x-heroicon-o-cog-6-tooth class="text-primary group-hover:text-neutral-low-dark" />
                 </x-slot>
