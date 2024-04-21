@@ -4,6 +4,8 @@ namespace App\Livewire\Report;
 
 use App\Models\AtendimentoRecepcao;
 use App\Models\Report;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
@@ -30,9 +32,7 @@ class Recepcao extends Component
 
     public function render()
     {
-        return view('livewire.reports.recepcao', [
-            'reports' => $this->search(),
-        ])->layoutData([
+        return view('livewire.reports.recepcao')->layoutData([
             'title' => 'Filtro de Buscas',
             'subtitle' => 'Setor de Recepção',
             'description' => 'Selecione a data desejada e os diferentes relatórios publicados pelo setor de recepção que deseja visualizar.',
@@ -52,9 +52,11 @@ class Recepcao extends Component
     {
         $this->validate();
         $this->searchValidated = true;
+        unset($this->reports);
     }
 
-    private function search()
+    #[Computed()]
+    public function reports(): LengthAwarePaginator
     {
         if (! $this->searchValidated) {
             return null;

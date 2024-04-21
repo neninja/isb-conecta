@@ -12,7 +12,7 @@
         <p class="mt-8 text-primary uppercase font-extrabold">{{\Carbon\Carbon::createFromFormat('Y-m-d', $date)->translatedFormat('d \d\e F \d\e Y')}}</p>
         <p>Lista de relatórios de atendimento postados na data selecionada:</p>
         <div class="flex flex-col gap-4 mt-4" role="list">
-            @forelse ($reports ?? [] as $report)
+            @forelse ($this->reports ?? [] as $report)
                 <x-report-item :report="$report">
                     <x-slot name="fixed">
                         <x-report-item-info icon="heroicon-o-calendar-days">
@@ -38,7 +38,7 @@
             @empty
                 <p role="listitem">{{ __('reports.empty') }}</p>
             @endforelse
-            {{ $reports?->links('components.nav-pages') }}
+            {{ $this->reports?->links('components.nav-pages') }}
         </div>
     @endif
 </div>
