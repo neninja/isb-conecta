@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Report;
+use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->middleware('guest');
@@ -14,7 +15,8 @@ Route::middleware([
 
     Route::prefix('reports')->group(function () {
         Route::get('/', Report\Index::class)->name('reports.index');
-        Route::get('/{team}', Report\Show::class)->name('reports.show');
+        Route::get('/'.Team::ID_RECEPCAO, Report\Recepcao::class)->name('reports.recepcao');
+        // Route::get('/{team}', Report\Show::class)->name('reports.show');
     });
 
     Route::redirect('/settings', 'reports')->name('settings.index');

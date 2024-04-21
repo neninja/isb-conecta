@@ -43,7 +43,7 @@
             </x-dropdown>
         </div>
 
-        <div x-show="open">
+        <div x-cloak x-show="open">
             <header class="text-neutral-high">
                 <h1 class="text-xl font-semibold">{{user()->name}}</h1>
                 <h2>{{user()->currentTeam->name}}</h2>
@@ -62,7 +62,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div x-show="open" x-transition>
+    <div x-cloak x-show="open" x-transition>
         <div class="flex flex-col gap-2">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 <x-slot:icon>

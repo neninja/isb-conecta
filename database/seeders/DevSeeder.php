@@ -16,7 +16,7 @@ class DevSeeder extends Seeder
     public function run(): void
     {
         User::factory()->admin(Role::Admin)->create([
-            'name' => 'Admin User',
+            'name' => 'Ademir Ultimo',
             'username' => 'admin.isb',
             'email' => 'admin@isb.com',
             'password' => '123',
@@ -27,4 +27,6 @@ class DevSeeder extends Seeder
             'two_factor_confirmed_at' => now(),
         ]);
     }
+
+    //
 }

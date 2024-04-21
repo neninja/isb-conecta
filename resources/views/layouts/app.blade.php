@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=figtree:100,200,300,400,500,600,70,800,900&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -25,7 +25,7 @@
             <div class="flex flex-col min-h-screen">
                 <div class="bg-primary pt-14 pb-16 px-11" x-data="{showHeader: true}" @showing-responsive-menu="showHeader = !$event.detail.isShown">
                     <x-navigation-menu />
-                    <header x-show="showHeader" class="tracking-tight text-neutral-high mb-5">
+                    <header x-cloak x-show="showHeader" class="tracking-tight text-neutral-high mb-5">
                         <h1 class="text-3xl font-semibold">{{user()->name}}</h1>
                         <h2>{{user()->currentTeam->name}}</h2>
                     </header>
@@ -33,12 +33,17 @@
                 <div class="-mt-[2rem] rounded-[8rem] bg-primary-light py-8"></div>
                 <div class="px-11 flex-grow flex justify-center"">
                     <div class="w-[50rem] flex flex-col">
-                        @isset($title)
-                            <h3 class="text-2xl font-extrabold tracking-tight text-primary mb-5">{{$title}}</h3>
-                        @endisset
+                        <div class="flex flex-col-reverse">
+                            @isset($title)
+                                <h3 class="text-2xl font-extrabold tracking-tight text-primary mb-1">{{$title}}</h3>
+                            @endisset
+                            @isset($subtitle)
+                                <h3 class="font-semibold tracking-tight text-neutral-low-medium leading-3">{{$subtitle}}</h3>
+                            @endisset
+                        </div>
                         <main>
                             @isset($description)
-                                <p class="mb-14">{{$description}}</p>
+                                <p class="mb-2">{{$description}}</p>
                             @endisset
                             {{$slot}}
                         </main>

@@ -23,9 +23,16 @@ class Show extends Component
     public function mount()
     {
         match ($this->team) {
-            Team::ID_RECEPCAO => $this->component(Components\Calendar::class, [
-                ['href' => route('reports.show', 'a'), 'label' => 'Recepção'],
-            ]),
+            Team::ID_RECEPCAO => $this
+                ->component(Components\Calendar::class, [], ['name' => 'day'])
+                ->component(Components\CheckboxGroup::class, [
+                    ['name' => 'all', 'label' => 'Todos os relatorios'],
+                    ['name' => 'atendimentos', 'label' => 'Atendimentos'],
+                    ['name' => 'solicitacoes', 'label' => 'Solicitações'],
+                    ['name' => 'observacoes', 'label' => 'Observações'],
+                    ['name' => 'ocorrencias', 'label' => 'Ocorrências'],
+                ])
+                ->component(Components\Button::class, ['label' => 'Adicionar'], ['event' => 'tesevent']),
             default => abort(404),
         };
     }

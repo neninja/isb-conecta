@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
         if (app()->environment('local')) {
             $this->call(DevSeeder::class);
         }
+
+        if (! app()->environment('production')) {
+            $this->call(EndToEndSeeder::class);
+        }
     }
 
     public function createAllTeams()
