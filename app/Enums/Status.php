@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enums\Recepcao;
+namespace App\Enums;
 
-enum StatusSolicitacao: string
+enum Status: string
 {
     case Pending = 'pending';
     case Executed = 'executed';

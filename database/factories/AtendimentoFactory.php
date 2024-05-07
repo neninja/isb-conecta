@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Enums\Recepcao\Via;
+use App\Enums\Via;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AtendimentoRecepcao>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Atendimento>
  */
-class AtendimentoRecepcaoFactory extends Factory
+class AtendimentoFactory extends Factory
 {
     /**
      * Define the model's default state.

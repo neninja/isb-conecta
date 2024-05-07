@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-use App\Enums\Recepcao\StatusSolicitacao;
+use App\Enums\Status;
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SolicitacaoRecepcao extends Model
+class Solicitacao extends Model
 {
     use HasFactory;
     use HasUuids;
     use IsReport;
 
-    protected $table = 'reports_solicitacao_recepcao';
+    protected $table = 'reports_solicitacao';
 
     public $label = 'Solicitação';
 
@@ -27,6 +27,6 @@ class SolicitacaoRecepcao extends Model
     ];
 
     protected $casts = [
-        'status' => StatusSolicitacao::class,
+        'status' => Status::class,
     ];
 }

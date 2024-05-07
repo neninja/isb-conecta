@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('reports_atendimento_recepcao', function (Blueprint $table) {
+        Schema::create('reports_atendimento', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('via');
             $table->string('author_name');
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('reports_solicitacao_recepcao', function (Blueprint $table) {
+        Schema::create('reports_solicitacao', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('status');
             $table->string('author_name');

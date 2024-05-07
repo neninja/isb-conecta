@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-use App\Enums\Recepcao\Via;
+use App\Enums\Via;
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AtendimentoRecepcao extends Model
+class Atendimento extends Model
 {
     use HasFactory;
     use HasUuids;
     use IsReport;
 
-    protected $table = 'reports_atendimento_recepcao';
+    protected $table = 'reports_atendimento';
 
     public $label = 'Atendimento';
 

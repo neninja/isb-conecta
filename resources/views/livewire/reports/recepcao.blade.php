@@ -14,7 +14,7 @@
         <div class="flex flex-col gap-4 mt-4" role="list">
             @forelse ($this->reports ?? [] as $report)
                 @switch($report->related::class)
-                    @case(\App\Models\AtendimentoRecepcao::class)
+                    @case(\App\Models\Atendimento::class)
                         @include('livewire.reports.recepcao.atendimento', ['report' => $report])
                         @break
                     @case(\App\Models\SolicitacaoRecepcao::class)

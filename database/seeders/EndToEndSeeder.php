@@ -24,7 +24,7 @@ class EndToEndSeeder extends Seeder
                 ['date' => now()->subDay()],
                 ['date' => now()],
             ))
-            ->related(\App\Models\AtendimentoRecepcao::class)
+            ->related(\App\Models\Atendimento::class)
             ->create();
 
         Report::factory()
@@ -33,7 +33,7 @@ class EndToEndSeeder extends Seeder
                 ['date' => now()->subDay()],
                 ['date' => now()],
             ))
-            ->related(\App\Models\SolicitacaoRecepcao::class)
+            ->related(\App\Models\Solicitacao::class)
             ->create();
     }
 }

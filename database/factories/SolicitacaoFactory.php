@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Enums\Recepcao\StatusSolicitacao;
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SolicitacaoRecepcao>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Solicitacao>
  */
-class SolicitacaoRecepcaoFactory extends Factory
+class SolicitacaoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class SolicitacaoRecepcaoFactory extends Factory
     public function definition(): array
     {
         return [
-            'status' => fake()->randomElement(StatusSolicitacao::cases()),
+            'status' => fake()->randomElement(Status::cases()),
             'author_name' => fake()->name(),
             'author_contact' => fake()->phoneNumber(),
             'description' => fake()->text(),
