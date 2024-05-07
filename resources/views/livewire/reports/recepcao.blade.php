@@ -15,10 +15,13 @@
             @forelse ($this->reports ?? [] as $report)
                 @switch($report->related::class)
                     @case(\App\Models\Atendimento::class)
-                        @include('livewire.reports.recepcao.atendimento', ['report' => $report])
+                        @include('livewire.reports.related.atendimento', ['report' => $report])
                         @break
-                    @case(\App\Models\SolicitacaoRecepcao::class)
-                        @include('livewire.reports.recepcao.solicitacao', ['report' => $report])
+                    @case(\App\Models\Solicitacao::class)
+                        @include('livewire.reports.related.solicitacao', ['report' => $report])
+                        @break
+                    @case(\App\Models\Telefonema::class)
+                        @include('livewire.reports.related.telefonema', ['report' => $report])
                         @break
                 @endswitch
             @empty

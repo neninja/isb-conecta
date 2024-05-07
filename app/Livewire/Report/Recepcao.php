@@ -5,6 +5,7 @@ namespace App\Livewire\Report;
 use App\Models\Atendimento;
 use App\Models\Report;
 use App\Models\Solicitacao;
+use App\Models\Telefonema;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
@@ -29,6 +30,7 @@ class Recepcao extends Component
             ['name' => 'all', 'label' => 'Todos os relatorios'],
             ['name' => Atendimento::class, 'label' => 'Atendimentos'],
             ['name' => Solicitacao::class, 'label' => 'Solicitações'],
+            ['name' => Telefonema::class, 'label' => 'Telefonemas'],
         ];
     }
 

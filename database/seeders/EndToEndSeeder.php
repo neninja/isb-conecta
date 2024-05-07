@@ -18,22 +18,20 @@ class EndToEndSeeder extends Seeder
 
     public function administracaoReports()
     {
-        Report::factory()
-            ->count(24)
-            ->state(new Sequence(
-                ['date' => now()->subDay()],
-                ['date' => now()],
-            ))
-            ->related(\App\Models\Atendimento::class)
-            ->create();
+        $this->create(\App\Models\Atendimento::class);
+        $this->create(\App\Models\Solicitacao::class);
+        $this->create(\App\Models\Telefonema::class);
+    }
 
+    public function create(string $model): void
+    {
         Report::factory()
             ->count(24)
             ->state(new Sequence(
                 ['date' => now()->subDay()],
                 ['date' => now()],
             ))
-            ->related(\App\Models\Solicitacao::class)
+            ->related($model)
             ->create();
     }
 }

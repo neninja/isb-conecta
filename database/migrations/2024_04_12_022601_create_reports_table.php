@@ -36,6 +36,14 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_telefonema', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('author_name');
+            $table->string('author_contact');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**
