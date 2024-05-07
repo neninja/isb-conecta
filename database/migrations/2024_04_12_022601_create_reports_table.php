@@ -27,6 +27,15 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_solicitacao_recepcao', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('status');
+            $table->string('author_name');
+            $table->string('author_contact');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**

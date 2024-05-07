@@ -20,11 +20,11 @@ class ReportFactory extends Factory
         ];
     }
 
-    public function atendimentoAdministracao(): self
+    public function related(string $related): self
     {
         return $this->state([
-            'related_type' => \App\Models\AtendimentoRecepcao::class,
-            'related_id' => \App\Models\AtendimentoRecepcao::factory(),
+            'related_type' => $related,
+            'related_id' => $related::factory(),
         ]);
     }
 }

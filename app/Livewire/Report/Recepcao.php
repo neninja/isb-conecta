@@ -4,6 +4,7 @@ namespace App\Livewire\Report;
 
 use App\Models\AtendimentoRecepcao;
 use App\Models\Report;
+use App\Models\SolicitacaoRecepcao;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
@@ -27,6 +28,7 @@ class Recepcao extends Component
         $this->optionsReports = [
             ['name' => 'all', 'label' => 'Todos os relatorios'],
             ['name' => AtendimentoRecepcao::class, 'label' => 'Atendimentos'],
+            ['name' => SolicitacaoRecepcao::class, 'label' => 'Solicitações'],
         ];
     }
 

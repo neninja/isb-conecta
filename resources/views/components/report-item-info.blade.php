@@ -10,7 +10,7 @@
         {{$label}}
     </div>
     @endisset
-    <div class="p-2 {{!isset($icon) ? 'text-black' : 'font-extrabold text-primary'}} bg-primary-light rounded-xl">
+    <div class="p-2 {{!isset($icon) ? 'text-black' : 'font-extrabold text-primary'}} bg-primary-light rounded-xl w-full">
         {{$slot}}
     </div>
 </div>

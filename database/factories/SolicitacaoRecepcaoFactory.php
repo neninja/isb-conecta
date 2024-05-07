@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Enums\Recepcao\Via;
+use App\Enums\Recepcao\StatusSolicitacao;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AtendimentoRecepcao>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SolicitacaoRecepcao>
  */
-class AtendimentoRecepcaoFactory extends Factory
+class SolicitacaoRecepcaoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class AtendimentoRecepcaoFactory extends Factory
     public function definition(): array
     {
         return [
-            'via' => fake()->randomElement(Via::cases()),
+            'status' => fake()->randomElement(StatusSolicitacao::cases()),
             'author_name' => fake()->name(),
             'author_contact' => fake()->phoneNumber(),
             'description' => fake()->text(),

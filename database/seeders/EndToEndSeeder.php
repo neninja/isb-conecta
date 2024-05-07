@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Report;
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
 
 class EndToEndSeeder extends Seeder
@@ -18,13 +19,21 @@ class EndToEndSeeder extends Seeder
     public function administracaoReports()
     {
         Report::factory()
-            ->count(12)
-            ->atendimentoAdministracao()
-            ->create(['date' => now()->subDay()]);
+            ->count(24)
+            ->state(new Sequence(
+                ['date' => now()->subDay()],
+                ['date' => now()],
+            ))
+            ->related(\App\Models\AtendimentoRecepcao::class)
+            ->create();
 
         Report::factory()
-            ->count(15)
-            ->atendimentoAdministracao()
+            ->count(24)
+            ->state(new Sequence(
+                ['date' => now()->subDay()],
+                ['date' => now()],
+            ))
+            ->related(\App\Models\SolicitacaoRecepcao::class)
             ->create();
     }
 }
