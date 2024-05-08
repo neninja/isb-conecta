@@ -44,6 +44,21 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_observacao', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('subject');
+            $table->string('description');
+            $table->timestamps();
+        });
+
+        Schema::create('reports_ocorrencia', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('type');
+            $table->string('subject');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**

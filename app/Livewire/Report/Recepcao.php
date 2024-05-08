@@ -2,10 +2,6 @@
 
 namespace App\Livewire\Report;
 
-use App\Models\Atendimento;
-use App\Models\Report;
-use App\Models\Solicitacao;
-use App\Models\Telefonema;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
@@ -28,9 +24,11 @@ class Recepcao extends Component
     {
         $this->optionsReports = [
             ['name' => 'all', 'label' => 'Todos os relatorios'],
-            ['name' => Atendimento::class, 'label' => 'Atendimentos'],
-            ['name' => Solicitacao::class, 'label' => 'Solicitações'],
-            ['name' => Telefonema::class, 'label' => 'Telefonemas'],
+            ['name' => \App\Models\Atendimento::class, 'label' => 'Atendimentos'],
+            ['name' => \App\Models\Solicitacao::class, 'label' => 'Solicitações'],
+            ['name' => \App\Models\Telefonema::class, 'label' => 'Telefonemas'],
+            ['name' => \App\Models\Observacao::class, 'label' => 'Observações'],
+            ['name' => \App\Models\Ocorrencia::class, 'label' => 'Ocorrências', 'accent' => true],
         ];
     }
 
@@ -66,7 +64,7 @@ class Recepcao extends Component
             return null;
         }
 
-        return Report::query()
+        return \App\Models\Report::query()
             ->whereIn('related_type', $this->selectedReports)
             ->where('date', $this->date)
             ->orderByDesc('created_at')

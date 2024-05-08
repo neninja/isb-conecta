@@ -23,6 +23,12 @@
                     @case(\App\Models\Telefonema::class)
                         @include('livewire.reports.related.telefonema', ['report' => $report])
                         @break
+                    @case(\App\Models\Observacao::class)
+                        @include('livewire.reports.related.observacao', ['report' => $report])
+                        @break
+                    @case(\App\Models\Ocorrencia::class)
+                        @include('livewire.reports.related.ocorrencia', ['report' => $report])
+                        @break
                 @endswitch
             @empty
                 <p role="listitem">{{ __('reports.empty') }}</p>

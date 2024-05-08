@@ -21,6 +21,8 @@ class EndToEndSeeder extends Seeder
         $this->create(\App\Models\Atendimento::class);
         $this->create(\App\Models\Solicitacao::class);
         $this->create(\App\Models\Telefonema::class);
+        $this->create(\App\Models\Observacao::class);
+        $this->create(\App\Models\Ocorrencia::class);
     }
 
     public function create(string $model): void

@@ -2,25 +2,30 @@
 
 namespace App\Models;
 
+use App\Enums\Ocorrencia\Type;
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Telefonema extends Model
+class Ocorrencia extends Model
 {
     use HasFactory;
     use HasUuids;
     use IsReport;
 
-    protected $table = 'reports_telefonema';
+    protected $table = 'reports_ocorrencia';
 
-    public $label = 'Telefonema';
+    public $label = 'Occorrência';
 
     protected $fillable = [
-        'author_name',
-        'author_contact',
+        'type',
+        'subject',
         'description',
         'user_id',
+    ];
+
+    protected $casts = [
+        'type' => Type::class,
     ];
 }
