@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Collection;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
@@ -24,7 +25,7 @@ class Team extends JetstreamTeam
 
     public const ID_CONTABILIDADE = '3d135747-e1fc-4605-9407-eaefe4324fea';
 
-    public const ID_COORDENAÇÃO_PEDAGOGICA = '4d5a0c17-ddc6-4392-b9f0-8d9dc2a84ec5';
+    public const ID_COORDENACAO_PEDAGOGICA = '4d5a0c17-ddc6-4392-b9f0-8d9dc2a84ec5';
 
     public const ID_EDUCADORES = 'ac3a2ca0-888c-4fd1-9af5-ddd0744619f7';
 
@@ -67,5 +68,28 @@ class Team extends JetstreamTeam
         return [
             'personal_team' => 'boolean',
         ];
+    }
+
+    public static function mapReports(): array
+    {
+        return [
+            self::ID_RECEPCAO => [
+                Atendimento::class,
+                Solicitacao::class,
+                Telefonema::class,
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_SECRETARIA => [
+                Ocorrencia::class,
+            ],
+        ];
+    }
+
+    public function reportables(): Collection
+    {
+        $reports = self::mapReports()[$this->id];
+
+        return collect($reports);
     }
 }

@@ -30,4 +30,9 @@ class Report extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function team(): BelongsTo
+    {
+        return $this->belongsTo(Team::class);
+    }
 }

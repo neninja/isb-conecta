@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Team::factory()->create([
-            'id' => Team::ID_COORDENAÇÃO_PEDAGOGICA,
+            'id' => Team::ID_COORDENACAO_PEDAGOGICA,
             'name' => 'Coordenação Pedagógica',
         ]);
 

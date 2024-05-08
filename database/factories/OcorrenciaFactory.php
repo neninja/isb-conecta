@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class OcorrenciaFactory extends Factory
 {
+    use IsReport;
+
     /**
      * Define the model's default state.
      *

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->uuidMorphs('related');
             $table->foreignUuid('user_id');
+            $table->foreignUuid('team_id');
             $table->timestamps();
         });
 

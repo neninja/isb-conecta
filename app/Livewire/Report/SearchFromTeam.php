@@ -2,15 +2,18 @@
 
 namespace App\Livewire\Report;
 
+use App\Models\Team;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithoutUrlPagination;
 use Livewire\WithPagination;
 
-class Recepcao extends Component
+class SearchFromTeam extends Component
 {
     use WithoutUrlPagination, WithPagination;
+
+    public Team $team;
 
     public array $optionsReports;
 
@@ -22,14 +25,11 @@ class Recepcao extends Component
 
     public function mount()
     {
-        $this->optionsReports = [
-            ['name' => 'all', 'label' => 'Todos os relatorios'],
-            $this->option(\App\Models\Atendimento::class),
-            $this->option(\App\Models\Solicitacao::class),
-            $this->option(\App\Models\Telefonema::class),
-            $this->option(\App\Models\Observacao::class),
-            $this->option(\App\Models\Ocorrencia::class),
-        ];
+        $this->optionsReports = array_merge(
+            [['name' => 'all', 'label' => 'Todos os relatorios']],
+            $this->team->reportables()->map(fn ($report) => $this->option($report))->toArray()
+        );
+
     }
 
     protected function option(string $model): array
@@ -39,7 +39,7 @@ class Recepcao extends Component
 
     public function render()
     {
-        return view('livewire.reports.recepcao')->layoutData([
+        return view('livewire.reports.search-from-team')->layoutData([
             'title' => 'Filtro de Buscas',
             'subtitle' => 'Setor de Recepção',
             'description' => 'Selecione a data desejada e os diferentes relatórios publicados pelo setor de recepção que deseja visualizar.',
@@ -72,6 +72,7 @@ class Recepcao extends Component
         return \App\Models\Report::query()
             ->whereIn('related_type', $this->selectedReports)
             ->where('date', $this->date)
+            ->where('team', $this->team)
             ->orderByDesc('created_at')
             ->paginate(10);
     }

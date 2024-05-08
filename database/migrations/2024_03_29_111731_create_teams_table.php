@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->index();
             $table->string('name');
             $table->boolean('personal_team');
             $table->timestamps();

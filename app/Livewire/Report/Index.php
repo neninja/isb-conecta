@@ -11,7 +11,7 @@ class Index extends Component
     {
         return view('livewire.reports.index', [
             'links' => [
-                ['href' => route('reports.recepcao', Team::ID_RECEPCAO), 'label' => 'Recepção'],
+                ['href' => route('reports.team', Team::ID_RECEPCAO), 'label' => 'Recepção'],
                 // ['href' => '#', 'label' => 'Secretaria'],
                 // ['href' => '#', 'label' => 'Assistência Social'],
                 // ['href' => '#', 'label' => 'Contabilidade'],
