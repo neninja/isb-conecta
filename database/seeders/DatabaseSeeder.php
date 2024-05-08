@@ -21,60 +21,25 @@ class DatabaseSeeder extends Seeder
 
     public function createAllTeams()
     {
-        Team::factory()->create([
-            'id' => Team::ID_ADMINISTRACAO,
-            'name' => 'Administração',
-        ]);
+        $availableTeams = [
+            Team::ID_ADMINISTRACAO,
+            Team::ID_RECEPCAO,
+            Team::ID_SECRETARIA,
+            Team::ID_ASSISTENCIA_SOCIAL,
+            Team::ID_CONTABILIDADE,
+            Team::ID_COORDENACAO_PEDAGOGICA,
+            Team::ID_EDUCADORES,
+            Team::ID_LIMPEZA,
+            Team::ID_COZINHA,
+            Team::ID_SERVICO_DE_APOIO,
+            Team::ID_JARDINAGEM,
+        ];
 
-        Team::factory()->create([
-            'id' => Team::ID_RECEPCAO,
-            'name' => 'Recepção',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_SECRETARIA,
-            'name' => 'Secretaria',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_ASSISTENCIA_SOCIAL,
-            'name' => 'Assistência Social',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_CONTABILIDADE,
-            'name' => 'Contabilidade',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_COORDENACAO_PEDAGOGICA,
-            'name' => 'Coordenação Pedagógica',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_EDUCADORES,
-            'name' => 'Educadores',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_LIMPEZA,
-            'name' => 'Limpeza',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_COZINHA,
-            'name' => 'Cozinha',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_SERVICO_DE_APOIO,
-            'name' => 'Serviço de Apoio',
-        ]);
-
-        Team::factory()->create([
-            'id' => Team::ID_JARDINAGEM,
-            'name' => 'Jardinagem',
-        ]);
-
+        foreach ($availableTeams as $teamId) {
+            Team::factory()->create([
+                'id' => $teamId,
+                'name' => Team::label($teamId),
+            ]);
+        }
     }
 }

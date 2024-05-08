@@ -70,9 +70,27 @@ class Team extends JetstreamTeam
         ];
     }
 
+    public static function label(string $teamId): string
+    {
+        return match ($teamId) {
+            self::ID_ADMINISTRACAO => 'Administração',
+            self::ID_RECEPCAO => 'Recepção',
+            self::ID_SECRETARIA => 'Secretaria',
+            self::ID_ASSISTENCIA_SOCIAL => 'Assistência Social',
+            self::ID_CONTABILIDADE => 'Contabilidade',
+            self::ID_COORDENACAO_PEDAGOGICA => 'Coordenação Pedagógica',
+            self::ID_EDUCADORES => 'Educadores',
+            self::ID_LIMPEZA => 'Limpeza',
+            self::ID_COZINHA => 'Cozinha',
+            self::ID_SERVICO_DE_APOIO => 'Serviço de Apoio',
+            self::ID_JARDINAGEM => 'Jardinagem',
+        };
+    }
+
     public static function mapReports(): array
     {
         return [
+            self::ID_ADMINISTRACAO => [],
             self::ID_RECEPCAO => [
                 Atendimento::class,
                 Solicitacao::class,
@@ -83,6 +101,14 @@ class Team extends JetstreamTeam
             self::ID_SECRETARIA => [
                 Ocorrencia::class,
             ],
+            self::ID_ASSISTENCIA_SOCIAL => [],
+            self::ID_CONTABILIDADE => [],
+            self::ID_COORDENACAO_PEDAGOGICA => [],
+            self::ID_EDUCADORES => [],
+            self::ID_LIMPEZA => [],
+            self::ID_COZINHA => [],
+            self::ID_SERVICO_DE_APOIO => [],
+            self::ID_JARDINAGEM => [],
         ];
     }
 
