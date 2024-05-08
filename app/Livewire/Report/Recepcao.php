@@ -24,12 +24,17 @@ class Recepcao extends Component
     {
         $this->optionsReports = [
             ['name' => 'all', 'label' => 'Todos os relatorios'],
-            ['name' => \App\Models\Atendimento::class, 'label' => 'Atendimentos'],
-            ['name' => \App\Models\Solicitacao::class, 'label' => 'Solicitações'],
-            ['name' => \App\Models\Telefonema::class, 'label' => 'Telefonemas'],
-            ['name' => \App\Models\Observacao::class, 'label' => 'Observações'],
-            ['name' => \App\Models\Ocorrencia::class, 'label' => 'Ocorrências', 'accent' => true],
+            $this->option(\App\Models\Atendimento::class),
+            $this->option(\App\Models\Solicitacao::class),
+            $this->option(\App\Models\Telefonema::class),
+            $this->option(\App\Models\Observacao::class),
+            $this->option(\App\Models\Ocorrencia::class),
         ];
+    }
+
+    protected function option(string $model): array
+    {
+        return ['name' => $model, 'label' => (new $model)::PLURAL_LABEL];
     }
 
     public function render()

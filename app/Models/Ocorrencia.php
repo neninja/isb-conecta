@@ -16,7 +16,8 @@ class Ocorrencia extends Model
 
     protected $table = 'reports_ocorrencia';
 
-    public $label = 'Occorrência';
+    const SINGULAR_LABEL = 'Occorrência';
+    const PLURAL_LABEL = 'Occorrências';
 
     protected $fillable = [
         'type',

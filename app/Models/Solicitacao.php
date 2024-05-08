@@ -16,7 +16,8 @@ class Solicitacao extends Model
 
     protected $table = 'reports_solicitacao';
 
-    public $label = 'Solicitação';
+    const SINGULAR_LABEL = 'Solicitação';
+    const PLURAL_LABEL = 'Solicitações';
 
     protected $fillable = [
         'status',
