@@ -5,7 +5,7 @@
             <x-calendar wire:model="date"></x-calendar>
             <x-form-instruction>selecione 1 ou mais campos de relatórios</x-form-instruction>
             <x-checkbox-group :options="$optionsReports" wire:model="selectedReports"></x-checkbox-group>
-            <x-button full>Adicionar</x-button>
+            <x-button full>Pesquisar</x-button>
         </form>
     @else
         <h4 class="font-semibold text-sm text-neutral-low-dark uppercase">resultados encontrados para sua busca</h4>

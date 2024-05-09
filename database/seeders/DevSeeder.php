@@ -26,7 +26,7 @@ class DevSeeder extends Seeder
             })->all())),
             'two_factor_confirmed_at' => now(),
         ]);
-    }
 
-    //
+        $this->call(ReportSeeder::class);
+    }
 }

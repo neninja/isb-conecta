@@ -30,6 +30,7 @@ class SearchFromTeam extends Component
         \App\Models\Observacao::class => 'observacao',
         \App\Models\Ocorrencia::class => 'ocorrencia',
         \App\Models\Documentacao::class => 'documentacao',
+        \App\Models\Tarefa::class => 'tarefa',
     ];
 
     public function mount()

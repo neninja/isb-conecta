@@ -101,6 +101,7 @@ class Team extends JetstreamTeam
             self::ID_SECRETARIA => [
                 Solicitacao::class,
                 Documentacao::class,
+                Tarefa::class,
                 Observacao::class,
                 Ocorrencia::class,
             ],
