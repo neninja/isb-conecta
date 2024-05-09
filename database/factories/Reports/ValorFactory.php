@@ -1,13 +1,14 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
+use App\Enums\Sponsor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reuniao>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Valor>
  */
-class ReuniaoFactory extends Factory
+class ValorFactory extends Factory
 {
     use IsReport;
 
@@ -19,7 +20,8 @@ class ReuniaoFactory extends Factory
     public function definition(): array
     {
         return [
-            'subject' => fake()->sentence(),
+            'amount' => fake()->numberBetween(1, 10000),
+            'sponsor' => fake()->randomElement(Sponsor::cases()),
             'description' => fake()->text(),
         ];
     }

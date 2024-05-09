@@ -1,27 +1,26 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reports;
 
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CasoEncaminhado extends Model
+class Observacao extends Model
 {
     use HasFactory;
     use HasUuids;
     use IsReport;
 
-    protected $table = 'reports_caso-encaminhado';
+    protected $table = 'reports_observacao';
 
-    const SINGULAR_LABEL = 'Caso encaminhado';
+    const SINGULAR_LABEL = 'Observação';
 
-    const PLURAL_LABEL = 'Casos Encaminhados';
+    const PLURAL_LABEL = 'Observações';
 
     protected $fillable = [
-        'tech_name',
-        'tech_contact',
-        'forwarded_location',
+        'subject',
+        'description',
     ];
 }

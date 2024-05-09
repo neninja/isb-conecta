@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reports;
 
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Doacao extends Model
+class Acompanhamento extends Model
 {
     use HasFactory;
     use HasUuids;
     use IsReport;
 
-    protected $table = 'reports_doacao';
+    protected $table = 'reports_acompanhamento';
 
-    const SINGULAR_LABEL = 'Doação';
+    const SINGULAR_LABEL = 'Acompanhamento';
 
-    const PLURAL_LABEL = 'Doações';
+    const PLURAL_LABEL = 'Acompanhamentos';
 
     protected $fillable = [
-        'donator',
+        'subject',
+        'network',
         'description',
     ];
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CasoEncaminhado>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\CasoEncaminhado>
  */
 class CasoEncaminhadoFactory extends Factory
 {

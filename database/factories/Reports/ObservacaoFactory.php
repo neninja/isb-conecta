@@ -1,14 +1,13 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
-use App\Enums\Ocorrencia\Type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Ocorrencia>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Observacao>
  */
-class OcorrenciaFactory extends Factory
+class ObservacaoFactory extends Factory
 {
     use IsReport;
 
@@ -20,7 +19,6 @@ class OcorrenciaFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => fake()->randomElement(Type::cases()),
             'subject' => fake()->sentence(),
             'description' => fake()->text(),
         ];

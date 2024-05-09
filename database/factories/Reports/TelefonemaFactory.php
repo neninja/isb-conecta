@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Acompanhamento>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Telefonema>
  */
-class AcompanhamentoFactory extends Factory
+class TelefonemaFactory extends Factory
 {
     use IsReport;
 
@@ -19,8 +19,8 @@ class AcompanhamentoFactory extends Factory
     public function definition(): array
     {
         return [
-            'subject' => fake()->sentence(),
-            'network' => fake()->sentence(),
+            'author_name' => fake()->name(),
+            'author_contact' => fake()->phoneNumber(),
             'description' => fake()->text(),
         ];
     }

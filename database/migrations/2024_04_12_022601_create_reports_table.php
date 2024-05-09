@@ -113,6 +113,14 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_valor', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->integer('amount');
+            $table->string('sponsor');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**

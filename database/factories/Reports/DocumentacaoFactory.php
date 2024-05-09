@@ -1,13 +1,14 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\DocumentoEmitido>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Documentacao>
  */
-class DocumentoEmitidoFactory extends Factory
+class DocumentacaoFactory extends Factory
 {
     use IsReport;
 
@@ -19,6 +20,7 @@ class DocumentoEmitidoFactory extends Factory
     public function definition(): array
     {
         return [
+            'status' => fake()->randomElement(Status::cases()),
             'subject' => fake()->sentence(),
             'description' => fake()->text(),
         ];

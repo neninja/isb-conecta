@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reports;
 
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Observacao extends Model
+class Telefonema extends Model
 {
     use HasFactory;
     use HasUuids;
     use IsReport;
 
-    protected $table = 'reports_observacao';
+    protected $table = 'reports_telefonema';
 
-    const SINGULAR_LABEL = 'Observação';
+    const SINGULAR_LABEL = 'Telefonema';
 
-    const PLURAL_LABEL = 'Observações';
+    const PLURAL_LABEL = 'Telefonemas';
 
     protected $fillable = [
-        'subject',
+        'author_name',
+        'author_contact',
         'description',
     ];
 }

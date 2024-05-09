@@ -1,13 +1,13 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tarefa>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\DocumentoEmitido>
  */
-class TarefaFactory extends Factory
+class DocumentoEmitidoFactory extends Factory
 {
     use IsReport;
 
@@ -19,7 +19,6 @@ class TarefaFactory extends Factory
     public function definition(): array
     {
         return [
-            'requested' => fake()->boolean(),
             'subject' => fake()->sentence(),
             'description' => fake()->text(),
         ];

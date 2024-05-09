@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reports;
 
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;

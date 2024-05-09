@@ -1,12 +1,12 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
 use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Solicitacao>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Solicitacao>
  */
 class SolicitacaoFactory extends Factory
 {

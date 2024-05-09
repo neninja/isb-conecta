@@ -1,13 +1,14 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Reports;
 
+use App\Enums\Via;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Telefonema>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Atendimento>
  */
-class TelefonemaFactory extends Factory
+class AtendimentoFactory extends Factory
 {
     use IsReport;
 
@@ -19,6 +20,7 @@ class TelefonemaFactory extends Factory
     public function definition(): array
     {
         return [
+            'via' => fake()->randomElement(Via::cases()),
             'author_name' => fake()->name(),
             'author_contact' => fake()->phoneNumber(),
             'description' => fake()->text(),

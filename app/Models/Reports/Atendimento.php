@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reports;
 
 use App\Enums\Via;
 use App\Traits\IsReport;

@@ -1,32 +1,33 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Reports;
 
-use App\Enums\Ocorrencia\Type;
+use App\Enums\Status;
 use App\Traits\IsReport;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ocorrencia extends Model
+class Solicitacao extends Model
 {
     use HasFactory;
     use HasUuids;
     use IsReport;
 
-    protected $table = 'reports_ocorrencia';
+    protected $table = 'reports_solicitacao';
 
-    const SINGULAR_LABEL = 'Occorrência';
+    const SINGULAR_LABEL = 'Solicitação';
 
-    const PLURAL_LABEL = 'Occorrências';
+    const PLURAL_LABEL = 'Solicitações';
 
     protected $fillable = [
-        'type',
-        'subject',
+        'status',
+        'author_name',
+        'author_contact',
         'description',
     ];
 
     protected $casts = [
-        'type' => Type::class,
+        'status' => Status::class,
     ];
 }
