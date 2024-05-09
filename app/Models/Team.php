@@ -119,6 +119,7 @@ class Team extends JetstreamTeam
             self::ID_CONTABILIDADE => [
                 Reports\Documentacao::class,
                 Reports\Valor::class,
+                Reports\Sec::class,
                 Reports\Doacao::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
