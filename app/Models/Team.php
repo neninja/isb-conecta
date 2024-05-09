@@ -106,14 +106,45 @@ class Team extends JetstreamTeam
                 Observacao::class,
                 Ocorrencia::class,
             ],
-            self::ID_ASSISTENCIA_SOCIAL => [],
-            self::ID_CONTABILIDADE => [],
-            self::ID_COORDENACAO_PEDAGOGICA => [],
-            self::ID_EDUCADORES => [],
-            self::ID_LIMPEZA => [],
-            self::ID_COZINHA => [],
-            self::ID_SERVICO_DE_APOIO => [],
-            self::ID_JARDINAGEM => [],
+            self::ID_ASSISTENCIA_SOCIAL => [
+                Atendimento::class,
+                Reuniao::class,
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_CONTABILIDADE => [
+                Documentacao::class,
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_COORDENACAO_PEDAGOGICA => [
+                Solicitacao::class,
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_EDUCADORES => [
+                Solicitacao::class,
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_LIMPEZA => [
+                Solicitacao::class,
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_COZINHA => [
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_SERVICO_DE_APOIO => [
+                Solicitacao::class,
+                Observacao::class,
+                Ocorrencia::class,
+            ],
+            self::ID_JARDINAGEM => [
+                Observacao::class,
+                Ocorrencia::class,
+            ],
         ];
     }
 
