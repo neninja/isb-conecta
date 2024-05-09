@@ -118,11 +118,13 @@ class Team extends JetstreamTeam
             ],
             self::ID_CONTABILIDADE => [
                 Documentacao::class,
+                Doacao::class,
                 Observacao::class,
                 Ocorrencia::class,
             ],
             self::ID_COORDENACAO_PEDAGOGICA => [
                 Solicitacao::class,
+                Doacao::class,
                 Observacao::class,
                 Ocorrencia::class,
             ],
@@ -133,6 +135,7 @@ class Team extends JetstreamTeam
             ],
             self::ID_LIMPEZA => [
                 Solicitacao::class,
+                Tarefa::class,
                 Observacao::class,
                 Ocorrencia::class,
             ],
