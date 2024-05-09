@@ -83,6 +83,22 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_caso-encaminhado', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('tech_name');
+            $table->string('tech_contact');
+            $table->string('forwarded_location');
+            $table->timestamps();
+        });
+
+        Schema::create('reports_acompanhamento', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('subject');
+            $table->string('network');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**

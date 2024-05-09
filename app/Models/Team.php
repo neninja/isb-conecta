@@ -108,7 +108,9 @@ class Team extends JetstreamTeam
             ],
             self::ID_ASSISTENCIA_SOCIAL => [
                 Atendimento::class,
+                CasoEncaminhado::class,
                 Reuniao::class,
+                Acompanhamento::class,
                 Observacao::class,
                 Ocorrencia::class,
             ],
