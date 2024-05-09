@@ -23,23 +23,12 @@ class SearchFromTeam extends Component
 
     public bool $searchValidated = false;
 
-    public const RELATED_COMPONENTS = [
-        \App\Models\Atendimento::class => 'atendimento',
-        \App\Models\Solicitacao::class => 'solicitacao',
-        \App\Models\Telefonema::class => 'telefonema',
-        \App\Models\Observacao::class => 'observacao',
-        \App\Models\Ocorrencia::class => 'ocorrencia',
-        \App\Models\Documentacao::class => 'documentacao',
-        \App\Models\Tarefa::class => 'tarefa',
-    ];
-
     public function mount()
     {
         $this->optionsReports = array_merge(
             [['name' => 'all', 'label' => 'Todos os relatorios']],
             $this->team->reportables()->map(fn ($report) => $this->option($report))->toArray()
         );
-
     }
 
     protected function option(string $model): array

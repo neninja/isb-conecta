@@ -102,6 +102,7 @@ class Team extends JetstreamTeam
                 Solicitacao::class,
                 Documentacao::class,
                 Tarefa::class,
+                Reuniao::class,
                 Observacao::class,
                 Ocorrencia::class,
             ],

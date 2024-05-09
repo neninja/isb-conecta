@@ -76,6 +76,13 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_reuniao', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('subject');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**

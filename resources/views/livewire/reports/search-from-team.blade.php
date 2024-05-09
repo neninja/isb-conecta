@@ -13,7 +13,7 @@
         <p>Lista de relatórios de atendimento postados na data selecionada:</p>
         <div class="flex flex-col gap-4 mt-4" role="list">
             @forelse ($this->reports ?? [] as $report)
-                @include('livewire.reports.related.'.App\Livewire\Report\SearchFromTeam::RELATED_COMPONENTS[$report->related::class], ['report' => $report])
+                @include('livewire.reports.related.'.strtolower(class_basename($report->related::class)), ['report' => $report])
             @empty
                 <p role="listitem">{{ __('reports.empty') }}</p>
             @endforelse
