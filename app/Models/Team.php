@@ -121,6 +121,7 @@ class Team extends JetstreamTeam
                 Reports\Valor::class,
                 Reports\Sec::class,
                 Reports\Doacao::class,
+                Reports\GastoExtra::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
             ],
