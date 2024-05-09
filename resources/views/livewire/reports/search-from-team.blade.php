@@ -13,23 +13,7 @@
         <p>Lista de relatórios de atendimento postados na data selecionada:</p>
         <div class="flex flex-col gap-4 mt-4" role="list">
             @forelse ($this->reports ?? [] as $report)
-                @switch($report->related::class)
-                    @case(\App\Models\Atendimento::class)
-                        @include('livewire.reports.related.atendimento', ['report' => $report])
-                        @break
-                    @case(\App\Models\Solicitacao::class)
-                        @include('livewire.reports.related.solicitacao', ['report' => $report])
-                        @break
-                    @case(\App\Models\Telefonema::class)
-                        @include('livewire.reports.related.telefonema', ['report' => $report])
-                        @break
-                    @case(\App\Models\Observacao::class)
-                        @include('livewire.reports.related.observacao', ['report' => $report])
-                        @break
-                    @case(\App\Models\Ocorrencia::class)
-                        @include('livewire.reports.related.ocorrencia', ['report' => $report])
-                        @break
-                @endswitch
+                @include('livewire.reports.related.'.App\Livewire\Report\SearchFromTeam::RELATED_COMPONENTS[$report->related::class], ['report' => $report])
             @empty
                 <p role="listitem">{{ __('reports.empty') }}</p>
             @endforelse

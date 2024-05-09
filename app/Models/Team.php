@@ -99,6 +99,9 @@ class Team extends JetstreamTeam
                 Ocorrencia::class,
             ],
             self::ID_SECRETARIA => [
+                Solicitacao::class,
+                Documentacao::class,
+                Observacao::class,
                 Ocorrencia::class,
             ],
             self::ID_ASSISTENCIA_SOCIAL => [],

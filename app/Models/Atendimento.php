@@ -17,6 +17,7 @@ class Atendimento extends Model
     protected $table = 'reports_atendimento';
 
     const SINGULAR_LABEL = 'Atendimento';
+
     const PLURAL_LABEL = 'Atendimentos';
 
     protected $fillable = [
@@ -24,7 +25,6 @@ class Atendimento extends Model
         'author_name',
         'author_contact',
         'description',
-        'user_id',
     ];
 
     protected $casts = [

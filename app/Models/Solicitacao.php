@@ -17,6 +17,7 @@ class Solicitacao extends Model
     protected $table = 'reports_solicitacao';
 
     const SINGULAR_LABEL = 'Solicitação';
+
     const PLURAL_LABEL = 'Solicitações';
 
     protected $fillable = [
@@ -24,7 +25,6 @@ class Solicitacao extends Model
         'author_name',
         'author_contact',
         'description',
-        'user_id',
     ];
 
     protected $casts = [

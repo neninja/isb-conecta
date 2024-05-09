@@ -16,12 +16,12 @@ class Telefonema extends Model
     protected $table = 'reports_telefonema';
 
     const SINGULAR_LABEL = 'Telefonema';
+
     const PLURAL_LABEL = 'Telefonemas';
 
     protected $fillable = [
         'author_name',
         'author_contact',
         'description',
-        'user_id',
     ];
 }

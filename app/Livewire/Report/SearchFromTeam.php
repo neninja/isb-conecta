@@ -23,6 +23,15 @@ class SearchFromTeam extends Component
 
     public bool $searchValidated = false;
 
+    public const RELATED_COMPONENTS = [
+        \App\Models\Atendimento::class => 'atendimento',
+        \App\Models\Solicitacao::class => 'solicitacao',
+        \App\Models\Telefonema::class => 'telefonema',
+        \App\Models\Observacao::class => 'observacao',
+        \App\Models\Ocorrencia::class => 'ocorrencia',
+        \App\Models\Documentacao::class => 'documentacao',
+    ];
+
     public function mount()
     {
         $this->optionsReports = array_merge(
@@ -72,7 +81,7 @@ class SearchFromTeam extends Component
         return \App\Models\Report::query()
             ->whereIn('related_type', $this->selectedReports)
             ->where('date', $this->date)
-            ->where('team', $this->team)
+            ->where('team_id', $this->team->id)
             ->orderByDesc('created_at')
             ->paginate(10);
     }

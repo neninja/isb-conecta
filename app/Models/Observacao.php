@@ -16,11 +16,11 @@ class Observacao extends Model
     protected $table = 'reports_observacao';
 
     const SINGULAR_LABEL = 'Observação';
+
     const PLURAL_LABEL = 'Observações';
 
     protected $fillable = [
         'subject',
         'description',
-        'user_id',
     ];
 }
