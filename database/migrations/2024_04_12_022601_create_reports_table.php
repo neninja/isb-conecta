@@ -136,6 +136,13 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_comunicado', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('subject');
+            $table->string('family_feedback');
+            $table->timestamps();
+        });
     }
 
     /**
