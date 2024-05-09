@@ -111,6 +111,7 @@ class Team extends JetstreamTeam
                 CasoEncaminhado::class,
                 Reuniao::class,
                 Acompanhamento::class,
+                Doacao::class,
                 Observacao::class,
                 Ocorrencia::class,
             ],
