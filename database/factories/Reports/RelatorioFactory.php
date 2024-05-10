@@ -6,7 +6,7 @@ use App\Enums\Diary;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\SituacaoProblema>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Relatorio>
  */
 class RelatorioFactory extends Factory
 {

@@ -8,7 +8,9 @@
         <x-report-item-info icon="heroicon-o-calendar-days">
             {{ $report->date->format('d/m/Y') }}
         </x-report-item-info>
-        {{$fixed}}
+        @isset($fixed)
+            {{$fixed}}
+        @endisset
     </div>
     <div class="flex flex-col gap-2" x-show="collapsed" x-transition.opacity>
         {{$content}}

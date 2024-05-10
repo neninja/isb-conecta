@@ -148,6 +148,10 @@ class Team extends JetstreamTeam
                 Reports\Ocorrencia::class,
             ],
             self::ID_COZINHA => [
+                Reports\CardapioSemanal::class,
+                Reports\Preparo::class,
+                Reports\ListaDeCompra::class,
+                Reports\Estoque::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
             ],

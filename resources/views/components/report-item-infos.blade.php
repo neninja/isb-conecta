@@ -4,10 +4,15 @@
         {{$label}}
     </div>
     @endisset
-    <div class="flex flex-col gap-1">
+    <div class="{{isset($amountKey) ? 'grid grid-cols-[auto_1fr]' : 'flex flex-col'}} gap-1">
         @foreach($items as $item)
+            @isset($amountKey)
+                <div class="p-2 flex justify-center items-center bg-primary-light rounded-xl">
+                    {{$item['amount']}}
+                </div>
+            @endisset
             <div class="p-2 text-black bg-primary-light rounded-xl w-full">
-                {{$item}}
+                {{$item['description'] ?? $item}}
             </div>
         @endforeach
     </div>

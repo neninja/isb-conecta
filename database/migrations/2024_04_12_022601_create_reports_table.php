@@ -173,6 +173,32 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_cardapio-semanal', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->json('items');
+            $table->timestamps();
+        });
+
+        Schema::create('reports_preparo', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('status');
+            $table->json('items');
+            $table->string('description');
+            $table->timestamps();
+        });
+
+        Schema::create('reports_lista-de-compra', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->json('items');
+            $table->timestamps();
+        });
+
+        Schema::create('reports_estoque', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->json('items');
+            $table->timestamps();
+        });
     }
 
     /**
