@@ -153,6 +153,7 @@ class Team extends JetstreamTeam
             ],
             self::ID_SERVICO_DE_APOIO => [
                 Reports\Solicitacao::class,
+                Reports\Atividade::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
             ],
