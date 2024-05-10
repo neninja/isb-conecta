@@ -48,8 +48,10 @@ class QaSeeder extends Seeder
     {
         $user = User::factory()->create([
             'id' => '611301c1-bde2-4e72-bbe7-6f9403a0495d',
-            'name' => 'Usuário Recepcao',
+            'name' => 'Usuário Recepção',
+            'current_team_id' => Team::ID_RECEPCAO,
             'username' => 'recepcao.isb',
+            'password' => '123',
         ]);
 
         $user->teams()->attach(Team::ID_RECEPCAO, ['role' => Role::Member]);
@@ -83,7 +85,9 @@ class QaSeeder extends Seeder
         $user = User::factory()->create([
             'id' => 'c0edec95-228a-34bf-9ae6-0a822889c9d5',
             'name' => 'Usuário Ass Social',
+            'current_team_id' => Team::ID_ASSISTENCIA_SOCIAL,
             'username' => 'ass-social.isb',
+            'password' => '123',
         ]);
 
         $user->teams()->attach(Team::ID_ASSISTENCIA_SOCIAL, ['role' => Role::Member]);
