@@ -136,6 +136,7 @@ class Team extends JetstreamTeam
                 Reports\Solicitacao::class,
                 Reports\Atividade::class,
                 Reports\MaterialSolicitado::class,
+                Reports\SituacaoProblema::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
             ],
