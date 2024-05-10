@@ -41,6 +41,7 @@ class QaSeeder extends Seeder
     public function createReports()
     {
         $this->recepcao();
+        $this->assistenciaSocial();
     }
 
     public function recepcao()
@@ -59,7 +60,7 @@ class QaSeeder extends Seeder
                     'via' => Via::Phone,
                     'author_name' => 'Teobaldo Feliciano',
                     'author_contact' => '61903836000',
-                    'description' => 'Ontem foi atendido fulano',
+                    'description' => "Ontem eu ({$user->name}) atendi fulano",
                 ],
                 ['date' => now()->subDay()],
             ],
@@ -68,7 +69,41 @@ class QaSeeder extends Seeder
                     'via' => Via::Phone,
                     'author_name' => 'Deivid Pontes Filho',
                     'author_contact' => '9532105485',
-                    'description' => 'Hoje foi atendido ciclano',
+                    'description' => "Hoje eu ({$user->name}) atendi fulano",
+                ],
+                ['date' => now()],
+            ],
+        ])->each(fn ($i) => $this->report(
+            $user, Atendimento::class, $i[0], $i[1]
+        ));
+    }
+
+    public function assistenciaSocial()
+    {
+        $user = User::factory()->create([
+            'id' => 'c0edec95-228a-34bf-9ae6-0a822889c9d5',
+            'name' => 'Usuário Ass Social',
+            'username' => 'ass-social.isb',
+        ]);
+
+        $user->teams()->attach(Team::ID_ASSISTENCIA_SOCIAL, ['role' => Role::Member]);
+
+        collect([
+            [
+                [
+                    'via' => Via::Phone,
+                    'author_name' => 'Richard Gean Grego',
+                    'author_contact' => '61924752425',
+                    'description' => "Ontem eu ({$user->name}) atendi fulano",
+                ],
+                ['date' => now()->subDay()],
+            ],
+            [
+                [
+                    'via' => Via::Phone,
+                    'author_name' => 'Luna Mascarenhas Sobrinho',
+                    'author_contact' => '9536500157',
+                    'description' => "Hoje eu ({$user->name}) atendi fulano",
                 ],
                 ['date' => now()],
             ],
