@@ -38,9 +38,11 @@ class SearchFromTeam extends Component
 
     public function render()
     {
+        $team = Team::label($this->team->id);
+
         return view('livewire.reports.search-from-team')->layoutData([
             'title' => 'Filtro de Buscas',
-            'subtitle' => 'Setor de Recepção',
+            'subtitle' => "Setor de {$team}",
             'description' => 'Selecione a data desejada e os diferentes relatórios publicados pelo setor de recepção que deseja visualizar.',
         ]);
     }
