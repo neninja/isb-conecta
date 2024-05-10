@@ -199,6 +199,28 @@ return new class extends Migration
             $table->json('items');
             $table->timestamps();
         });
+
+        Schema::create('reports_entrega-de-material', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('receiver_name');
+            $table->string('description');
+            $table->timestamps();
+        });
+
+        Schema::create('reports_relato', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('subject');
+            $table->string('description');
+            $table->timestamps();
+        });
+
+        Schema::create('reports_plantio-colheita', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('status');
+            $table->json('items');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**

@@ -156,12 +156,17 @@ class Team extends JetstreamTeam
                 Reports\Ocorrencia::class,
             ],
             self::ID_SERVICO_DE_APOIO => [
+                Reports\EntregaDeMaterial::class,
+                Reports\Estoque::class,
                 Reports\Solicitacao::class,
+                Reports\Relato::class,
                 Reports\Atividade::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
             ],
             self::ID_JARDINAGEM => [
+                Reports\PlantioColheita::class,
+                Reports\ListaDeCompra::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
             ],
