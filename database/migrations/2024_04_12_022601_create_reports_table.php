@@ -165,6 +165,14 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_relatorio', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('subject');
+            $table->string('diary');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**
