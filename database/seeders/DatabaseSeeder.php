@@ -10,12 +10,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->createAllTeams();
-        if (app()->environment('local')) {
-            $this->call(DevSeeder::class);
-        }
 
         if (! app()->environment('production')) {
-            $this->call(EndToEndSeeder::class);
+            $this->call(QaSeeder::class);
         }
     }
 

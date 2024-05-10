@@ -20,7 +20,7 @@ class AtendimentoFactory extends Factory
         return [
             'via' => fake()->randomElement(Via::cases()),
             'author_name' => fake()->name(),
-            'author_contact' => fake()->phoneNumber(),
+            'author_contact' => preg_replace('/[^0-9]/', '', fake()->phoneNumber()),
             'description' => fake()->text(),
         ];
     }

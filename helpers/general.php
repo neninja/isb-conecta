@@ -17,3 +17,14 @@ function currency($amt, $withCurrencyPrefix = true)
 
     return "R$ {$currencyAmt}";
 }
+
+function formatPhoneNumber($number): string
+{
+    $number = preg_replace("/[^\d]/", '', $number);
+
+    if (strlen($number) < 10) {
+        return $number;
+    }
+
+    return preg_replace("/^(55)?(\d{2})(\d{4,5})(\d{4})$/", '($2) $3-$4', $number);
+}

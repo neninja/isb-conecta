@@ -65,4 +65,18 @@ class ReportFactory extends Factory
             'related_id' => $related::factory(),
         ]);
     }
+
+    public function user(User $user): self
+    {
+        $allTeamsFromUser = $user->teams->pluck('id')->toArray();
+        $validTeams = array_keys(Team::mapReports());
+        $teamId = collect($validTeams)->shuffle()->first(function ($team) use ($allTeamsFromUser) {
+            return in_array($team, $allTeamsFromUser);
+        });
+
+        return $this->state([
+            'user_id' => $user->id,
+            'team_id' => $teamId,
+        ]);
+    }
 }

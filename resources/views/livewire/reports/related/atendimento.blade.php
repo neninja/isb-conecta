@@ -7,7 +7,7 @@
 <x-slot:content>
     <x-report-item-enum :value="$report->related->via"></x-report-item-enum>
     <x-report-item-info label="contato do usuário">
-        {{ $report->related->author_contact }}
+        {{ formatPhoneNumber($report->related->author_contact) }}
     </x-report-item-info>
     <x-report-item-info label="relato do usuário">
         {{ $report->related->description }}
