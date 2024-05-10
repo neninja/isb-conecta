@@ -68,4 +68,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin()
+    {
+        $this->current_team_id === Team::ID_ADMINISTRACAO;
+    }
+
+    public function currentAvailableReports(): array
+    {
+        return Team::mapReports()[$this->current_team_id];
+    }
 }

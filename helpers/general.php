@@ -28,3 +28,13 @@ function formatPhoneNumber($number): string
 
     return preg_replace("/^(55)?(\d{2})(\d{4,5})(\d{4})$/", '($2) $3-$4', $number);
 }
+
+function kebab(string $content): string
+{
+    return \Illuminate\Support\Str::kebab($content);
+}
+
+function kebabClassBaseName(string $content): string
+{
+    return kebab(class_basename($content));
+}

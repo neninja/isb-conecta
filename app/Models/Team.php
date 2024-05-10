@@ -87,6 +87,14 @@ class Team extends JetstreamTeam
         };
     }
 
+    public static function allReports(): array
+    {
+        return collect(self::mapReports())
+            ->flatMap(fn ($reports) => $reports)
+            ->unique()
+            ->toArray();
+    }
+
     public static function mapReports(): array
     {
         return [

@@ -14,7 +14,7 @@
         <div class="flex flex-col gap-4 mt-4" role="list">
             @forelse ($this->reports ?? [] as $report)
                 <x-report-item :report="$report">
-                    @include('livewire.reports.related.'.\Illuminate\Support\Str::kebab(class_basename($report->related::class)), ['report' => $report])
+                    @include('livewire.reports.related-search.'.kebabClassBaseName($report->related::class), ['report' => $report])
                 </x-report-item>
             @empty
                 <p role="listitem">{{ __('reports.empty') }}</p>
