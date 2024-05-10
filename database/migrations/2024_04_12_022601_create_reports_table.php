@@ -150,6 +150,14 @@ return new class extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::create('reports_material-solicitado', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('subject');
+            $table->json('items');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**

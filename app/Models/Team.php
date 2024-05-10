@@ -134,6 +134,8 @@ class Team extends JetstreamTeam
             ],
             self::ID_EDUCADORES => [
                 Reports\Solicitacao::class,
+                Reports\Atividade::class,
+                Reports\MaterialSolicitado::class,
                 Reports\Observacao::class,
                 Reports\Ocorrencia::class,
             ],

@@ -7,10 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Atividade>
  */
-class ComunicadoFactory extends Factory
+class AtividadeFactory extends Factory
 {
-    use IsReport;
-
     /**
      * Define the model's default state.
      *

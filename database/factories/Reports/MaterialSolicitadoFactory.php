@@ -2,13 +2,12 @@
 
 namespace Database\Factories\Reports;
 
-use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\Documentacao>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Reports\MaterialSolicitado>
  */
-class DocumentacaoFactory extends Factory
+class MaterialSolicitadoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +17,11 @@ class DocumentacaoFactory extends Factory
     public function definition(): array
     {
         return [
-            'status' => fake()->randomElement(Status::cases()),
             'subject' => fake()->sentence(),
+            'items' => fake()->randomElements(
+                [fake()->word(), fake()->word(), fake()->word()],
+                fake()->numberBetween(1, 3),
+            ),
             'description' => fake()->text(),
         ];
     }
