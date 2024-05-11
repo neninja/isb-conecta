@@ -1,37 +1,26 @@
 <?php
 
-use App\Http\Controllers\Web\GetDepartmentReport;
-use Illuminate\Support\Facades\Auth;
+use App\Livewire\Reports;
+use App\Models\Team;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::view('/', 'welcome')->middleware('guest');
 
-Route::get('/swagger', function () {
-    return view('swagger');
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::redirect('/dashboard', 'reports')->name('dashboard');
+
+    Route::prefix('reports')->group(function () {
+        Route::get('/', Reports\Index::class)->name('reports.index');
+        Route::get('/{team}', Reports\SearchFromTeam::class)->name('reports.team');
+
+        Route::get('/{report}/create', Reports\Create::class)
+            ->whereIn('report', collect(Team::allReports())->map(fn ($r) => kebabClassBaseName($r))->toArray())
+            ->name('reports.create');
+    });
+
+    Route::redirect('/settings', 'reports')->name('settings.index');
 });
-
-Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect('dashboard');
-    }
-
-    return Inertia::render('Welcome/index');
-})->name('login');
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/reports/{department}', GetDepartmentReport::class);
-
-require __DIR__.'/auth.php';

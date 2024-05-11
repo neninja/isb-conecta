@@ -2,25 +2,41 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Team;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->createAllTeams();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Administrador Teste',
-            'email' => 'admin@isbc.com',
-            'password' => Hash::make('123'),
-        ]);
+        if (! app()->environment('production')) {
+            $this->call(QaSeeder::class);
+        }
+    }
+
+    public function createAllTeams()
+    {
+        $availableTeams = [
+            Team::ID_ADMINISTRACAO,
+            Team::ID_RECEPCAO,
+            Team::ID_SECRETARIA,
+            Team::ID_ASSISTENCIA_SOCIAL,
+            Team::ID_CONTABILIDADE,
+            Team::ID_COORDENACAO_PEDAGOGICA,
+            Team::ID_EDUCADORES,
+            Team::ID_LIMPEZA,
+            Team::ID_COZINHA,
+            Team::ID_SERVICO_DE_APOIO,
+            Team::ID_JARDINAGEM,
+        ];
+
+        foreach ($availableTeams as $teamId) {
+            Team::factory()->create([
+                'id' => $teamId,
+                'name' => Team::label($teamId),
+            ]);
+        }
     }
 }
