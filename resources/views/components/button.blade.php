@@ -5,7 +5,8 @@
 
 @php
     $colorClasses = match($color) {
-        default => "text-neutral-high bg-$color focus:ring-$color hover:brightness-90 focus:brightness-90 active:brightness-75",
+        'primary' => "text-neutral-high bg-primary focus:ring-primary hover:brightness-90 focus:brightness-90 active:brightness-75",
+        'secondary' => "text-neutral-high bg-secondary focus:ring-secondary hover:brightness-90 focus:brightness-90 active:brightness-75",
     };
 
     $widthClasses = $full ? 'w-full' : 'w-min';
