@@ -1,1 +1,3 @@
-<div>form</div>
+<div>
+    @livewire('report.create.'.$report)
+</div>

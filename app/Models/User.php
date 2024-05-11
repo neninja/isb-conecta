@@ -69,9 +69,9 @@ class User extends Authenticatable
         ];
     }
 
-    public function isAdmin()
+    public function isAdmin(): bool
     {
-        $this->current_team_id === Team::ID_ADMINISTRACAO;
+        return $this->current_team_id === Team::ID_ADMINISTRACAO;
     }
 
     public function currentAvailableReports(): array

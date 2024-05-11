@@ -106,7 +106,7 @@ class QaSeeder extends Seeder
                 [
                     'via' => Via::Phone,
                     'author_name' => 'Luna Mascarenhas Sobrinho',
-                    'author_contact' => '9536500157',
+                    'author_contact' => 'luna@gmail.com',
                     'description' => "Hoje eu ({$user->name}) atendi fulano",
                 ],
                 ['date' => now()],

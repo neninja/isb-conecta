@@ -60,6 +60,7 @@
         </div>
 
         @stack('modals')
+        <livewire:components.toast/>
 
         @livewireScripts
     </body>
