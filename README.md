@@ -2,11 +2,7 @@
 
 [![emojicom](https://img.shields.io/badge/emojicom-%F0%9F%90%9B%20%F0%9F%86%95%20%F0%9F%92%AF%20%F0%9F%91%AE%20%F0%9F%86%98%20%F0%9F%92%A4-%23fff)](http://neni.dev/emojicom)
 
-## <a name="roadmap"></a>Roadmap [:pushpin:](#roadmap)
-
-- [Tarefas](https://github.com/nenitf/isb-conecta/issues)
-- [Marcos](https://github.com/nenitf/isb-conecta/milestones)
-- [Planejamento](https://github.com/users/nenitf/projects/4)
+Parei com o desenvolvimento do projeto no primeiro relatório por desinteresse. Foi criada toda estrutura de pesquisa e criação do relatório de atendimento, a conclusão seria o desenvolvimento da criação dos demais relatórios. Meu objetivo de testar alpine, tailwind e livewire foi concluído.
 
 ## Desenvolvimento
 
@@ -72,7 +68,12 @@ sudo chmod 775 -R vendor
 > Interrompa com <kbd>ctrl</kbd><kbd>c</kbd>
 
 3. Acesse o sistema:
-    - `localhost/admin`: `admin@isb.com` `123`
+    - `localhost/login`: `admin.isb` `123` (utilize `NESFD7UNNXAE3JIZ` como seeder do TOTP)
+    - `localhost/login`: `recepcao.isb` `123`
+
+> Como *admin*, gere alguns reports com o seeder
+
+> Como *recepção* crie alguns relatórios de atendimento
 
 Outros comandos úteis durante o desenvolvimento:
 
