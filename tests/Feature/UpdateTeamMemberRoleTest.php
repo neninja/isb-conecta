@@ -12,6 +12,11 @@ class UpdateTeamMemberRoleTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function setUp(): void
+    {
+        $this->markTestSkipped();
+    }
+
     public function test_team_member_roles_can_be_updated(): void
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());

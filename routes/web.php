@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\Report;
+use App\Livewire\Reports;
 use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +14,10 @@ Route::middleware([
     Route::redirect('/dashboard', 'reports')->name('dashboard');
 
     Route::prefix('reports')->group(function () {
-        Route::get('/', Report\Index::class)->name('reports.index');
-        Route::get('/{team}', Report\SearchFromTeam::class)->name('reports.team');
+        Route::get('/', Reports\Index::class)->name('reports.index');
+        Route::get('/{team}', Reports\SearchFromTeam::class)->name('reports.team');
 
-        Route::get('/{report}/create', Report\Create::class)
+        Route::get('/{report}/create', Reports\Create::class)
             ->whereIn('report', collect(Team::allReports())->map(fn ($r) => kebabClassBaseName($r))->toArray())
             ->name('reports.create');
     });

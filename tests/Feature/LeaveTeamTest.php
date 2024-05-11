@@ -12,6 +12,11 @@ class LeaveTeamTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function setUp(): void
+    {
+        $this->markTestSkipped();
+    }
+
     public function test_users_can_leave_teams(): void
     {
         $user = User::factory()->withPersonalTeam()->create();

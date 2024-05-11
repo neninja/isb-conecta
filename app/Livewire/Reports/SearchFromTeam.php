@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Report;
+namespace App\Livewire\Reports;
 
 use App\Models\Team;
 use Illuminate\Pagination\LengthAwarePaginator;

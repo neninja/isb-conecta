@@ -1,3 +1,3 @@
 <div>
-    @livewire('report.create.'.$report)
+    @livewire('reports.create.'.$report)
 </div>

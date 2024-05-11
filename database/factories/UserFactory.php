@@ -41,13 +41,28 @@ class UserFactory extends Factory
         ];
     }
 
-    public function admin(?Role $role = null)
+    public function team(string $teamId, Role $role = Role::Member): static
     {
-        return $this->state([
-            'current_team_id' => Team::ID_ADMINISTRACAO,
-        ])->afterCreating(function (User $user) use ($role) {
-            $user->teams()->attach(Team::ID_ADMINISTRACAO, ['role' => $role ?? Role::Admin]);
-        });
+        return $this
+            ->state(['current_team_id' => $teamId])
+            ->afterCreating(
+                fn (User $user) => $user->teams()->attach($teamId, ['role' => $role])
+            );
+    }
+
+    public function admin(): static
+    {
+        return $this->team(Team::ID_ADMINISTRACAO);
+    }
+
+    public function recepcao(): static
+    {
+        return $this->team(Team::ID_RECEPCAO);
+    }
+
+    public function limpeza(): static
+    {
+        return $this->team(Team::ID_LIMPEZA);
     }
 
     /**

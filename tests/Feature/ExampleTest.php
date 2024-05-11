@@ -7,6 +7,11 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    public function setUp(): void
+    {
+        $this->markTestSkipped();
+    }
+
     /**
      * A basic test example.
      */

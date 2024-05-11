@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Livewire\Report\Create;
+namespace App\Livewire\Reports\Create;
 
-use Illuminate\Support\Facades\DB;
+use App\Enums\Via;
+use App\Exceptions\AppException;
+use App\Services\Reports\AtendimentoService;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class Atendimento extends Component
@@ -50,29 +53,23 @@ class Atendimento extends Component
         $this->validate();
 
         try {
-            DB::beginTransaction();
-            (new \App\Models\Report)
-                ->forceFill([
-                    'date' => $this->date,
-                    'user_id' => user()->id,
-                    'team_id' => user()->current_team_id,
-                ])
-                ->related()
-                ->associate((new \App\Models\Reports\Atendimento)->create([
-                    'via' => $this->via,
-                    'author_name' => $this->authorName,
-                    'author_contact' => $this->authorContact,
-                    'description' => $this->description,
-                ]))
-                ->save();
-
-            DB::commit();
+            app(AtendimentoService::class)
+                ->setUser(user())
+                ->create(
+                    Carbon::createFromFormat('Y-m-d', $this->date),
+                    Via::from($this->via),
+                    $this->authorName,
+                    $this->authorContact,
+                    $this->description,
+                );
 
             $this->dispatch('toast.show.success', 'Sucesso!');
             $this->reset();
             $this->date = now()->format('Y-m-d');
+        } catch (AppException $t) {
+            report($t);
+            $this->dispatch('toast.show.error', $t->friendlyReport());
         } catch (\Throwable $t) {
-            DB::rollBack();
             report($t);
             $this->dispatch('toast.show.error', 'Erro!');
         }
